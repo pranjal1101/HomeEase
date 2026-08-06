@@ -1,0 +1,343 @@
+/* Profile Page Dashboard Stylesheet */
+
+.profile-dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* --- Left Column Sidebar Panels --- */
+.profile-sidebar-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Active Profile Card badge */
+.profile-badge-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge-avatar-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(73, 34, 91, 0.12);
+}
+
+.badge-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.badge-pill {
+  font-size: 11px;
+  font-weight: 700;
+  background-color: var(--background);
+  color: var(--secondary);
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.badge-details-list {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid rgba(73, 34, 91, 0.06);
+  padding-top: 20px;
+}
+
+.badge-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: left;
+  line-height: 1.4;
+}
+
+.badge-detail-item svg {
+  flex-shrink: 0;
+  color: var(--secondary);
+}
+
+/* Switch Profiles list */
+.profile-switcher-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-switcher-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.empty-switcher-note {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.switcher-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 240px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.switcher-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background-color: var(--background);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.switcher-item:hover {
+  background-color: var(--surface);
+  border-color: rgba(73, 34, 91, 0.08);
+}
+
+.switcher-item.active {
+  background-color: var(--surface);
+  border-color: var(--accent);
+}
+
+.switcher-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.switcher-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.switcher-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.switcher-email {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.active-dot {
+  font-size: 10px;
+}
+
+.switcher-new-btn {
+  width: 100%;
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 20px;
+}
+
+
+/* --- Right Column Main Panels --- */
+.profile-main-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Edit settings card */
+.profile-form-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.profile-card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(73, 34, 91, 0.06);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.profile-card-title-row h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.profile-card-title-row p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.delete-account-btn {
+  padding: 0;
+  color: var(--status-cancelled);
+  font-size: 13px;
+}
+
+.delete-account-btn:hover {
+  color: #c0392b;
+  text-decoration: underline;
+}
+
+.form-group-split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 30px;
+}
+
+/* Booking History Table Card */
+.profile-history-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.profile-history-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.loading-history-text,
+.empty-history-text {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  padding: 16px 0;
+}
+
+/* History table layout details */
+.history-table-wrapper {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.history-table th {
+  padding: 12px 16px;
+  border-bottom: 1.5px solid rgba(73, 34, 91, 0.08);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+.history-table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(73, 34, 91, 0.04);
+  font-size: 13.5px;
+  color: var(--text);
+  vertical-align: middle;
+}
+
+.history-table tr:last-child td {
+  border-bottom: none;
+}
+
+.history-table td strong {
+  display: block;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.table-row-sub {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--secondary);
+  display: block;
+  margin-top: 2px;
+  letter-spacing: 0.3px;
+}
+
+
+/* --- Responsive breakdown --- */
+@media (max-width: 1024px) {
+  .profile-dashboard-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-group-split {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .profile-form-card,
+  .profile-history-card {
+    padding: 24px;
+  }
+}

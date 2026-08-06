@@ -1,0 +1,193 @@
+/* Book Service Page Stylesheet */
+
+.booking-layout-wrapper {
+  padding-top: 16px;
+  padding-bottom: 60px;
+}
+
+.booking-breadcrumb {
+  margin-bottom: 24px;
+}
+
+/* Grid layout */
+.booking-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* --- Left Sidebar Card --- */
+.booking-details-sidebar-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.booking-sidebar-header {
+  border-bottom: 1px solid rgba(73, 34, 91, 0.06);
+  padding-bottom: 16px;
+}
+
+.booking-sidebar-cat {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--secondary);
+  background-color: var(--background);
+  padding: 4px 8px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.booking-sidebar-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.booking-sidebar-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.booking-sidebar-rate {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.booking-sidebar-rate span {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Trust checks list */
+.booking-trust-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid rgba(73, 34, 91, 0.06);
+  padding-top: 20px;
+}
+
+.booking-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.trust-check-icon {
+  color: var(--status-completed);
+  background-color: rgba(37, 162, 90, 0.1);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Helper billing card */
+.booking-sidebar-helper-card {
+  background-color: var(--background);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.booking-sidebar-helper-card h5 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.booking-sidebar-helper-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+
+/* --- Right Scheduler Card --- */
+.booking-form-main-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.booking-form-main-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.booking-form-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.booking-form-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.booking-form-span-all {
+  grid-column: span 2;
+}
+
+.booking-form-actions-row {
+  margin-top: 32px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.booking-submit-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+}
+
+
+/* --- Responsive breakdown --- */
+@media (max-width: 900px) {
+  .booking-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .booking-form-fields-grid {
+    grid-template-columns: 1fr;
+  }
+  .booking-form-span-all {
+    grid-column: span 1;
+  }
+  .booking-form-main-card {
+    padding: 24px;
+  }
+}

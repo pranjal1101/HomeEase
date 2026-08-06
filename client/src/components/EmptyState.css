@@ -1,0 +1,31 @@
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1.5px dashed rgba(73, 34, 91, 0.15);
+  max-width: 500px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: var(--soft-accent);
+}
+
+.empty-state h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.empty-state p {
+  color: var(--secondary);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
