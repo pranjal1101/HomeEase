@@ -461,3 +461,5 @@ const Home = () => {
 };
 
 export default Home;
+
+// HomeEase landing page
