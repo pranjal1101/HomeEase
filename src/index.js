@@ -16,3 +16,5 @@ connectDB().then(() => {
 }).catch((error) => {
   console.error(`MongoDB connection failed: ${error.message}`);
 });
+
+// HomeEase server entry point
