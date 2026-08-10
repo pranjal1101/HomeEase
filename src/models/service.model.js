@@ -39,3 +39,5 @@ const ServiceSchema = new mongoose.Schema(
 const Service = mongoose.model('Service', ServiceSchema);
 
 export default Service;
+
+// Service data model for HomeEase
