@@ -87,3 +87,5 @@ export const bookingAPI = {
 };
 
 export default api;
+
+// Frontend API communication layer
