@@ -17,3 +17,5 @@ router.put('/:id', updateBooking);
 router.delete('/:id', deleteBooking);
 
 export default router;
+
+// Booking API routes
