@@ -1,0 +1,102 @@
+/* Dashboard Booking Card Stylesheet */
+.booking-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg); /* 18px radius */
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  height: 100%;
+}
+
+.booking-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(73, 34, 91, 0.12);
+}
+
+.booking-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(73, 34, 91, 0.05);
+  padding-bottom: 14px;
+}
+
+.booking-card-title h3 {
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.booking-card-category {
+  font-size: 11px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+/* Status Badges styled cleanly */
+.status-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
+.booking-card-body {
+  margin-bottom: 20px;
+  font-size: 13.5px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.booking-card-body p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.booking-card-body svg {
+  opacity: 0.75;
+  color: var(--secondary);
+}
+
+.booking-card-body strong {
+  color: var(--text);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.booking-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: auto;
+  border-top: 1px solid rgba(73, 34, 91, 0.05);
+  padding-top: 16px;
+}
+
+.booking-card-actions span {
+  font-size: 12.5px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.booking-card-actions .btn {
+  padding: 8px 16px;
+  font-size: 12.5px;
+  border-radius: 20px;
+}

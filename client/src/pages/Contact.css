@@ -1,0 +1,239 @@
+/* Contact Page Stylesheet */
+
+.contact-layout-split {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* --- Left Column Info Cards --- */
+.contact-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Support detail card */
+.contact-detail-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-detail-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.contact-detail-intro {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.contact-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-item-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--background);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-item-text h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.contact-item-text p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Business hours card */
+.business-hours-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hours-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(73, 34, 91, 0.06);
+  padding-bottom: 12px;
+}
+
+.hours-header-row h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hours-header-row svg {
+  color: var(--primary);
+}
+
+.business-hours-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.business-hours-card li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.business-hours-card li strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Map Mockup Widget */
+.map-mockup-widget {
+  background-color: var(--surface);
+  background-image: radial-gradient(circle, rgba(73, 34, 91, 0.1) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  height: 160px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(73, 34, 91, 0.08);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+.map-mockup-pin {
+  color: var(--primary);
+  z-index: 10;
+  animation: mapPinBounce 1.5s infinite alternate;
+}
+
+.map-mockup-pulse-ring {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  opacity: 0.3;
+  animation: mapRingRipple 2s infinite ease-out;
+}
+
+.map-caption {
+  position: absolute;
+  bottom: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  background-color: var(--white);
+  padding: 4px 10px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+@keyframes mapPinBounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-8px); }
+}
+
+@keyframes mapRingRipple {
+  0% { transform: scale(0.5); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+
+/* --- Right Column Form Card --- */
+.contact-form-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.form-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(73, 34, 91, 0.06);
+  padding-bottom: 16px;
+}
+
+.contact-success-state {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.contact-success-state h4 {
+  font-size: 20px;
+  margin: 16px 0 8px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.contact-success-state p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.contact-submit-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 30px;
+  margin-top: 16px;
+}
+
+
+/* --- Responsive breakdown --- */
+@media (max-width: 900px) {
+  .contact-layout-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-form-card,
+  .contact-detail-card,
+  .business-hours-card {
+    padding: 24px;
+  }
+}

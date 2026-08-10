@@ -1,0 +1,140 @@
+/* Minimal, Clean HomeEase Footer Styles */
+
+.footer-wrapper {
+  background-color: var(--white);
+  color: var(--muted);
+  padding: 64px 0 32px;
+  border-top: 1px solid rgba(73, 34, 91, 0.05);
+  margin-top: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-logo {
+  font-family: var(--font-headings);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-box {
+  width: 28px;
+  height: 28px;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-highlight {
+  color: var(--secondary);
+}
+
+.footer-about {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 260px;
+}
+
+.footer-col h4 {
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-contact-info {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.footer-contact-info li svg {
+  color: var(--secondary);
+  flex-shrink: 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(73, 34, 91, 0.05);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer-policy-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-policy-links a {
+  color: var(--muted);
+  transition: var(--transition);
+}
+
+.footer-policy-links a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

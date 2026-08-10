@@ -1,0 +1,156 @@
+/* Marketplace Service Card Styles */
+.service-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg); /* 18px radius */
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid rgba(73, 34, 91, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Equal heights */
+}
+
+/* Hover elevation */
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(73, 34, 91, 0.12);
+}
+
+.service-card-image-placeholder {
+  height: 140px;
+  width: 100%;
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  user-select: none;
+  border-bottom: 1px solid rgba(73, 34, 91, 0.04);
+}
+
+/* Category-specific flat base colors (No gradients, matching theme) */
+.service-card-image-placeholder.Plumber { background-color: #EBF3FC; color: #2D9CDB; }
+.service-card-image-placeholder.Electrician { background-color: #FEF9EB; color: #F2C94C; }
+.service-card-image-placeholder.Cleaner { background-color: #EEF7F2; color: #219653; }
+.service-card-image-placeholder.Carpenter { background-color: #F8F0FC; color: #BB6BD9; }
+.service-card-image-placeholder.Painter { background-color: #FDF2EB; color: #E08244; }
+.service-card-image-placeholder.HouseHelper { background-color: #FCEBEB; color: #EB5757; }
+.service-card-image-placeholder.ACRepair { background-color: #EBF5FC; color: #2F80ED; }
+
+.service-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.service-card-category {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--secondary);
+  letter-spacing: 0.5px;
+}
+
+/* Availability pill indicators */
+.service-card-availability {
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.service-card-availability.available {
+  color: var(--status-completed);
+}
+
+.service-card-availability.unavailable {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.service-card-availability .dot {
+  font-size: 8px;
+}
+
+.service-card-title {
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.service-card-desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 40px;
+  line-height: 1.5;
+}
+
+.service-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  border-top: 1px solid rgba(73, 34, 91, 0.05);
+  padding-top: 16px;
+}
+
+.service-card-price {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.service-card-price span {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Marketplace direct buttons */
+.service-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.card-action-btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 16px;
+}
+
+.card-action-btn.highlight {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.card-action-btn.highlight:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.card-action-btn.disabled-btn {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: var(--background);
+  color: var(--muted);
+  border-color: rgba(73, 34, 91, 0.05);
+}
