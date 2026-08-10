@@ -17,3 +17,5 @@ router.put('/:id', updateService);
 router.delete('/:id', deleteService);
 
 export default router;
+
+// Service API routes
