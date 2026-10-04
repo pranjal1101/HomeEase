@@ -100,9 +100,9 @@ Candidates:
 ${JSON.stringify(formattedCandidates, null, 2)}`;
 
   try {
-    // Call Gemini API using available Flash model
+    // Call Gemini API using available active model
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-lite',
+      model: 'gemini-3.5-flash',
       contents: userPrompt,
       config: {
         systemInstruction: systemPrompt,
