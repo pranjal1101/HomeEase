@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { bookingAPI, userAPI } from '../services/api';
 import BookingCard from '../components/BookingCard';
@@ -7,11 +7,14 @@ import EmptyState from '../components/EmptyState';
 import Modal from '../components/Modal';
 import './MyBookings.css';
 
+const statusTabs = ['All', 'Pending', 'Confirmed', 'Completed', 'Cancelled'];
+
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
   const [activeUser, setActiveUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState('All');
 
   // Reschedule Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,7 +32,6 @@ const MyBookings = () => {
         setLoading(true);
         setError('');
 
-        // Resolve active profile cached in localStorage
         let user = null;
         const storedUserJson = localStorage.getItem('homeease_user');
         
@@ -40,8 +42,8 @@ const MyBookings = () => {
             if (verifyUser.success) {
               user = verifyUser.data;
             }
-          } catch (e) {
-            console.warn('Invalid user cached. Fetching fresh profiles.');
+          } catch (err) {
+            console.warn('Invalid user cached.', err);
           }
         }
 
@@ -55,7 +57,6 @@ const MyBookings = () => {
 
         if (user) {
           setActiveUser(user);
-          // Fetch User Bookings from backend Express API
           const response = await bookingAPI.getAll({ userId: user._id });
           if (response.success) {
             setBookings(response.data);
@@ -67,7 +68,7 @@ const MyBookings = () => {
         }
 
       } catch (err) {
-        console.error('Error loading bookings dashboard:', err);
+        console.error('Error loading bookings:', err);
         setError('Connection failed. Please ensure the backend is running.');
       } finally {
         setLoading(false);
@@ -99,7 +100,6 @@ const MyBookings = () => {
   const handleOpenReschedule = (booking) => {
     setSelectedBooking(booking);
     
-    // Format date string to YYYY-MM-DD for input value matching
     const date = new Date(booking.bookingDate);
     const yyyy = date.getFullYear();
     const mm = String(date.getMonth() + 1).padStart(2, '0');
@@ -142,45 +142,63 @@ const MyBookings = () => {
     }
   };
 
+  const filteredBookings = useMemo(() => {
+    return bookings.filter(b => {
+      if (selectedStatus === 'All') return true;
+      return b.status.toLowerCase() === selectedStatus.toLowerCase();
+    });
+  }, [bookings, selectedStatus]);
+
   return (
     <div className="container section-padding">
       <div className="bookings-top-bar">
         <div>
           <h2>Your Service Bookings</h2>
-          <p>Manage, track, or reschedule your booked home assistance appointments.</p>
+          <p>Track, manage, or reschedule your service appointments.</p>
         </div>
         <Link to="/services" className="btn btn-primary">
           Book Another Service
         </Link>
       </div>
 
+      {/* Filter Tabs */}
+      <div className="bookings-tabs-bar">
+        {statusTabs.map(tab => (
+          <button 
+            key={tab}
+            className={`tab-btn ${selectedStatus === tab ? 'active' : ''}`}
+            onClick={() => setSelectedStatus(tab)}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
       {loading ? (
-        <div className="bookings-grid">
+        <div className="grid-2">
           <SkeletonLoader count={2} />
         </div>
       ) : error || !activeUser ? (
-        <div style={{ textAlign: 'center', padding: '40px 0' }}>
-          <p style={{ color: 'var(--status-cancelled)', fontWeight: 'bold', fontSize: '18px', marginBottom: '24px' }}>
-            {error || 'No active user found.'}
-          </p>
+        <div className="bookings-error-box">
+          <p>{error || 'No active user profile found.'}</p>
           <Link to="/profile" className="btn btn-primary">
-            Setup Active Profile
+            Setup Profile
           </Link>
         </div>
-      ) : bookings.length === 0 ? (
+      ) : filteredBookings.length === 0 ? (
         <EmptyState 
-          icon="📅"
+          icon=""
           title="No Bookings Found"
-          message="You don't have any active service appointments scheduled. Browse our service catalog to book trusted experts today."
+          message={selectedStatus === 'All' ? "You don't have any service appointments scheduled." : `No ${selectedStatus.toLowerCase()} bookings found.`}
           actionButton={
-            <Link to="/services" className="btn btn-cta">
-              Find Services
+            <Link to="/services" className="btn btn-secondary">
+              Explore Services
             </Link>
           }
         />
       ) : (
-        <div className="bookings-grid">
-          {bookings.map((booking) => (
+        <div className="grid-2">
+          {filteredBookings.map((booking) => (
             <BookingCard 
               key={booking._id} 
               booking={booking} 
@@ -191,7 +209,7 @@ const MyBookings = () => {
         </div>
       )}
 
-      {/* Reschedule Popup Modal */}
+      {/* Reschedule Modal */}
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -206,7 +224,7 @@ const MyBookings = () => {
               Cancel
             </button>
             <button 
-              className="btn btn-cta" 
+              className="btn btn-primary" 
               onClick={handleSaveReschedule}
               disabled={updating}
             >

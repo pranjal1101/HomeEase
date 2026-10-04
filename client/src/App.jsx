@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import AIRecommendationFloatingBtn from './components/AIRecommendationFloatingBtn';
 
 // Page Imports
 import Home from './pages/Home';
@@ -10,6 +11,7 @@ import Services from './pages/Services';
 import ServiceDetails from './pages/ServiceDetails';
 import BookService from './pages/BookService';
 import MyBookings from './pages/MyBookings';
+import Providers from './pages/Providers';
 import Profile from './pages/Profile';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
@@ -28,6 +30,7 @@ function App() {
               <Route path="/services/:id" element={<ServiceDetails />} />
               <Route path="/book/:serviceId" element={<BookService />} />
               <Route path="/bookings" element={<MyBookings />} />
+              <Route path="/providers" element={<Providers />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
@@ -35,6 +38,7 @@ function App() {
           </main>
           <Footer />
         </div>
+        <AIRecommendationFloatingBtn />
       </div>
     </Router>
   );

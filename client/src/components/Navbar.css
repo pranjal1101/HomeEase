@@ -1,56 +1,36 @@
-/* Floating Rounded Top Navbar Stylesheet */
+/* Standard Professional Website Header */
 
-.floating-navbar-container {
+.site-header {
   position: fixed;
-  top: 20px;
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  height: var(--header-height);
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
   z-index: 1000;
-  padding: 0 4%;
+  display: flex;
+  align-items: center;
 }
 
-.floating-navbar {
-  width: 100%;
-  max-width: 1400px;
-  height: 82px; /* Height around 82px */
-  background-color: var(--white);
-  border-radius: 24px; /* 24px radius */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04); /* soft shadow */
+.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
-  transition: var(--transition);
-  border: 1px solid rgba(73, 34, 91, 0.04);
+  gap: 24px;
+  height: 100%;
 }
 
-/* Symmetrical and flexible spacing layout */
-.navbar-left-section {
+/* Left Group: Logo & Centered Nav Links Group */
+.header-left-group {
   display: flex;
   align-items: center;
-  gap: 32px; /* links come after logo with 32px spacing */
-  flex: 0 0 auto;
+  gap: 32px;
 }
 
-.navbar-center-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1 1 auto;
-  padding: 0 24px;
-}
-
-.navbar-right-section {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex: 0 0 auto;
-}
-
-/* --- Left: Logo & Links --- */
+/* Brand Logo */
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -60,11 +40,11 @@
 }
 
 .logo-icon-box {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   background-color: var(--primary);
   color: var(--white);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,26 +52,27 @@
 
 .logo-text {
   font-family: var(--font-headings);
-  font-weight: 800;
-  font-size: 20px;
+  font-weight: 700;
+  font-size: 21px;
   color: var(--primary);
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
 }
 
 .logo-highlight {
   color: var(--secondary);
 }
 
+/* Nav Links Group - Positioned beside HomeEase Logo */
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 22px;
 }
 
 .nav-link-item {
-  color: var(--muted);
-  font-size: 18px; /* Navbar 18px typography */
-  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  font-weight: 500;
   text-decoration: none;
   position: relative;
   padding: 6px 0;
@@ -103,70 +84,42 @@
   color: var(--primary);
 }
 
-/* Active State Underline */
 .nav-link-item.active {
   color: var(--primary);
+  font-weight: 600;
 }
 
 .nav-link-item.active::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
   width: 100%;
-  height: 3px;
-  background-color: var(--secondary);
-  border-radius: 2px;
+  height: 2px;
+  background-color: var(--primary);
+  border-radius: 1px;
 }
 
-/* --- Center: Large Search Bar --- */
-.navbar-search-form {
+/* Right Section Actions */
+.navbar-right-section {
   display: flex;
   align-items: center;
-  background-color: var(--background);
-  border-radius: 16px;
-  padding: 0 16px;
-  width: 380px; /* Sized to sit in the center cleanly */
-  height: 48px;
-  border: 1px solid rgba(73, 34, 91, 0.05);
+  gap: 12px;
+  flex-shrink: 0;
 }
 
-.search-icon-inside {
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
-}
-
-.navbar-search-form input {
-  flex-grow: 1;
-  background: none;
-  border: none;
-  outline: none;
-  font-family: var(--font-body);
-  font-size: 14.5px;
-  color: var(--primary);
-}
-
-.navbar-search-form input::placeholder {
-  color: var(--muted);
-  opacity: 0.65;
-}
-
-/* --- Right: Actions --- */
-/* Notification Bell */
+/* Bell Icon */
 .bell-container {
   position: relative;
 }
 
 .bell-button {
   background: none;
-  border: none;
+  border: 1px solid var(--border-subtle);
   color: var(--primary);
   cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
+  padding: 7px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,62 +128,64 @@
 
 .bell-button:hover {
   background-color: var(--background);
+  border-color: var(--border-light);
 }
 
 .bell-badge-dot {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 8px;
-  height: 8px;
+  top: 5px;
+  right: 5px;
+  width: 7px;
+  height: 7px;
   background-color: var(--secondary);
   border-radius: 50%;
   border: 1.5px solid var(--white);
 }
 
-/* Profile Dropdown Wrapper */
+/* Profile Dropdown */
 .profile-dropdown-wrapper {
   position: relative;
 }
 
 .profile-trigger-btn {
   background: none;
-  border: none;
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 14px;
+  padding: 4px 10px 4px 5px;
+  border-radius: var(--radius-md);
   transition: var(--transition);
 }
 
 .profile-trigger-btn:hover {
   background-color: var(--background);
+  border-color: var(--border-light);
 }
 
 .avatar-circle {
-  width: 36px;
-  height: 36px;
-  background-color: var(--secondary);
+  width: 28px;
+  height: 28px;
+  background-color: var(--primary);
   color: var(--white);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .avatar-name {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--primary);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
 }
 
 .chevron-icon {
-  color: var(--muted);
-  transition: transform 0.2s ease;
+  color: var(--text-muted);
+  transition: transform 0.15s ease;
 }
 
 .chevron-icon.rotate {
@@ -240,26 +195,26 @@
 /* Dropdown Menu */
 .profile-dropdown-menu {
   position: absolute;
-  top: 48px;
+  top: 42px;
   right: 0;
   background-color: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(73, 34, 91, 0.1);
-  border: 1px solid rgba(73, 34, 91, 0.06);
-  width: 160px;
-  padding: 8px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-light);
+  width: 170px;
+  padding: 6px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   z-index: 1001;
 }
 
 .dropdown-menu-item {
-  padding: 10px 14px;
-  font-size: 14px;
+  padding: 8px 12px;
+  font-size: 13.5px;
   font-weight: 500;
-  color: var(--muted);
-  border-radius: 10px;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
   text-decoration: none;
   text-align: left;
   background: none;
@@ -274,36 +229,34 @@
 }
 
 .dropdown-menu-item.logout-btn {
-  color: #d94848;
+  color: var(--status-cancelled-text);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 4px;
+  padding-top: 8px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
 }
 
 .dropdown-menu-item.logout-btn:hover {
-  background-color: rgba(217, 72, 72, 0.05);
+  background-color: var(--status-cancelled-bg);
 }
 
 /* Responsive adjustments */
-@media (max-width: 1100px) {
-  .navbar-search-form {
-    width: 200px;
+@media (max-width: 840px) {
+  .header-left-group {
+    gap: 20px;
   }
   .navbar-links {
-    gap: 12px;
+    gap: 14px;
   }
   .nav-link-item {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 900px) {
-  .navbar-center-section {
-    display: none; /* Hide search bar on mobile/tablet */
+    font-size: 14px;
   }
   .avatar-name {
     display: none;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .navbar-links {
     display: none;
   }

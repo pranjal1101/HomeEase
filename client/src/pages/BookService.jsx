@@ -28,14 +28,12 @@ const BookService = () => {
         setLoading(true);
         setError('');
 
-        // 1. Fetch Service Details
         const serviceResponse = await serviceAPI.getById(serviceId);
         if (!serviceResponse.success) {
           throw new Error('Service not found.');
         }
         setService(serviceResponse.data);
 
-        // 2. Resolve Active User Profile from local cache
         let user = null;
         const storedUserJson = localStorage.getItem('homeease_user');
         
@@ -46,8 +44,8 @@ const BookService = () => {
             if (verifyUser.success) {
               user = verifyUser.data;
             }
-          } catch (e) {
-            console.warn('Orphaned cached user profiles.');
+          } catch (err) {
+            console.warn('Orphaned cached user profiles.', err);
           }
         }
 
@@ -63,7 +61,7 @@ const BookService = () => {
           setActiveUser(user);
           setAddress(user.address || '');
         } else {
-          setError('No active user profile detected. You must setup a profile before scheduling services.');
+          setError('No active profile detected. Please set up a profile before booking.');
         }
 
       } catch (err) {
@@ -111,12 +109,6 @@ const BookService = () => {
     }
   };
 
-  const checkIcon = (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="trust-check-icon">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-  );
-
   if (loading) {
     return (
       <div className="container section-padding">
@@ -127,12 +119,12 @@ const BookService = () => {
 
   if (error || !service) {
     return (
-      <div className="container booking-layout-wrapper" style={{ textAlign: 'center' }}>
-        <p style={{ color: 'var(--status-cancelled)', fontWeight: 'bold', fontSize: '18px', marginBottom: '24px' }}>
+      <div className="container section-padding" style={{ textAlign: 'center' }}>
+        <p style={{ color: 'var(--status-cancelled-text)', fontWeight: 'bold', fontSize: '16px', marginBottom: '20px' }}>
           {error || 'Service not found.'}
         </p>
         {!activeUser && (
-          <Link to="/profile" className="btn btn-primary" style={{ margin: '0 8px' }}>
+          <Link to="/profile" className="btn btn-primary" style={{ margin: '0 6px' }}>
             Setup Profile
           </Link>
         )}
@@ -147,10 +139,6 @@ const BookService = () => {
     <div className="container booking-layout-wrapper">
       <div className="booking-breadcrumb">
         <Link to={`/services/${serviceId}`} className="breadcrumb-back-link">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"/>
-            <polyline points="12 19 5 12 12 19"/>
-          </svg>
           Cancel and go back
         </Link>
       </div>
@@ -166,35 +154,32 @@ const BookService = () => {
           <div className="booking-sidebar-price-row">
             <span>Rate</span>
             <div className="booking-sidebar-rate">
-              ${service.price}<span>/hour</span>
+              ₹{service.price}<span> / hour</span>
             </div>
           </div>
 
           <div className="booking-trust-list">
             <div className="booking-trust-item">
-              {checkIcon}
-              <span>Vetted Professionals Only</span>
+              <span>Verified Professionals Only</span>
             </div>
             <div className="booking-trust-item">
-              {checkIcon}
-              <span>No Upfront Fees Needed</span>
+              <span>No Upfront Reservation Fees</span>
             </div>
             <div className="booking-trust-item">
-              {checkIcon}
-              <span>Satisfaction Guaranteed</span>
+              <span>100% Satisfaction Guarantee</span>
             </div>
           </div>
 
           <div className="booking-sidebar-helper-card">
-            <h5>Billing info</h5>
-            <p>You only pay the standard hourly rate. Work completion is verified by you prior to payment transactions.</p>
+            <h5>Payment Information</h5>
+            <p>You only pay the standard rate after work is completed and verified by you.</p>
           </div>
         </aside>
 
         {/* Right Column: Appointment Scheduler Form */}
         <main className="booking-form-main-card">
           <h2>Schedule Appointment</h2>
-          <p className="booking-form-subtitle">Choose your preferred date, time, and service location details below.</p>
+          <p className="booking-form-subtitle">Choose date, time, and service location details below.</p>
 
           <form onSubmit={handleSubmit}>
             <div className="booking-form-fields-grid">
@@ -228,7 +213,7 @@ const BookService = () => {
                   type="text" 
                   id="address"
                   className="form-control"
-                  placeholder="Enter address where service is needed (e.g. Apartment, Street, Vadodara)"
+                  placeholder="Enter full service address (House/Flat No, Area, Vadodara)"
                   required
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
@@ -240,7 +225,7 @@ const BookService = () => {
                 <textarea 
                   id="notes"
                   className="form-control"
-                  placeholder="Provide details about your repair (e.g., sink leaking in master bathroom, spare faucet is ready)..."
+                  placeholder="Provide any specific repair details or entry instructions..."
                   rows="4"
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}

@@ -1,29 +1,24 @@
-/* Minimal, Clean HomeEase Footer Styles */
+/* Footer Stylesheet - Solid Colors */
 
-.footer-wrapper {
+.site-footer {
   background-color: var(--white);
-  color: var(--muted);
-  padding: 64px 0 32px;
-  border-top: 1px solid rgba(73, 34, 91, 0.05);
+  border-top: 1px solid var(--border-light);
+  padding: 40px 0 24px 0;
   margin-top: auto;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-  gap: 48px;
-  margin-bottom: 48px;
+  gap: 32px;
+  margin-bottom: 32px;
 }
 
 .footer-logo {
-  font-family: var(--font-headings);
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--primary);
-  margin-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-bottom: 12px;
 }
 
 .footer-logo-box {
@@ -31,110 +26,105 @@
   height: 28px;
   background-color: var(--primary);
   color: var(--white);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.logo-highlight {
+.footer-logo .logo-text {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.footer-logo .logo-highlight {
   color: var(--secondary);
 }
 
 .footer-about {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--muted);
-  max-width: 260px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 280px;
 }
 
 .footer-col h4 {
-  color: var(--primary);
   font-size: 14px;
   font-weight: 700;
-  margin-bottom: 20px;
+  color: var(--primary);
+  margin-bottom: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
-.footer-links {
+.footer-links, .footer-contact-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .footer-links a {
-  color: var(--muted);
-  font-size: 14.5px;
-  font-weight: 500;
-  transition: var(--transition);
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  text-decoration: none;
 }
 
 .footer-links a:hover {
   color: var(--primary);
 }
 
-.footer-contact-info {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.footer-contact-list li {
+  font-size: 13.5px;
+  color: var(--text-secondary);
 }
 
-.footer-contact-info li {
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.footer-legal-links {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
-  color: var(--muted);
-  font-weight: 500;
 }
 
-.footer-contact-info li svg {
-  color: var(--secondary);
-  flex-shrink: 0;
+.footer-legal-links a {
+  color: var(--text-muted);
+  text-decoration: none;
 }
 
-.footer-bottom {
-  border-top: 1px solid rgba(73, 34, 91, 0.05);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.footer-policy-links {
-  display: flex;
-  gap: 24px;
-}
-
-.footer-policy-links a {
-  color: var(--muted);
-  transition: var(--transition);
-}
-
-.footer-policy-links a:hover {
+.footer-legal-links a:hover {
   color: var(--primary);
+}
+
+.footer-legal-links .divider {
+  color: var(--border-light);
 }
 
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 36px;
+    gap: 24px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
   }
   .footer-bottom {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     text-align: center;
   }
 }

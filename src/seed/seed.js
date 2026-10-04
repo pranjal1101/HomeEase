@@ -28,7 +28,7 @@ const seedData = async () => {
       email: 'john@example.com',
       password: 'password123',
       phone: '9876543210',
-      address: '123, Baker Street, London'
+      address: '123, Baker Street, Vadodara, Gujarat'
     });
 
     const user2 = new User({
@@ -36,7 +36,7 @@ const seedData = async () => {
       email: 'jane@example.com',
       password: 'password123',
       phone: '9876543211',
-      address: '456, Elm Street, New York'
+      address: '456, Elm Street, Vadodara, Gujarat'
     });
 
     // Hash passwords using bcrypt before saving
@@ -48,68 +48,179 @@ const seedData = async () => {
     const savedUser2 = await user2.save();
     console.log('Users seeded successfully.');
 
-    // 4. Seed Services (Realistic Startup Names)
-    console.log('Seeding realistic services...');
+    // 4. Seed 3 Providers for EVERY Category (21 Total)
+    console.log('Seeding realistic Indian service providers (3 per category)...');
     const services = [
+      // --- Plumber ---
       {
-        serviceName: 'QuickFix Plumbing',
+        serviceName: 'Rajesh Sharma Plumbing Services',
         category: 'Plumber',
-        description: 'Professional plumbing solutions for leaks, blockages, and pipe repairs.',
-        price: 500,
+        description: 'Master plumber with 10 years experience. Rating: 4.9 out of 5 (120+ reviews). Expert in luxury bathroom fittings, pipe leak detection, and sanitary installs.',
+        price: 750,
         availability: true
       },
       {
-        serviceName: 'Spark Electrical',
+        serviceName: 'QuickFix Plumbers by Manoj Verma',
+        category: 'Plumber',
+        description: 'Affordable local plumbing repair with 4 years experience. Rating: 4.5 out of 5 (65+ reviews). Specializes in tap replacement, drain unclogging, and quick fixes.',
+        price: 400,
+        availability: true
+      },
+      {
+        serviceName: 'Suresh Patel Senior Plumbing Specialist',
+        category: 'Plumber',
+        description: 'Senior plumbing contractor with 15 years experience. Rating: 4.8 out of 5 (210+ reviews). Expert in full building pipework, water heater installation, and sewage lines.',
+        price: 600,
+        availability: true
+      },
+
+      // --- Electrician ---
+      {
+        serviceName: 'Anil Kumar Premium Electrical Services',
         category: 'Electrician',
-        description: 'Complete commercial and home electrical repair, short circuit fixes, and wiring.',
-        price: 800,
+        description: 'Certified electrical engineer with 9 years experience. Rating: 4.9 out of 5 (140+ reviews). Specializes in smart home wiring, circuit breaker upgrades, and short circuit fixes.',
+        price: 850,
         availability: true
       },
       {
-        serviceName: 'CleanNest Services',
+        serviceName: 'Spark Electricals by Deepak Saini',
+        category: 'Electrician',
+        description: 'Budget-friendly residential electrician with 3 years experience. Rating: 4.4 out of 5 (50+ reviews). Quick fan installation, light switch replacement, and minor wiring.',
+        price: 450,
+        availability: true
+      },
+      {
+        serviceName: 'Vikram Singh Master Electrician',
+        category: 'Electrician',
+        description: 'Veteran industrial and home electrician with 14 years experience. Rating: 4.8 out of 5 (180+ reviews). Expert in heavy load panel setups, inverter installation, and rewiring.',
+        price: 650,
+        availability: true
+      },
+
+      // --- Cleaner ---
+      {
+        serviceName: 'CleanNest Deep Cleaning by Sunita Rao',
         category: 'Cleaner',
-        description: 'Eco-friendly deep cleaning services for apartments, villas, and workspaces.',
+        description: 'Top-rated deep cleaning specialist with 7 years experience. Rating: 4.9 out of 5 (160+ reviews). Uses eco-friendly products for full home sanitization and sofa shampooing.',
+        price: 1800,
+        availability: true
+      },
+      {
+        serviceName: 'Express Home Cleaners by Ramesh Yadav',
+        category: 'Cleaner',
+        description: 'Affordable home cleaning service with 4 years experience. Rating: 4.5 out of 5 (75+ reviews). Kitchen scrubbing, bathroom cleaning, and general dusting.',
+        price: 950,
+        availability: true
+      },
+      {
+        serviceName: 'Priya Cleaning Solutions',
+        category: 'Cleaner',
+        description: 'Highly experienced cleaning crew supervisor with 12 years experience. Rating: 4.8 out of 5 (220+ reviews). Specializes in post-renovation cleaning, carpet care, and full house scrubbing.',
+        price: 1400,
+        availability: true
+      },
+
+      // --- Carpenter ---
+      {
+        serviceName: 'WoodCraft Carpentry by Amit Panchal',
+        category: 'Carpenter',
+        description: 'Fine woodworking expert with 8 years experience. Rating: 4.9 out of 5 (95+ reviews). Custom modular kitchen cabinets, wardrobe repair, and teak wood furniture restoration.',
+        price: 900,
+        availability: true
+      },
+      {
+        serviceName: 'FastFix Furniture Repairs by Vinod Carpenter',
+        category: 'Carpenter',
+        description: 'Pocket-friendly local carpenter with 5 years experience. Rating: 4.4 out of 5 (40+ reviews). Door lock repair, chair fixing, hinge replacement, and minor wooden repairs.',
+        price: 450,
+        availability: true
+      },
+      {
+        serviceName: 'Rameshwar Artisan Carpentry',
+        category: 'Carpenter',
+        description: 'Master craftsman with 16 years experience. Rating: 4.8 out of 5 (190+ reviews). Full interior woodwork, custom bed construction, and antique furniture restoration.',
+        price: 700,
+        availability: true
+      },
+
+      // --- Painter ---
+      {
+        serviceName: 'Bright Horizon Wall Painting by Dinesh Joshi',
+        category: 'Painter',
+        description: 'Premium interior decorator and painter with 9 years experience. Rating: 4.9 out of 5 (110+ reviews). Royal texture painting, waterproof putty application, and color consultation.',
+        price: 2800,
+        availability: true
+      },
+      {
+        serviceName: 'Budget Painters by Pankaj Sharma',
+        category: 'Painter',
+        description: 'Economical wall painting services with 4 years experience. Rating: 4.5 out of 5 (55+ reviews). Single room repainting, touch-ups, and basic emulsion wall coats.',
         price: 1500,
         availability: true
       },
       {
-        serviceName: 'WoodCraft Carpentry',
-        category: 'Carpenter',
-        description: 'Custom woodworking, furniture restoration, and minor wooden installations.',
-        price: 600,
-        availability: true
-      },
-      {
-        serviceName: 'Bright Painters',
+        serviceName: 'Master Brush Painters by Vijay Chauhan',
         category: 'Painter',
-        description: 'Experienced exterior and interior wall painting with putty and color consultancy.',
-        price: 2500,
+        description: 'Veteran painting contractor with 15 years experience. Rating: 4.8 out of 5 (230+ reviews). Complete exterior waterproofing, interior wall finishes, and dampness treatment.',
+        price: 2200,
+        availability: true
+      },
+
+      // --- House Helper ---
+      {
+        serviceName: 'Urban Helper Elite by Rekha Ben',
+        category: 'House Helper',
+        description: 'Top-rated domestic helper with 8 years experience. Rating: 4.9 out of 5 (130+ reviews). Background-checked, trained in north and south Indian cooking, dusting, and laundry.',
+        price: 1500,
         availability: true
       },
       {
-        serviceName: 'Urban Helpers',
+        serviceName: 'Reliable Home Care by Geeta Devi',
         category: 'House Helper',
-        description: 'Vetted, reliable house helpers for household cleaning, cooking, and daily support.',
+        description: 'Affordable daily household support with 3 years experience. Rating: 4.5 out of 5 (60+ reviews). Utensil washing, floor mopping, and general house chores.',
+        price: 800,
+        availability: true
+      },
+      {
+        serviceName: 'Seema Senior Domestic Caretaker',
+        category: 'House Helper',
+        description: 'Experienced housekeeper and cook with 13 years experience. Rating: 4.8 out of 5 (175+ reviews). Elderly care support, meal preparation, house management, and child assistance.',
         price: 1200,
         availability: true
       },
+
+      // --- AC Repair ---
       {
-        serviceName: 'CoolAir AC Repair',
+        serviceName: 'CoolAir AC Technicians by Sanjay Mehta',
         category: 'AC Repair',
-        description: 'Prompt air conditioner repairs, seasonal servicing, and gas recharging.',
-        price: 700,
+        description: 'Certified HVAC engineer with 10 years experience. Rating: 4.9 out of 5 (150+ reviews). Split and window AC gas charging, PCB board repairs, and compressor replacement.',
+        price: 950,
+        availability: true
+      },
+      {
+        serviceName: 'Quick Chill AC Service by Rahul Gujjar',
+        category: 'AC Repair',
+        description: 'Low-cost AC servicing specialist with 4 years experience. Rating: 4.4 out of 5 (70+ reviews). Jet pump wet service, filter cleaning, and minor leak fixing.',
+        price: 500,
+        availability: true
+      },
+      {
+        serviceName: 'ProCool Climate Control by Nitin Solanki',
+        category: 'AC Repair',
+        description: 'Senior AC repair specialist with 14 years experience. Rating: 4.8 out of 5 (200+ reviews). Inverter AC diagnostics, duct cleaning, seasonal overhaul, and installation.',
+        price: 750,
         availability: true
       }
     ];
 
     const savedServices = await Service.insertMany(services);
-    console.log(`${savedServices.length} Services seeded successfully.`);
+    console.log(`${savedServices.length} Services seeded successfully (3 per category).`);
 
     // 5. Seed a Booking
     console.log('Seeding a sample booking...');
     const booking = new Booking({
       userId: savedUser1._id,
-      serviceId: savedServices[0]._id, // QuickFix Plumbing
+      serviceId: savedServices[0]._id,
       bookingDate: new Date(),
       bookingTime: '10:00 AM',
       address: savedUser1.address,

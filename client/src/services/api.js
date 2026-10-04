@@ -86,4 +86,14 @@ export const bookingAPI = {
   }
 };
 
+// ----------------------------------------------------
+// 4. AI Recommendation APIs
+// ----------------------------------------------------
+export const aiAPI = {
+  getRecommendation: async (data) => {
+    const response = await api.post('/ai/recommend', data);
+    return response.data;
+  }
+};
+
 export default api;

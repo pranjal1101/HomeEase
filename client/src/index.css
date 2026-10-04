@@ -1,65 +1,72 @@
 /* 
-  HomeEase Global Design System (Flat Design)
-  Modern Startup MVP style using custom HSL/HEX variables.
-  Absolutely NO gradients, neon effects, or glassmorphism.
+  HomeEase Design System
+  Clean, practical, solid-color home-services booking platform.
+  ABSOLUTELY NO GRADIENTS, NO GLASSMORPHISM, NO FLOATING CARDS.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
 
 :root {
-  /* Flat Purple Color Palette */
+  /* Brand Solid Colors */
   --primary: #49225B;
   --secondary: #6E3482;
   --accent: #A56ABD;
   --surface: #E7DBEF;
   --background: #F5EBFA;
   --white: #FFFFFF;
-  --text: #222222;
-  --muted: #666666;
   
-  /* Status Colors (Flat, no gradients) */
-  --status-pending: #6E3482;
-  --status-confirmed: #219653; /* Allow standard green for success/confirm to match ref */
-  --status-completed: #49225B;
-  --status-cancelled: #A56ABD;
+  /* Neutral Colors */
+  --text-primary: #1E1B24;
+  --text-secondary: #5A5266;
+  --text-muted: #7A7285;
+  --border-light: #E2D5E8;
+  --border-subtle: #EDE4F2;
+  
+  /* Status Colors */
+  --status-pending-text: #6E3482;
+  --status-pending-bg: #F0E5F5;
+  --status-confirmed-text: #1B7B43;
+  --status-confirmed-bg: #E8F5E9;
+  --status-completed-text: #49225B;
+  --status-completed-bg: #E7DBEF;
+  --status-cancelled-text: #C62828;
+  --status-cancelled-bg: #FFEBEE;
 
   /* Typography */
-  --font-headings: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-headings: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Layout Limits */
-  --max-width: 1400px;
-  --sidebar-width: 0px;
-  --header-height: 82px;
+  --max-width: 1200px;
+  --header-height: 72px;
   
-  /* Shadows & Radius */
-  --shadow-sm: 0 4px 20px rgba(73, 34, 91, 0.04);
-  --shadow-md: 0 8px 30px rgba(73, 34, 91, 0.06);
-  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.06); /* Shadow from prompt spec */
-  --radius-lg: 20px; /* 20px radius cards */
-  --radius-xl: 16px; /* 16px radius buttons */
-  --radius-sm: 12px;
-  
+  /* Radii & Shadows */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --shadow-subtle: 0 2px 8px rgba(73, 34, 91, 0.05);
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.04);
+
   /* Transitions */
-  --transition: all 0.2s ease-in-out;
+  --transition: all 0.15s ease-in-out;
 }
 
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
-/* Base Resets */
-* {
-  box-sizing: border-box;
+*, *:before, *:after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
 
 body {
   font-family: var(--font-body);
-  background-color: var(--background);
-  color: var(--text);
-  font-size: 16px; /* Body 16px */
+  background-color: #F8F4FA;
+  color: var(--text-primary);
+  font-size: 15px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -68,7 +75,24 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-headings);
   color: var(--primary);
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 19px;
+}
+
+h4 {
+  font-size: 16px;
 }
 
 a {
@@ -81,55 +105,52 @@ a:hover {
   color: var(--primary);
 }
 
-/* Dashboard Layout Wrapper Styles */
+/* App Container */
 .dashboard-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  background-color: var(--background);
+  background-color: #F8F4FA;
 }
 
 .main-content-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  margin-left: 0;
-  transition: var(--transition);
-  position: relative;
+  flex: 1;
   width: 100%;
 }
 
 .page-content {
   flex: 1;
-  padding-top: 110px;
-  padding-bottom: 40px;
+  padding-top: calc(var(--header-height) + 24px);
+  padding-bottom: 48px;
 }
 
-/* Layout Utilities */
+/* Layout Container */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0;
-  width: 92%;
+  padding: 0 20px;
+  width: 100%;
 }
 
 .section-padding {
-  padding: 40px 0;
+  padding: 24px 0 40px 0;
 }
 
 .section-header {
-  text-align: left;
-  max-width: 800px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .section-header h2 {
-  font-size: 28px;
-  margin-bottom: 8px;
+  font-size: 26px;
+  color: var(--primary);
+  margin-bottom: 6px;
   font-weight: 700;
 }
 
 .section-header p {
-  color: var(--muted);
+  color: var(--text-secondary);
   font-size: 15px;
 }
 
@@ -137,58 +158,61 @@ a:hover {
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 
-/* Interactive Components: Flat Buttons */
+/* Standard Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
-  padding: 10px 22px;
-  border-radius: var(--radius-xl);
+  padding: 9px 18px;
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
   cursor: pointer;
   transition: var(--transition);
   text-align: center;
   gap: 8px;
+  white-space: nowrap;
+  line-height: 1.4;
 }
 
 .btn-primary {
   background-color: var(--primary);
   color: var(--white);
+  border-color: var(--primary);
 }
 
 .btn-primary:hover {
   background-color: var(--secondary);
+  border-color: var(--secondary);
   color: var(--white);
-  transform: translateY(-1px);
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  background-color: #391948;
 }
 
 .btn-primary:disabled {
-  background-color: var(--surface);
-  color: var(--accent);
+  background-color: var(--border-light);
+  border-color: var(--border-light);
+  color: var(--text-muted);
   cursor: not-allowed;
-  transform: none;
 }
 
 .btn-secondary {
@@ -201,128 +225,116 @@ a:hover {
   background-color: var(--background);
   color: var(--secondary);
   border-color: var(--secondary);
-  transform: translateY(-1px);
-}
-
-.btn-secondary:active {
-  transform: translateY(0);
 }
 
 .btn-secondary:disabled {
   background-color: var(--white);
-  border-color: var(--surface);
-  color: var(--accent);
+  border-color: var(--border-light);
+  color: var(--text-muted);
   cursor: not-allowed;
-  transform: none;
 }
 
 .btn-cta {
   background-color: var(--secondary);
   color: var(--white);
-  border: 1.5px solid var(--secondary);
+  border-color: var(--secondary);
 }
 
 .btn-cta:hover {
   background-color: var(--primary);
   border-color: var(--primary);
   color: var(--white);
-  transform: translateY(-1px);
 }
 
 .btn-text {
   background: none;
   border: none;
   color: var(--secondary);
-  padding: 8px 16px;
+  padding: 6px 12px;
   font-weight: 600;
 }
 
 .btn-text:hover {
   color: var(--primary);
+  background-color: var(--background);
+  border-radius: var(--radius-sm);
 }
 
 /* Form Controls */
 .form-group {
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .form-group label {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: var(--primary);
 }
 
 .form-control {
   width: 100%;
-  padding: 12px 16px;
+  padding: 10px 14px;
   font-family: var(--font-body);
-  font-size: 15px;
-  color: var(--text);
+  font-size: 14.5px;
+  color: var(--text-primary);
   background-color: var(--white);
-  border: 1.5px solid var(--surface);
-  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
   transition: var(--transition);
   outline: none;
 }
 
 .form-control:focus {
   border-color: var(--secondary);
-  box-shadow: 0 0 0 3px rgba(110, 52, 130, 0.08);
+  box-shadow: 0 0 0 3px rgba(110, 52, 130, 0.12);
 }
 
 .form-control::placeholder {
-  color: var(--muted);
-  opacity: 0.6;
+  color: var(--text-muted);
 }
 
 /* Status Badges */
 .status-badge {
   display: inline-flex;
   align-items: center;
-  padding: 6px 12px;
-  border-radius: 20px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
   font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.2px;
 }
 
 .status-badge.pending {
-  background-color: rgba(224, 169, 38, 0.12);
-  color: var(--status-pending);
+  background-color: var(--status-pending-bg);
+  color: var(--status-pending-text);
 }
 
 .status-badge.confirmed {
-  background-color: rgba(58, 131, 241, 0.12);
-  color: var(--status-confirmed);
+  background-color: var(--status-confirmed-bg);
+  color: var(--status-confirmed-text);
 }
 
 .status-badge.completed {
-  background-color: rgba(37, 162, 90, 0.12);
-  color: var(--status-completed);
+  background-color: var(--status-completed-bg);
+  color: var(--status-completed-text);
 }
 
 .status-badge.cancelled {
-  background-color: rgba(217, 72, 72, 0.12);
-  color: var(--status-cancelled);
+  background-color: var(--status-cancelled-bg);
+  color: var(--status-cancelled-text);
 }
 
-/* Shimmer Pulse for Skeleton Loader */
+/* Shimmer Animation */
 @keyframes pulse {
-  0% {
-    background-color: var(--surface);
-  }
-  50% {
-    background-color: var(--background);
-  }
-  100% {
-    background-color: var(--surface);
-  }
+  0% { background-color: #EFE6F3; }
+  50% { background-color: #F8F3FA; }
+  100% { background-color: #EFE6F3; }
 }
 
-/* Responsive Breakpoints */
+/* Responsive Grid Adjustments */
 @media (max-width: 1024px) {
   .grid-4 {
     grid-template-columns: repeat(3, 1fr);
@@ -332,11 +344,12 @@ a:hover {
   }
 }
 
-@media (max-width: 768px) {
-  .grid-3, .grid-4, .grid-2 {
+@media (max-width: 640px) {
+  .grid-4, .grid-3, .grid-2 {
     grid-template-columns: 1fr;
   }
-  .section-padding {
-    padding: 60px 0;
-  }
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; }
+  .page-content { padding-top: calc(var(--header-height) + 16px); }
 }
+

@@ -1,310 +1,259 @@
-/* Service Details Page Stylesheet */
+/* Service Details Page Stylesheet - Solid Colors */
 
 .details-wrapper {
-  padding-top: 16px;
-  padding-bottom: 60px;
+  padding-top: 8px;
 }
 
 .details-breadcrumb {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .breadcrumb-back-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--secondary);
-  transition: var(--transition);
 }
 
 .breadcrumb-back-link:hover {
   color: var(--primary);
-  transform: translateX(-2px);
 }
 
-/* Grid Layout columns */
 .details-grid-layout {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 32px;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 24px;
   align-items: flex-start;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
+/* Main Column */
 .details-main-column {
   background-color: var(--white);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(73, 34, 91, 0.06);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-card);
 }
 
-/* graphic banner matches category theme colors */
-.details-graphic-banner {
-  height: 200px;
-  width: 100%;
+.details-header-card {
+  padding: 24px;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.details-category-icon {
+  width: 56px;
+  height: 56px;
+  background-color: var(--white);
+  color: var(--primary);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgba(73, 34, 91, 0.05);
-}
-
-.details-graphic-banner.Plumber { background-color: #EBF3FC; color: #2D9CDB; }
-.details-graphic-banner.Electrician { background-color: #FEF9EB; color: #F2C94C; }
-.details-graphic-banner.Cleaner { background-color: #EEF7F2; color: #219653; }
-.details-graphic-banner.Carpenter { background-color: #F8F0FC; color: #BB6BD9; }
-.details-graphic-banner.Painter { background-color: #FDF2EB; color: #E08244; }
-.details-graphic-banner.HouseHelper { background-color: #FCEBEB; color: #EB5757; }
-.details-graphic-banner.ACRepair { background-color: #EBF5FC; color: #2F80ED; }
-
-.details-main-content {
-  padding: 32px;
+  border: 1px solid var(--border-light);
+  flex-shrink: 0;
 }
 
 .details-category-pill {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--secondary);
-  background-color: var(--background);
-  padding: 4px 10px;
-  border-radius: 12px;
-  letter-spacing: 0.5px;
+  color: var(--primary);
+  background-color: var(--surface);
+  padding: 3px 8px;
+  border-radius: 4px;
   display: inline-block;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
 }
 
 .details-service-title {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: 24px;
+}
+
+.details-main-content {
+  padding: 24px;
 }
 
 .details-block {
-  border-top: 1px solid rgba(73, 34, 91, 0.06);
-  padding-top: 24px;
-  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.details-block:last-child {
+  margin-bottom: 0;
 }
 
 .details-block h3 {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--primary);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .details-description-text {
-  font-size: 15px;
-  color: var(--text);
+  font-size: 14.5px;
+  color: var(--text-primary);
   line-height: 1.6;
-  opacity: 0.9;
 }
 
-/* Features checklist inclusions */
 .details-features-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .feature-inclusion-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   font-size: 14px;
-  color: var(--text);
-  font-weight: 500;
+  color: var(--text-primary);
 }
 
 .feature-inclusion-item .check-icon {
-  color: var(--status-completed);
-  background-color: rgba(37, 162, 90, 0.1);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px;
-  flex-shrink: 0;
+  color: var(--status-confirmed-text);
+  font-weight: 700;
 }
 
-/* --- Sticky Summary panel sidebar --- */
+/* Sticky Sidebar Widget */
 .details-sticky-sidebar {
   position: sticky;
-  top: 96px; /* Offset under top header */
+  top: calc(var(--header-height) + 20px);
 }
 
 .details-widget-card {
   background-color: var(--white);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(73, 34, 91, 0.06);
-  padding: 28px;
-  box-shadow: var(--shadow-md);
-  display: flex;
-  flex-direction: column;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
 }
 
 .widget-header {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(73, 34, 91, 0.06);
-  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 12px;
 }
 
 .widget-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--muted);
-  letter-spacing: 0.8px;
+  color: var(--text-muted);
 }
 
 .widget-price-tag {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--primary);
-  line-height: 1;
 }
 
 .widget-price-tag span {
-  font-size: 15px;
-  color: var(--muted);
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
 }
 
-/* Availability dot label */
 .widget-status-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
-  font-size: 14px;
-  font-weight: 500;
+  margin-bottom: 18px;
+  font-size: 13.5px;
 }
 
 .availability-dot-label {
   font-size: 13px;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
 .availability-dot-label.available {
-  color: var(--status-completed);
+  color: var(--status-confirmed-text);
 }
 
 .availability-dot-label.unavailable {
-  color: var(--status-cancelled);
+  color: var(--status-cancelled-text);
 }
 
 .availability-dot-label .dot {
-  font-size: 10px;
+  font-size: 8px;
+  margin-right: 4px;
 }
 
-/* Summary table lists inside widget */
 .widget-summary-card {
   background-color: var(--background);
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 24px;
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-light);
 }
 
 .widget-summary-card h4 {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: 12px;
-  letter-spacing: 0.5px;
+  margin-bottom: 10px;
 }
 
 .widget-summary-card ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .widget-summary-card li {
   display: flex;
   justify-content: space-between;
-  font-size: 12.5px;
-  color: var(--muted);
-}
-
-.widget-summary-card li strong {
-  color: var(--text);
-  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-secondary);
 }
 
 .widget-summary-card li.summary-total-row {
-  border-top: 1px dashed rgba(73, 34, 91, 0.15);
-  padding-top: 8px;
+  border-top: 1px dashed var(--border-light);
+  padding-top: 6px;
   margin-top: 4px;
-  font-size: 13.5px;
-}
-
-.widget-summary-card li.summary-total-row span {
-  color: var(--primary);
   font-weight: 600;
-}
-
-.widget-summary-card li.summary-total-row strong {
   color: var(--primary);
-  font-weight: 700;
 }
 
 .widget-book-btn {
   width: 100%;
-  padding: 14px;
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.disabled-widget-btn {
-  background-color: var(--surface);
-  border-color: var(--surface);
-  color: var(--accent);
-  cursor: not-allowed;
-  opacity: 0.6;
+  padding: 11px;
 }
 
 .widget-helper-note {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--text-muted);
   text-align: center;
-  margin-top: 12px;
-  opacity: 0.8;
+  margin-top: 10px;
 }
 
-/* Related services bottom area */
+/* Related Section */
 .related-section {
-  border-top: 1px solid rgba(73, 34, 91, 0.08);
-  padding-top: 40px;
-  margin-top: 40px;
+  border-top: 1px solid var(--border-light);
+  padding-top: 32px;
 }
 
 .related-section h3 {
   font-size: 20px;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-/* Responsive breakdown */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .details-grid-layout {
     grid-template-columns: 1fr;
-    gap: 24px;
   }
   .details-sticky-sidebar {
     position: static;
