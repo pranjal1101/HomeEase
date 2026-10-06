@@ -131,7 +131,6 @@ const Services = () => {
         <p>Browse, filter, and book trusted home service packages.</p>
       </div>
 
-      {/* Filter and Search Bar */}
       <div className="marketplace-filters-panel">
         <div className="filters-main-row">
           <form className="marketplace-search-form" onSubmit={handleSearchSubmit}>
@@ -173,7 +172,6 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Category Filter Chips */}
         <div className="marketplace-chips-row">
           {categories.map((cat) => (
             <button 
@@ -187,7 +185,6 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Catalog Display */}
       <div className="catalog-section">
         {loading ? (
           <div className="grid-3">

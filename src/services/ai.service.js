@@ -1,16 +1,7 @@
 import { GoogleGenAI } from '@google/genai';
 import Service from '../models/service.model.js';
 
-/**
- * Get AI provider recommendation based on service category and user preference using Google Gemini
- * @param {Object} params 
- * @param {string} [params.category] 
- * @param {string} [params.service] 
- * @param {string} [params.preference] 
- * @returns {Promise<Object>}
- */
 export const getRecommendation = async ({ category, service, preference }) => {
-  // 1. Determine search category
   const targetCategory = category || service || '';
   
   const query = {};
@@ -18,17 +9,14 @@ export const getRecommendation = async ({ category, service, preference }) => {
     query.category = { $regex: new RegExp(`^${targetCategory.trim()}$`, 'i') };
   }
 
-  // 2. Query matching available candidate providers from MongoDB
   let candidates = await Service.find(query).lean();
 
-  // If no candidates found with category filter, try matching serviceName
   if (candidates.length === 0 && targetCategory && targetCategory !== 'All') {
     candidates = await Service.find({
       serviceName: { $regex: targetCategory, $options: 'i' }
     }).lean();
   }
 
-  // If still no candidate providers in database
   if (!candidates || candidates.length === 0) {
     return {
       success: false,
@@ -38,10 +26,8 @@ export const getRecommendation = async ({ category, service, preference }) => {
 
   const userPref = preference && preference.trim() ? preference.trim() : 'Best overall match';
 
-  // 3. Check for GEMINI_API_KEY
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey || apiKey.trim() === '') {
-    // Safe Fallback when API key is not configured
     const topCandidate = candidates[0];
     const alternativeCandidates = candidates.slice(1, 3);
     
@@ -60,10 +46,8 @@ export const getRecommendation = async ({ category, service, preference }) => {
     };
   }
 
-  // 4. Initialize Google Gemini SDK
   const ai = new GoogleGenAI({ apiKey: apiKey.trim() });
 
-  // Format candidates for Gemini prompt (strictly real DB records)
   const formattedCandidates = candidates.map(c => ({
     providerId: c._id.toString(),
     serviceName: c.serviceName,
@@ -100,7 +84,6 @@ Candidates:
 ${JSON.stringify(formattedCandidates, null, 2)}`;
 
   try {
-    // Call Gemini API using available active model
     const response = await ai.models.generateContent({
       model: 'gemini-3.5-flash',
       contents: userPrompt,
@@ -120,17 +103,14 @@ ${JSON.stringify(formattedCandidates, null, 2)}`;
       throw new Error('Invalid JSON structure from Gemini model.');
     }
 
-    // 5. Validate Gemini recommendation against MongoDB real provider records
     const recommendedId = geminiParsed.recommendedProviderId || geminiParsed.providerId;
     let recommendedCandidate = candidates.find(c => c._id.toString() === recommendedId);
 
-    // Fallback if Gemini returned unknown ID
     if (!recommendedCandidate) {
       console.warn(`Gemini recommended ID ${recommendedId} which was not found in database candidates. Falling back.`);
       recommendedCandidate = candidates[0];
     }
 
-    // Process alternatives
     const validAlternatives = [];
     if (Array.isArray(geminiParsed.alternatives)) {
       for (const alt of geminiParsed.alternatives) {
@@ -146,7 +126,6 @@ ${JSON.stringify(formattedCandidates, null, 2)}`;
       }
     }
 
-    // Return final verified recommendation with MongoDB source of truth
     return {
       success: true,
       recommendation: {
@@ -159,7 +138,6 @@ ${JSON.stringify(formattedCandidates, null, 2)}`;
   } catch (error) {
     console.error('Gemini Recommendation Error:', error.message);
     
-    // Fallback gracefully on Gemini error so application keeps working
     const fallbackProvider = candidates[0];
     const fallbackAlts = candidates.slice(1, 3);
 

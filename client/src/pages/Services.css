@@ -1,14 +1,31 @@
-/* Marketplace Catalog Stylesheet - Solid Colors */
+/* Services Catalog Page Styles */
+
+.services-catalog-header {
+  margin-bottom: 32px;
+}
+
+.services-catalog-title {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.services-catalog-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
 
 .marketplace-filters-panel {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 24px;
-  background-color: var(--white);
-  padding: 16px;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
+  margin-bottom: 32px;
+  background-color: #FFFFFF;
+  padding: 20px;
+  border: 1px solid var(--border-color, #DDD7CD);
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
 .filters-main-row {
@@ -21,17 +38,23 @@
 .marketplace-search-form {
   display: flex;
   align-items: center;
-  background-color: var(--background);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 4px 6px 4px 12px;
+  background-color: var(--bg-page, #F7F4EE);
+  border: 1px solid var(--border-color, #DDD7CD);
+  border-radius: var(--radius-pill);
+  padding: 4px 6px 4px 16px;
   flex: 1;
-  max-width: 540px;
+  max-width: 580px;
+  transition: var(--transition);
+}
+
+.marketplace-search-form:focus-within {
+  border-color: var(--primary-accent, #B7654A);
+  background-color: #FFFFFF;
 }
 
 .marketplace-search-form .search-icon {
-  color: var(--primary);
-  margin-right: 8px;
+  color: var(--text-light, #8A8F8B);
+  margin-right: 10px;
   flex-shrink: 0;
 }
 
@@ -40,46 +63,34 @@
   background: none;
   border: none;
   outline: none;
-  font-family: var(--font-body);
-  font-size: 14px;
+  font-family: inherit;
+  font-size: 14.5px;
   color: var(--text-primary);
-  padding: 6px 0;
+  padding: 8px 0;
 }
 
 .marketplace-search-form input::placeholder {
-  color: var(--text-muted);
-}
-
-.search-clear-btn {
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 13px;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-
-.search-submit-btn {
-  padding: 6px 14px;
-  font-size: 13px;
+  color: var(--text-light);
 }
 
 .marketplace-sort-select {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13.5px;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--text-secondary);
 }
 
 .marketplace-sort-select select {
-  background-color: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  padding: 6px 10px;
-  font-family: var(--font-body);
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color, #DDD7CD);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-family: inherit;
   font-size: 13.5px;
-  color: var(--primary);
+  font-weight: 600;
+  color: var(--text-primary);
   outline: none;
   cursor: pointer;
 }
@@ -90,50 +101,37 @@
   gap: 8px;
   overflow-x: auto;
   padding-bottom: 4px;
-  scrollbar-width: thin;
 }
 
 .marketplace-chip {
-  background-color: var(--background);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  padding: 6px 12px;
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 500;
+  background-color: var(--bg-page, #F7F4EE);
+  color: var(--text-secondary, #69706D);
+  border: 1px solid var(--border-color, #DDD7CD);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
   transition: var(--transition);
 }
 
 .marketplace-chip:hover {
-  background-color: var(--surface);
-  color: var(--primary);
+  background-color: var(--bg-secondary, #EEE9E0);
+  color: var(--text-primary);
 }
 
 .marketplace-chip.active {
-  background-color: var(--primary);
-  color: var(--white);
-  border-color: var(--primary);
+  background-color: var(--primary-accent, #B7654A);
+  color: #FFFFFF;
+  border-color: var(--primary-accent, #B7654A);
 }
 
-/* Catalog Info */
 .catalog-header-info {
-  margin-bottom: 16px;
-  font-size: 13.5px;
-  color: var(--text-muted);
-}
-
-.catalog-header-info strong {
-  color: var(--primary);
-}
-
-.catalog-error {
-  text-align: center;
-  color: var(--status-cancelled-text);
-  padding: 30px 0;
-  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
 }
 
 @media (max-width: 768px) {

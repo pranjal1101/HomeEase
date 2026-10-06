@@ -38,7 +38,6 @@ const Contact = () => {
         <p>Connecting homeowners with background-checked, reliable local service experts.</p>
       </div>
 
-      {/* About Overview */}
       <section className="about-overview-card">
         <h3>Our Mission</h3>
         <p>
@@ -72,9 +71,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Split Support Section */}
       <div className="contact-layout-split">
-        {/* Left Info Column */}
         <div className="contact-info-column">
           <div className="contact-detail-card">
             <h3>Contact Support</h3>
@@ -119,7 +116,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Right Contact Form Card */}
         <div className="contact-form-card">
           <h3>Send Us a Message</h3>
           {success ? (

@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import './ServiceCard.css';
 
-// Clean outline SVGs for categories
 const CategoryIcon = ({ category }) => {
   const strokeColor = 'currentColor';
   

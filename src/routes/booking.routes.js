@@ -6,14 +6,14 @@ import {
   updateBooking,
   deleteBooking
 } from '../controllers/booking.controller.js';
+import { authenticate } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
-// Define booking CRUD routes
-router.post('/', createBooking);
-router.get('/', getAllBookings);
-router.get('/:id', getBookingById);
-router.put('/:id', updateBooking);
-router.delete('/:id', deleteBooking);
+router.post('/', authenticate, createBooking);
+router.get('/', authenticate, getAllBookings);
+router.get('/:id', authenticate, getBookingById);
+router.put('/:id', authenticate, updateBooking);
+router.delete('/:id', authenticate, deleteBooking);
 
 export default router;

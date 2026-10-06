@@ -7,21 +7,17 @@ import Service from '../models/service.model.js';
 import Booking from '../models/booking.model.js';
 import { BOOKING_STATUS } from '../constants.js';
 
-// Load environment variables from root directory
 dotenv.config();
 
 const seedData = async () => {
   try {
-    // 1. Connect to DB
     await connectDB();
 
-    // 2. Clear existing collections
     console.log('Clearing existing database collections...');
     await User.deleteMany();
     await Service.deleteMany();
     await Booking.deleteMany();
 
-    // 3. Seed Users
     console.log('Seeding users...');
     const user1 = new User({
       name: 'John Doe',
@@ -39,7 +35,6 @@ const seedData = async () => {
       address: '456, Elm Street, Vadodara, Gujarat'
     });
 
-    // Hash passwords using bcrypt before saving
     const salt = await bcrypt.genSalt(10);
     user1.password = await bcrypt.hash(user1.password, salt);
     user2.password = await bcrypt.hash(user2.password, salt);
@@ -48,10 +43,8 @@ const seedData = async () => {
     const savedUser2 = await user2.save();
     console.log('Users seeded successfully.');
 
-    // 4. Seed 3 Providers for EVERY Category (21 Total)
     console.log('Seeding realistic Indian service providers (3 per category)...');
     const services = [
-      // --- Plumber ---
       {
         serviceName: 'Rajesh Sharma Plumbing Services',
         category: 'Plumber',
@@ -73,8 +66,6 @@ const seedData = async () => {
         price: 600,
         availability: true
       },
-
-      // --- Electrician ---
       {
         serviceName: 'Anil Kumar Premium Electrical Services',
         category: 'Electrician',
@@ -96,8 +87,6 @@ const seedData = async () => {
         price: 650,
         availability: true
       },
-
-      // --- Cleaner ---
       {
         serviceName: 'CleanNest Deep Cleaning by Sunita Rao',
         category: 'Cleaner',
@@ -119,8 +108,6 @@ const seedData = async () => {
         price: 1400,
         availability: true
       },
-
-      // --- Carpenter ---
       {
         serviceName: 'WoodCraft Carpentry by Amit Panchal',
         category: 'Carpenter',
@@ -142,8 +129,6 @@ const seedData = async () => {
         price: 700,
         availability: true
       },
-
-      // --- Painter ---
       {
         serviceName: 'Bright Horizon Wall Painting by Dinesh Joshi',
         category: 'Painter',
@@ -165,8 +150,6 @@ const seedData = async () => {
         price: 2200,
         availability: true
       },
-
-      // --- House Helper ---
       {
         serviceName: 'Urban Helper Elite by Rekha Ben',
         category: 'House Helper',
@@ -188,8 +171,6 @@ const seedData = async () => {
         price: 1200,
         availability: true
       },
-
-      // --- AC Repair ---
       {
         serviceName: 'CoolAir AC Technicians by Sanjay Mehta',
         category: 'AC Repair',
@@ -216,7 +197,6 @@ const seedData = async () => {
     const savedServices = await Service.insertMany(services);
     console.log(`${savedServices.length} Services seeded successfully (3 per category).`);
 
-    // 5. Seed a Booking
     console.log('Seeding a sample booking...');
     const booking = new Booking({
       userId: savedUser1._id,

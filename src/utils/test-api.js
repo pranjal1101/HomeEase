@@ -1,21 +1,11 @@
-/**
- * HomeEase API MVP Refactoring Verification Script
- * This script tests the full RESTful lifecycle and advanced search/pagination features.
- * Make sure the server is running on http://localhost:5000 before executing this script.
- */
-
 const BASE_URL = 'http://localhost:5000/api';
 
 const runTests = async () => {
   try {
     console.log('=== STARTING MVP BACKEND VERIFICATION TESTS ===\n');
 
-    // ----------------------------------------------------
-    // 1. USER CRUD & LIST TESTS
-    // ----------------------------------------------------
     console.log('--- Testing USER Endpoints ---');
 
-    // Create User
     const createUserRes = await fetch(`${BASE_URL}/users`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -35,7 +25,6 @@ const runTests = async () => {
     }
     const userId = createUserData.data._id;
 
-    // Get All Users (New Endpoint + Sorting check)
     const getAllUsersRes = await fetch(`${BASE_URL}/users`);
     const getAllUsersData = await getAllUsersRes.json();
     console.log('Get All Users (200):', getAllUsersData.success ? 'Success' : 'Failed', `(Count: ${getAllUsersData.data?.length})`);
@@ -43,12 +32,10 @@ const runTests = async () => {
       console.log('Verify newest user is first:', getAllUsersData.data[0]._id === userId ? 'PASS' : 'FAIL');
     }
 
-    // Get Single User
     const getUserRes = await fetch(`${BASE_URL}/users/${userId}`);
     const getUserData = await getUserRes.json();
     console.log('Get User by ID (200):', getUserData.success ? 'Success' : 'Failed');
 
-    // Update User
     const updateUserRes = await fetch(`${BASE_URL}/users/${userId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -60,13 +47,8 @@ const runTests = async () => {
     const updateUserData = await updateUserRes.json();
     console.log('Update User (200):', updateUserData.success ? 'Success' : 'Failed', `(New Name: ${updateUserData.data?.name})`);
 
-
-    // ----------------------------------------------------
-    // 2. SERVICE SEARCH, FILTER, PAGINATION, AND CRUD
-    // ----------------------------------------------------
     console.log('\n--- Testing SERVICE Endpoints ---');
 
-    // Create Service with realistic name
     const createServiceRes = await fetch(`${BASE_URL}/services`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -85,12 +67,10 @@ const runTests = async () => {
     }
     const serviceId = createServiceData.data._id;
 
-    // Get All Services (Standard)
     const getServicesRes = await fetch(`${BASE_URL}/services`);
     const getServicesData = await getServicesRes.json();
     console.log('Get All Services (200):', getServicesData.success ? 'Success' : 'Failed', `(Total Count: ${getServicesData.data?.length})`);
 
-    // Test Search query: ?search=master
     const searchRes = await fetch(`${BASE_URL}/services?search=master`);
     const searchData = await searchRes.json();
     console.log('Search Services ?search=master (200):', searchData.success ? 'Success' : 'Failed', `(Matches: ${searchData.data?.length})`);
@@ -98,23 +78,16 @@ const runTests = async () => {
       console.log('  Matches serviceName:', searchData.data[0].serviceName);
     }
 
-    // Test Category filter query: ?category=Electrician
     const categoryRes = await fetch(`${BASE_URL}/services?category=Electrician`);
     const categoryData = await categoryRes.json();
     console.log('Filter Services ?category=Electrician (200):', categoryData.success ? 'Success' : 'Failed', `(Matches: ${categoryData.data?.length})`);
 
-    // Test Pagination query: ?page=1&limit=2
     const paginationRes = await fetch(`${BASE_URL}/services?page=1&limit=2`);
     const paginationData = await paginationRes.json();
     console.log('Paginate Services ?page=1&limit=2 (200):', paginationData.success ? 'Success' : 'Failed', `(Returned items count: ${paginationData.data?.length})`);
 
-
-    // ----------------------------------------------------
-    // 3. BOOKING CRUD & SORTING TESTS
-    // ----------------------------------------------------
     console.log('\n--- Testing BOOKING Endpoints ---');
 
-    // Create Booking
     const createBookingRes = await fetch(`${BASE_URL}/bookings`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -134,7 +107,6 @@ const runTests = async () => {
     }
     const bookingId = createBookingData.data._id;
 
-    // Get All Bookings (Sorting newest first check)
     const getBookingsRes = await fetch(`${BASE_URL}/bookings`);
     const getBookingsData = await getBookingsRes.json();
     console.log('Get All Bookings (200):', getBookingsData.success ? 'Success' : 'Failed', `(Total Count: ${getBookingsData.data?.length})`);
@@ -142,7 +114,6 @@ const runTests = async () => {
       console.log('Verify newest booking is first:', getBookingsData.data[0]._id === bookingId ? 'PASS' : 'FAIL');
     }
 
-    // Update Booking Status to Confirmed
     const updateBookingRes = await fetch(`${BASE_URL}/bookings/${bookingId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -151,23 +122,16 @@ const runTests = async () => {
     const updateBookingData = await updateBookingRes.json();
     console.log('Update Booking (200):', updateBookingData.success ? 'Success' : 'Failed', `(New Status: ${updateBookingData.data?.status})`);
 
-
-    // ----------------------------------------------------
-    // 4. CLEANUP (DELETE CHECKS)
-    // ----------------------------------------------------
     console.log('\n--- Testing CLEANUP (Delete Endpoints) ---');
 
-    // Delete Booking
     const deleteBookingRes = await fetch(`${BASE_URL}/bookings/${bookingId}`, { method: 'DELETE' });
     const deleteBookingData = await deleteBookingRes.json();
     console.log('Delete Booking (200):', deleteBookingData.success ? 'Success' : 'Failed');
 
-    // Delete Service
     const deleteServiceRes = await fetch(`${BASE_URL}/services/${serviceId}`, { method: 'DELETE' });
     const deleteServiceData = await deleteServiceRes.json();
     console.log('Delete Service (200):', deleteServiceData.success ? 'Success' : 'Failed');
 
-    // Delete User
     const deleteUserRes = await fetch(`${BASE_URL}/users/${userId}`, { method: 'DELETE' });
     const deleteUserData = await deleteUserRes.json();
     console.log('Delete User (200):', deleteUserData.success ? 'Success' : 'Failed');

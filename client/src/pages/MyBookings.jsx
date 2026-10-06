@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { bookingAPI, userAPI } from '../services/api';
+import { bookingAPI } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import BookingCard from '../components/BookingCard';
 import SkeletonLoader from '../components/SkeletonLoader';
 import EmptyState from '../components/EmptyState';
@@ -10,13 +11,12 @@ import './MyBookings.css';
 const statusTabs = ['All', 'Pending', 'Confirmed', 'Completed', 'Cancelled'];
 
 const MyBookings = () => {
+  const { user: activeUser } = useAuth();
   const [bookings, setBookings] = useState([]);
-  const [activeUser, setActiveUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('All');
 
-  // Reschedule Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [rescheduleDate, setRescheduleDate] = useState('');
@@ -27,56 +27,32 @@ const MyBookings = () => {
   useEffect(() => {
     document.title = 'HomeEase | My Bookings';
 
-    const resolveUserAndBookings = async () => {
+    const fetchUserBookings = async () => {
       try {
         setLoading(true);
         setError('');
 
-        let user = null;
-        const storedUserJson = localStorage.getItem('homeease_user');
-        
-        if (storedUserJson) {
-          try {
-            const parsed = JSON.parse(storedUserJson);
-            const verifyUser = await userAPI.getById(parsed._id);
-            if (verifyUser.success) {
-              user = verifyUser.data;
-            }
-          } catch (err) {
-            console.warn('Invalid user cached.', err);
-          }
-        }
-
-        if (!user) {
-          const usersListResponse = await userAPI.getAll();
-          if (usersListResponse.success && usersListResponse.data.length > 0) {
-            user = usersListResponse.data[0];
-            localStorage.setItem('homeease_user', JSON.stringify(user));
-          }
-        }
-
-        if (user) {
-          setActiveUser(user);
-          const response = await bookingAPI.getAll({ userId: user._id });
+        if (activeUser) {
+          const response = await bookingAPI.getAll();
           if (response.success) {
             setBookings(response.data);
           } else {
             setError(response.message || 'Failed to load bookings.');
           }
         } else {
-          setError('No user profile found. Please register an account profile first.');
+          setError('Please log in to view your bookings.');
         }
 
       } catch (err) {
         console.error('Error loading bookings:', err);
-        setError('Connection failed. Please ensure the backend is running.');
+        setError(err.response?.data?.message || 'Connection failed. Please ensure the backend is running.');
       } finally {
         setLoading(false);
       }
     };
 
-    resolveUserAndBookings();
-  }, []);
+    fetchUserBookings();
+  }, [activeUser]);
 
   const handleCancelBooking = async (id) => {
     if (!window.confirm('Are you sure you want to cancel this service booking?')) {
@@ -161,7 +137,6 @@ const MyBookings = () => {
         </Link>
       </div>
 
-      {/* Filter Tabs */}
       <div className="bookings-tabs-bar">
         {statusTabs.map(tab => (
           <button 
@@ -209,7 +184,6 @@ const MyBookings = () => {
         </div>
       )}
 
-      {/* Reschedule Modal */}
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

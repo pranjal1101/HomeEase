@@ -20,13 +20,36 @@ const UserSchema = new mongoose.Schema(
     },
     phone: {
       type: String,
-      required: [true, 'Phone number is required'],
+      default: '',
       trim: true
     },
     address: {
       type: String,
-      required: [true, 'Address is required'],
+      default: '',
       trim: true
+    },
+    role: {
+      type: String,
+      enum: ['customer', 'provider', 'admin'],
+      default: 'customer'
+    },
+    isAvailable: {
+      type: Boolean,
+      default: true
+    },
+    bio: {
+      type: String,
+      default: '',
+      trim: true
+    },
+    serviceArea: {
+      type: String,
+      default: '',
+      trim: true
+    },
+    avatar: {
+      type: String,
+      default: ''
     }
   },
   {

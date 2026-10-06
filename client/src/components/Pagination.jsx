@@ -2,8 +2,6 @@ import React from 'react';
 import './Pagination.css';
 
 const Pagination = ({ currentPage, onPageChange, totalItems, itemsPerPage = 6 }) => {
-  // If we have total items, we calculate total pages. Since the API does not return total items count yet, we can check if the current page has a full set of items or handle it. But actually we know we can just let pages go up or down. Let's make it robust!
-  // If we pass totalItems, calculate pages, else just support Next and Prev.
   const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
 
   if (totalPages <= 1) return null;

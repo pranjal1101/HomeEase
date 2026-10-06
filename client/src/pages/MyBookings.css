@@ -1,55 +1,56 @@
-/* My Bookings Page Stylesheet - Solid Colors */
+/* My Bookings Customer Page Styles */
 
 .bookings-top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   gap: 16px;
 }
 
-.bookings-top-bar h2 {
-  font-size: 26px;
-  color: var(--primary);
-  margin-bottom: 4px;
+.bookings-top-bar h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 6px;
 }
 
 .bookings-top-bar p {
   color: var(--text-secondary);
-  font-size: 14.5px;
+  font-size: 15px;
 }
 
 .bookings-tabs-bar {
   display: flex;
   gap: 8px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid var(--border-light);
-  padding-bottom: 12px;
+  margin-bottom: 28px;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .tab-btn {
-  background: none;
-  border: 1px solid var(--border-light);
-  background-color: var(--white);
-  color: var(--text-secondary);
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface, #FFFFFF);
+  border: 1px solid var(--border-light, #EBE5DF);
+  color: var(--text-secondary, #57524A);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-size: 13.5px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
+  white-space: nowrap;
 }
 
 .tab-btn:hover {
-  background-color: var(--background);
-  color: var(--primary);
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
 }
 
 .tab-btn.active {
-  background-color: var(--primary);
-  color: var(--white);
-  border-color: var(--primary);
+  background-color: var(--primary, #19181A);
+  color: #FFFFFF;
+  border-color: var(--primary, #19181A);
 }
 
 .bookings-error-box {

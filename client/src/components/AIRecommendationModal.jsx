@@ -32,14 +32,12 @@ const AIRecommendationModal = ({ isOpen, onClose, initialCategory = 'All' }) => 
   const [error, setError] = useState('');
   const [recommendationData, setRecommendationData] = useState(null);
 
-  // Sync initialCategory when modal opens
   useEffect(() => {
     if (isOpen) {
       if (initialCategory && initialCategory !== 'All') {
         setCategory(initialCategory);
       }
     } else {
-      // Clear error & previous results on close
       setError('');
     }
   }, [isOpen, initialCategory]);
@@ -212,7 +210,6 @@ const AIRecommendationModal = ({ isOpen, onClose, initialCategory = 'All' }) => 
             </div>
           </div>
 
-          {/* Alternatives */}
           {recommendationData.alternatives && recommendationData.alternatives.length > 0 && (
             <div className="ai-alternatives-section">
               <h4>Other good options:</h4>

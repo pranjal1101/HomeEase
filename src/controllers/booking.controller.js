@@ -1,11 +1,12 @@
 import * as bookingService from '../services/booking.service.js';
 
-/**
- * Handle request to create a new booking
- */
 export const createBooking = async (req, res) => {
   try {
-    const booking = await bookingService.createBooking(req.body);
+    const bookingData = { ...req.body };
+    if (req.user && req.user.userId) {
+      bookingData.userId = req.user.userId;
+    }
+    const booking = await bookingService.createBooking(bookingData);
     return res.status(201).json({
       success: true,
       message: 'Booking created successfully',
@@ -19,12 +20,15 @@ export const createBooking = async (req, res) => {
   }
 };
 
-/**
- * Handle request to get all bookings (supports filtering by userId, serviceId, and status)
- */
 export const getAllBookings = async (req, res) => {
   try {
-    const { userId, serviceId, status } = req.query;
+    const { serviceId, status } = req.query;
+    let userId = req.query.userId;
+    
+    if (req.user && req.user.role !== 'admin') {
+      userId = req.user.userId;
+    }
+
     const bookings = await bookingService.getAllBookings({ userId, serviceId, status });
     return res.status(200).json({
       success: true,
@@ -39,13 +43,21 @@ export const getAllBookings = async (req, res) => {
   }
 };
 
-/**
- * Handle request to retrieve a single booking by ID
- */
 export const getBookingById = async (req, res) => {
   try {
     const { id } = req.params;
     const booking = await bookingService.getBookingById(id);
+
+    if (req.user && req.user.role !== 'admin') {
+      const ownerId = booking.userId?._id ? booking.userId._id.toString() : booking.userId?.toString();
+      if (ownerId && ownerId !== req.user.userId.toString()) {
+        return res.status(403).json({
+          success: false,
+          message: 'Access denied. You can only view your own bookings.'
+        });
+      }
+    }
+
     return res.status(200).json({
       success: true,
       message: 'Booking details fetched successfully',
@@ -59,12 +71,21 @@ export const getBookingById = async (req, res) => {
   }
 };
 
-/**
- * Handle booking update request
- */
 export const updateBooking = async (req, res) => {
   try {
     const { id } = req.params;
+    
+    if (req.user && req.user.role !== 'admin') {
+      const booking = await bookingService.getBookingById(id);
+      const ownerId = booking.userId?._id ? booking.userId._id.toString() : booking.userId?.toString();
+      if (ownerId && ownerId !== req.user.userId.toString()) {
+        return res.status(403).json({
+          success: false,
+          message: 'Access denied. You can only update your own bookings.'
+        });
+      }
+    }
+
     const updatedBooking = await bookingService.updateBooking(id, req.body);
     return res.status(200).json({
       success: true,
@@ -79,12 +100,21 @@ export const updateBooking = async (req, res) => {
   }
 };
 
-/**
- * Handle booking deletion request
- */
 export const deleteBooking = async (req, res) => {
   try {
     const { id } = req.params;
+
+    if (req.user && req.user.role !== 'admin') {
+      const booking = await bookingService.getBookingById(id);
+      const ownerId = booking.userId?._id ? booking.userId._id.toString() : booking.userId?.toString();
+      if (ownerId && ownerId !== req.user.userId.toString()) {
+        return res.status(403).json({
+          success: false,
+          message: 'Access denied. You can only cancel your own bookings.'
+        });
+      }
+    }
+
     const deletedBooking = await bookingService.deleteBooking(id);
     return res.status(200).json({
       success: true,

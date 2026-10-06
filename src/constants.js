@@ -10,7 +10,9 @@ export const SERVICE_CATEGORIES = [
 
 export const BOOKING_STATUS = {
   PENDING: 'Pending',
+  ACCEPTED: 'Accepted',
   CONFIRMED: 'Confirmed',
+  REJECTED: 'Rejected',
   COMPLETED: 'Completed',
   CANCELLED: 'Cancelled'
 };

@@ -1,8 +1,5 @@
 import * as userService from '../services/user.service.js';
 
-/**
- * Handle user creation request
- */
 export const createUser = async (req, res) => {
   try {
     const user = await userService.createUser(req.body);
@@ -19,9 +16,6 @@ export const createUser = async (req, res) => {
   }
 };
 
-/**
- * Handle request to retrieve all users
- */
 export const getAllUsers = async (req, res) => {
   try {
     const users = await userService.getAllUsers();
@@ -38,9 +32,6 @@ export const getAllUsers = async (req, res) => {
   }
 };
 
-/**
- * Handle request to retrieve a single user
- */
 export const getUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -58,9 +49,6 @@ export const getUser = async (req, res) => {
   }
 };
 
-/**
- * Handle user update request
- */
 export const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -78,9 +66,6 @@ export const updateUser = async (req, res) => {
   }
 };
 
-/**
- * Handle user deletion request
- */
 export const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;

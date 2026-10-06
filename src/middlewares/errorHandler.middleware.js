@@ -1,7 +1,3 @@
-/**
- * Express Global Error Handling Middleware
- * Catches all errors thrown in routes and sends structured JSON responses.
- */
 export const errorHandler = (err, req, res, next) => {
   console.error('Error caught by global handler:', err.stack || err.message);
 

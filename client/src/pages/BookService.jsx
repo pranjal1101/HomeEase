@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { serviceAPI, userAPI, bookingAPI } from '../services/api';
+import { serviceAPI, bookingAPI } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import Loader from '../components/Loader';
 import './BookService.css';
 
 const BookService = () => {
   const { serviceId } = useParams();
   const navigate = useNavigate();
+  const { user: activeUser } = useAuth();
   
   const [service, setService] = useState(null);
-  const [activeUser, setActiveUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  // Form Fields
   const [bookingDate, setBookingDate] = useState('');
   const [bookingTime, setBookingTime] = useState('');
-  const [address, setAddress] = useState('');
+  const [address, setAddress] = useState(activeUser?.address || '');
   const [notes, setNotes] = useState('');
 
   useEffect(() => {
@@ -34,36 +34,9 @@ const BookService = () => {
         }
         setService(serviceResponse.data);
 
-        let user = null;
-        const storedUserJson = localStorage.getItem('homeease_user');
-        
-        if (storedUserJson) {
-          try {
-            const parsed = JSON.parse(storedUserJson);
-            const verifyUser = await userAPI.getById(parsed._id);
-            if (verifyUser.success) {
-              user = verifyUser.data;
-            }
-          } catch (err) {
-            console.warn('Orphaned cached user profiles.', err);
-          }
+        if (activeUser?.address) {
+          setAddress(activeUser.address);
         }
-
-        if (!user) {
-          const usersListResponse = await userAPI.getAll();
-          if (usersListResponse.success && usersListResponse.data.length > 0) {
-            user = usersListResponse.data[0];
-            localStorage.setItem('homeease_user', JSON.stringify(user));
-          }
-        }
-
-        if (user) {
-          setActiveUser(user);
-          setAddress(user.address || '');
-        } else {
-          setError('No active profile detected. Please set up a profile before booking.');
-        }
-
       } catch (err) {
         console.error('Error initializing booking:', err);
         setError(err.message || 'Initialization failed.');
@@ -73,7 +46,7 @@ const BookService = () => {
     };
 
     initializeBooking();
-  }, [serviceId]);
+  }, [serviceId, activeUser]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -144,7 +117,6 @@ const BookService = () => {
       </div>
 
       <div className="booking-grid-layout">
-        {/* Left Column: Service Details & Trust Badges */}
         <aside className="booking-details-sidebar-card">
           <div className="booking-sidebar-header">
             <span className="booking-sidebar-cat">{service.category}</span>
@@ -176,7 +148,6 @@ const BookService = () => {
           </div>
         </aside>
 
-        {/* Right Column: Appointment Scheduler Form */}
         <main className="booking-form-main-card">
           <h2>Schedule Appointment</h2>
           <p className="booking-form-subtitle">Choose date, time, and service location details below.</p>

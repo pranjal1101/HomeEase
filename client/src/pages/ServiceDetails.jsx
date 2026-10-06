@@ -146,7 +146,6 @@ const ServiceDetails = () => {
       </div>
 
       <div className="details-grid-layout">
-        {/* Main Content Column */}
         <div className="details-main-column">
           <div className="details-header-card">
             <div className="details-category-icon">
@@ -177,7 +176,6 @@ const ServiceDetails = () => {
           </div>
         </div>
 
-        {/* Sticky Booking Sidebar */}
         <div className="details-sticky-sidebar">
           <div className="details-widget-card">
             <div className="widget-header">

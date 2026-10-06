@@ -1,14 +1,15 @@
-/* Providers Directory Stylesheet - Solid Colors */
+/* Providers Directory Stylesheet - Warm Ivory & Terracotta Theme */
 
 .providers-filter-bar {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 28px;
-  background-color: var(--white);
+  background-color: #FFFFFF;
   padding: 16px;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color, #DDD7CD);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
 }
 
 .providers-search-form {
@@ -28,20 +29,21 @@
 
 /* Provider Card */
 .provider-card {
-  background-color: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color, #DDD7CD);
+  border-radius: var(--radius-md, 14px);
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: var(--shadow-card);
-  transition: var(--transition);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  height: 100%;
 }
 
 .provider-card:hover {
-  border-color: var(--secondary);
-  box-shadow: 0 4px 12px rgba(73, 34, 91, 0.08);
+  border-color: var(--primary-accent, #B7654A);
+  box-shadow: 0 6px 18px rgba(32, 37, 34, 0.08);
 }
 
 .provider-card-header {
@@ -52,12 +54,11 @@
 }
 
 .provider-avatar {
-  width: 48px;
-  height: 48px;
-  background-color: var(--primary);
-  color: var(--white);
-  font-family: var(--font-headings);
-  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  background-color: var(--primary-accent, #B7654A);
+  color: #FFFFFF;
+  font-size: 18px;
   font-weight: 700;
   border-radius: 50%;
   display: flex;
@@ -73,26 +74,26 @@
 }
 
 .verified-badge {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
-  color: var(--status-confirmed-text);
-  background-color: var(--status-confirmed-bg);
+  color: #202522;
+  background-color: #EEE9E0;
   padding: 2px 8px;
   border-radius: 4px;
   display: inline-block;
 }
 
 .availability-badge {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 11.5px;
+  font-weight: 600;
 }
 
 .availability-badge.available {
-  color: var(--status-confirmed-text);
+  color: var(--primary-accent, #B7654A);
 }
 
 .availability-badge.booked {
-  color: var(--text-muted);
+  color: var(--text-light, #8A8F8B);
 }
 
 /* Body */
@@ -102,26 +103,26 @@
 }
 
 .provider-name {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--primary);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary, #202522);
   margin-bottom: 2px;
 }
 
 .provider-category-tag {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
-  color: var(--secondary);
+  color: var(--primary-accent, #B7654A);
   margin-bottom: 8px;
 }
 
 .provider-desc {
   font-size: 13.5px;
-  color: var(--text-secondary);
-  line-height: 1.4;
+  color: var(--text-secondary, #69706D);
+  line-height: 1.45;
   margin-bottom: 12px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -131,14 +132,9 @@
   align-items: center;
   justify-content: space-between;
   font-size: 12.5px;
-  color: var(--text-muted);
-  border-top: 1px dashed var(--border-light);
+  color: var(--text-light, #8A8F8B);
+  border-top: 1px dashed var(--border-color, #DDD7CD);
   padding-top: 10px;
-}
-
-.provider-meta-row .rating {
-  color: #B8860B;
-  font-weight: 600;
 }
 
 /* Footer */
@@ -147,25 +143,25 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 14px;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--border-color, #DDD7CD);
 }
 
 .provider-rate {
   font-size: 18px;
-  font-weight: 700;
-  color: var(--primary);
+  font-weight: 800;
+  color: var(--text-primary, #202522);
 }
 
 .provider-rate .unit {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-light, #8A8F8B);
 }
 
 .provider-actions {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 @media (max-width: 768px) {

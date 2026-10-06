@@ -1,423 +1,595 @@
-/* Home Page Stylesheet - Solid Colors, Clean Real Website Layout */
+/* 
+  HomeEase Landing Page Stylesheet
+  Clean, Warm Ivory & Terracotta Theme (#202522, #B7654A, #F7F4EE)
+  Zero Layout Shift Architecture
+*/
 
-.home-page-container {
-  width: 100%;
+.home-landing-page {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  background-color: var(--bg-main, #F7F4EE);
+  color: var(--text-primary, #202522);
+  padding-bottom: 56px;
 }
 
-/* 1. Hero / Search Section */
-.hero-search-section {
-  background-color: var(--background);
-  border-bottom: 1px solid var(--border-light);
-  padding: 48px 0 40px 0;
-  margin-top: -24px;
+/* ----------------------------------------------------
+   1. HERO SECTION
+---------------------------------------------------- */
+.hero-section-desktop {
+  padding-top: 24px;
 }
 
-.hero-content {
-  max-width: 860px;
-  text-align: center;
-  margin: 0 auto;
+.hero-grid-desktop {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 36px;
+  align-items: center;
 }
 
-.hero-title {
-  font-size: 34px;
-  color: var(--primary);
-  font-weight: 700;
-  margin-bottom: 10px;
-  letter-spacing: -0.3px;
+/* Left Hero Content */
+.hero-left-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.hero-subtitle {
-  font-size: 16px;
-  color: var(--text-secondary);
-  margin-bottom: 28px;
+.hero-main-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #202522;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
 }
 
-/* Hero Main Search Bar */
-.main-search-bar {
+.hero-sub-title {
+  font-size: 15.5px;
+  color: #69706D;
+  line-height: 1.55;
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+/* AI Home Recommendation Box */
+.ai-recommendation-box {
+  background-color: #FFFFFF;
+  border: 1px solid #DDD7CD;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 18px rgba(32, 37, 34, 0.04);
+  max-width: 480px;
+}
+
+.ai-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.ai-box-label {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 6px 6px 6px 14px;
-  box-shadow: 0 2px 8px rgba(73, 34, 91, 0.06);
-  max-width: 680px;
-  margin: 0 auto 20px auto;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #B7654A;
 }
 
-.search-input-wrapper {
+.ai-beta-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background-color: #EEE9E0;
+  color: #B7654A;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.ai-box-sub {
+  font-size: 13px;
+  color: #69706D;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.ai-input-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
-  flex: 1;
-  gap: 10px;
+  margin-bottom: 8px;
 }
 
-.search-input-icon {
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-}
-
-.search-input-wrapper input {
+.ai-input-field {
   width: 100%;
-  border: none;
+  padding: 10px 44px 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #DDD7CD;
+  background-color: #F7F4EE;
+  font-family: inherit;
+  font-size: 13.5px;
+  color: #202522;
   outline: none;
-  font-family: var(--font-body);
-  font-size: 15px;
-  color: var(--text-primary);
-  background: transparent;
+  resize: none;
+  min-height: 46px;
 }
 
-.search-input-wrapper input::placeholder {
-  color: var(--text-muted);
+.ai-input-field:focus {
+  border-color: #B7654A;
+  background-color: #FFFFFF;
 }
 
-.search-submit-btn {
-  padding: 10px 22px;
-}
-
-/* Popular Searches Tags */
-.popular-tags {
+.ai-submit-btn {
+  position: absolute;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #B7654A;
+  color: #FFFFFF;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  font-size: 13.5px;
-}
-
-.tags-label {
-  color: var(--text-muted);
-}
-
-.tag-link {
-  background-color: var(--white);
-  border: 1px solid var(--border-light);
-  color: var(--primary);
-  padding: 3px 10px;
-  border-radius: var(--radius-sm);
-  font-size: 13px;
-  font-weight: 500;
   cursor: pointer;
-  transition: var(--transition);
+  transition: background-color 0.15s ease;
 }
 
-.tag-link:hover {
-  background-color: var(--primary);
-  color: var(--white);
-  border-color: var(--primary);
+.ai-submit-btn:hover {
+  background-color: #D18A70;
 }
 
-/* Section Title Rows */
-.section-title-row {
+.ai-helper-text {
+  font-size: 11.5px;
+  color: #8A8F8B;
+}
+
+.ai-preset-chip {
+  display: inline-block;
+  font-size: 11.5px;
+  color: #B7654A;
+  background-color: #EEE9E0;
+  border-radius: 20px;
+  padding: 4px 12px;
+  margin-top: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.ai-preset-chip:hover {
+  border-color: #B7654A;
+}
+
+/* AI Recommendation Result Card */
+.ai-result-card {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  background-color: #EEE9E0;
+  border: 1px solid #DDD7CD;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  gap: 16px;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.section-title-row h2 {
-  font-size: 24px;
+.ai-result-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #69706D;
+}
+
+.ai-result-service {
+  font-size: 15px;
+  font-weight: 800;
+  color: #B7654A;
+}
+
+.ai-result-provider-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #FFFFFF;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #DDD7CD;
+}
+
+.ai-result-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ai-result-p-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #202522;
+}
+
+.ai-result-p-meta {
+  font-size: 11.5px;
+  color: #69706D;
+}
+
+/* ----------------------------------------------------
+   2. RIGHT HERO IMAGE & INTERACTIVE HOTSPOTS
+---------------------------------------------------- */
+.hero-right-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(32, 37, 34, 0.06);
+  border: 1px solid #DDD7CD;
+}
+
+.home-main-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Floating Hotspot Cards (Zero Layout Shift) */
+.home-hotspot-card {
+  position: absolute;
+  z-index: 20;
+  background-color: #FFFFFF;
+  border: 1px solid #DDD7CD;
+  border-radius: 12px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.home-hotspot-card:hover,
+.home-hotspot-card.active {
+  border-color: #B7654A;
+  box-shadow: 0 6px 18px rgba(183, 101, 74, 0.15);
+}
+
+.hotspot-icon-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #EEE9E0;
+  color: #B7654A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.hotspot-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hotspot-title {
+  font-size: 12px;
+  font-weight: 750;
+  color: #202522;
+  line-height: 1.2;
+}
+
+.hotspot-services-sub {
+  font-size: 10px;
+  color: #69706D;
+  font-weight: 500;
+}
+
+/* Hotspot Room Anchor Dot */
+.hotspot-room-dot {
+  position: absolute;
+  z-index: 18;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #B7654A;
+  box-shadow: 0 0 0 3px rgba(183, 101, 74, 0.3);
+  cursor: pointer;
+}
+
+/* Hotspot Context Panel Popup (Absolute Positioning, No Shift) */
+.hotspot-context-panel {
+  position: absolute;
+  z-index: 30;
+  background-color: #FFFFFF;
+  border: 1px solid #DDD7CD;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(32, 37, 34, 0.12);
+  width: 210px;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+
+.context-panel-header {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #202522;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #DDD7CD;
+}
+
+.context-service-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #202522;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  margin-bottom: 2px;
+}
+
+.context-service-item:hover {
+  background-color: #EEE9E0;
+  color: #B7654A;
+}
+
+.context-ai-ask-btn {
+  margin-top: 6px;
+  width: 100%;
+  padding: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #B7654A;
+  background-color: #EEE9E0;
+  border: 1px solid #DDD7CD;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.context-ai-ask-btn:hover {
+  background-color: #B7654A;
+  color: #FFFFFF;
+}
+
+/* ----------------------------------------------------
+   3. POPULAR SERVICES SECTION
+---------------------------------------------------- */
+.popular-section-block {
+  padding-top: 12px;
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.section-header-row h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #202522;
   margin-bottom: 4px;
 }
 
-.section-title-row p {
-  color: var(--text-secondary);
+.section-header-row p {
+  color: #69706D;
   font-size: 14.5px;
 }
 
 .view-all-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
   font-size: 14px;
-  color: var(--secondary);
-  white-space: nowrap;
+  font-weight: 700;
+  color: #B7654A;
+  text-decoration: none;
 }
 
 .view-all-link:hover {
-  color: var(--primary);
+  text-decoration: underline;
 }
 
-/* 2. Categories Grid */
-.categories-section {
-  padding: 40px 0 20px 0;
-}
-
-.categories-grid {
+.popular-tiles-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.category-card {
-  background-color: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 20px 16px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.category-card:hover {
-  border-color: var(--secondary);
-  box-shadow: 0 4px 12px rgba(73, 34, 91, 0.08);
-  background-color: #FAFAFD;
-}
-
-.category-icon-box {
-  width: 42px;
-  height: 42px;
-  background-color: var(--background);
-  color: var(--primary);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.category-name {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-/* 3. Popular Services Section */
-.popular-section {
-  padding: 32px 0 40px 0;
-}
-
-.error-message, .empty-message {
-  text-align: center;
-  color: var(--text-muted);
-  padding: 30px 0;
-}
-
-/* 4. How It Works Section */
-.how-it-works-section {
-  background-color: var(--white);
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
-  padding: 48px 0;
-}
-
-.text-center {
-  text-align: center;
-  margin: 0 auto 36px auto;
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.step-card {
-  background-color: var(--background);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 24px 20px;
+.popular-tile-card {
+  background-color: #FFFFFF;
+  border: 1px solid #DDD7CD;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.popular-tile-card:hover {
+  border-color: #B7654A;
+  box-shadow: 0 4px 16px rgba(32, 37, 34, 0.06);
+}
+
+.tile-img-wrapper {
+  height: 160px;
+  overflow: hidden;
   position: relative;
 }
 
-.step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: var(--primary);
-  color: var(--white);
-  font-weight: 700;
-  border-radius: 50%;
-  font-size: 14px;
-  margin-bottom: 14px;
+.tile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.step-card h3 {
-  font-size: 17px;
-  margin-bottom: 8px;
-  color: var(--primary);
-}
-
-.step-card p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.45;
-}
-
-/* 5. Trust / Why HomeEase */
-.trust-section {
-  padding: 40px 0;
-}
-
-.trust-box {
-  background-color: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-}
-
-.trust-header {
-  margin-bottom: 28px;
-}
-
-.trust-header h2 {
-  font-size: 24px;
-  margin-bottom: 6px;
-}
-
-.trust-header p {
-  color: var(--text-secondary);
-  font-size: 15px;
-}
-
-.trust-features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px 36px;
-}
-
-.trust-feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.trust-check-circle {
-  width: 28px;
-  height: 28px;
-  background-color: var(--status-confirmed-bg);
-  color: var(--status-confirmed-text);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.trust-feature-item h4 {
-  font-size: 16px;
-  color: var(--primary);
-  margin-bottom: 4px;
-}
-
-.trust-feature-item p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.4;
-}
-
-/* 6. Simple Promotional Banner */
-.promo-banner-section {
-  padding: 0 0 40px 0;
-}
-
-.promo-banner {
-  background-color: var(--primary);
-  color: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 32px 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.promo-banner-text h2 {
-  color: var(--white);
-  font-size: 22px;
-  margin-bottom: 6px;
-}
-
-.promo-banner-text p {
-  color: var(--surface);
-  font-size: 14.5px;
-}
-
-.promo-banner-actions {
+.tile-content-box {
+  padding: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 1;
+}
+
+.tile-badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: #EEE9E0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
   flex-shrink: 0;
 }
 
-.promo-banner-actions .btn-primary {
-  background-color: var(--white);
-  color: var(--primary);
-  border-color: var(--white);
+.tile-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #202522;
+  margin-bottom: 4px;
 }
 
-.promo-banner-actions .btn-primary:hover {
-  background-color: var(--background);
-  color: var(--secondary);
+.tile-desc {
+  font-size: 12.5px;
+  color: #69706D;
+  line-height: 1.4;
+  margin: 0;
 }
 
-.promo-banner-actions .btn-secondary {
-  background-color: transparent;
-  color: var(--white);
-  border-color: var(--surface);
+.tile-footer-arrow {
+  font-size: 18px;
+  font-weight: 700;
+  color: #B7654A;
+  margin-left: auto;
 }
 
-.promo-banner-actions .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--white);
+/* ----------------------------------------------------
+   4. TRUSTED PROVIDERS SECTION
+---------------------------------------------------- */
+.providers-section-block {
+  padding-top: 12px;
 }
 
-/* Responsive adjustments */
+.provider-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.compact-provider-card {
+  background-color: #FFFFFF;
+  border: 1px solid #DDD7CD;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.compact-provider-card:hover {
+  border-color: #B7654A;
+  box-shadow: 0 4px 16px rgba(32, 37, 34, 0.06);
+}
+
+.provider-photo-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid #EEE9E0;
+}
+
+.provider-photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.provider-details-info {
+  flex: 1;
+}
+
+.provider-header-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.provider-p-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: #202522;
+}
+
+.verified-pill {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #B7654A;
+  background-color: #EEE9E0;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.provider-p-company {
+  font-size: 12px;
+  color: #69706D;
+  margin-bottom: 4px;
+}
+
+.provider-p-stats {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #69706D;
+  margin-bottom: 8px;
+}
+
+.provider-p-rating {
+  font-weight: 700;
+  color: #B7654A;
+}
+
+.provider-card-bottom {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Responsiveness */
 @media (max-width: 1024px) {
-  .categories-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .hero-grid-desktop {
+    grid-template-columns: 1fr;
   }
-  .steps-grid {
+  .popular-tiles-grid, .provider-cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 26px;
-  }
-  .main-search-bar {
-    flex-direction: column;
-    padding: 10px;
-  }
-  .search-input-wrapper {
-    width: 100%;
-  }
-  .search-submit-btn {
-    width: 100%;
-  }
-  .categories-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .trust-features-grid {
-    grid-template-columns: 1fr;
-  }
-  .promo-banner {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-  .promo-banner-actions {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .categories-grid {
-    grid-template-columns: 1fr;
-  }
-  .steps-grid {
+  .hero-main-title { font-size: 36px; }
+  .popular-tiles-grid, .provider-cards-grid {
     grid-template-columns: 1fr;
   }
 }

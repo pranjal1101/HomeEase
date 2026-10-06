@@ -29,6 +29,25 @@ const ServiceSchema = new mongoose.Schema(
     availability: {
       type: Boolean,
       default: true
+    },
+    providerId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      default: null
+    },
+    image: {
+      type: String,
+      default: ''
+    },
+    duration: {
+      type: String,
+      default: '1 hour',
+      trim: true
+    },
+    location: {
+      type: String,
+      default: '',
+      trim: true
     }
   },
   {

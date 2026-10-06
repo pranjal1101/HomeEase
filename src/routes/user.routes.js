@@ -9,7 +9,6 @@ import {
 
 const router = express.Router();
 
-// Define user CRUD routes
 router.post('/', createUser);
 router.get('/', getAllUsers);
 router.get('/:id', getUser);

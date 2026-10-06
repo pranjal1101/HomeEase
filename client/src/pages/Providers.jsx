@@ -88,7 +88,6 @@ const Providers = () => {
         <p>Browse verified, background-checked home service professionals in your area.</p>
       </div>
 
-      {/* Filter and Search controls */}
       <div className="providers-filter-bar">
         <form className="providers-search-form" onSubmit={handleSearchSubmit}>
           <input 
@@ -125,7 +124,6 @@ const Providers = () => {
         </button>
       </div>
 
-      {/* Providers Grid */}
       {loading ? (
         <div className="grid-3">
           <SkeletonLoader count={6} />

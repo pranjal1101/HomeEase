@@ -2,19 +2,12 @@ import Booking from '../models/booking.model.js';
 import User from '../models/user.model.js';
 import Service from '../models/service.model.js';
 
-/**
- * Create a new booking
- * @param {Object} bookingData 
- * @returns {Promise<Object>}
- */
 export const createBooking = async (bookingData) => {
-  // Validate that the user exists
   const userExists = await User.findById(bookingData.userId).lean();
   if (!userExists) {
     throw new Error('User not found. Cannot create booking.');
   }
 
-  // Validate that the service exists and is available
   const serviceExists = await Service.findById(bookingData.serviceId).lean();
   if (!serviceExists) {
     throw new Error('Service not found. Cannot create booking.');
@@ -26,7 +19,6 @@ export const createBooking = async (bookingData) => {
   const newBooking = new Booking(bookingData);
   const savedBooking = await newBooking.save();
   
-  // Return booking populated with user and service details as plain object
   const populated = await savedBooking.populate([
     { path: 'userId', select: 'name email phone' },
     { path: 'serviceId', select: 'serviceName category price' }
@@ -34,11 +26,6 @@ export const createBooking = async (bookingData) => {
   return populated.toObject();
 };
 
-/**
- * Get all bookings with newest first sorting and optional filtering
- * @param {Object} filters 
- * @returns {Promise<Array>}
- */
 export const getAllBookings = async (filters = {}) => {
   const query = {};
   
@@ -53,11 +40,6 @@ export const getAllBookings = async (filters = {}) => {
     .lean();
 };
 
-/**
- * Get booking details by ID
- * @param {string} id 
- * @returns {Promise<Object>}
- */
 export const getBookingById = async (id) => {
   const booking = await Booking.findById(id)
     .populate({ path: 'userId', select: 'name email phone' })
@@ -70,12 +52,6 @@ export const getBookingById = async (id) => {
   return booking;
 };
 
-/**
- * Update booking status or other parameters
- * @param {string} id 
- * @param {Object} updateData 
- * @returns {Promise<Object>}
- */
 export const updateBooking = async (id, updateData) => {
   const updatedBooking = await Booking.findByIdAndUpdate(
     id,
@@ -92,11 +68,6 @@ export const updateBooking = async (id, updateData) => {
   return updatedBooking;
 };
 
-/**
- * Delete a booking
- * @param {string} id 
- * @returns {Promise<Object>}
- */
 export const deleteBooking = async (id) => {
   const deletedBooking = await Booking.findByIdAndDelete(id)
     .populate({ path: 'userId', select: 'name email phone' })

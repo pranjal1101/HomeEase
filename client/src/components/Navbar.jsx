@@ -1,62 +1,35 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, memo } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [activeUser, setActiveUser] = useState({ name: 'Pranjal' });
+  const { user, isAuthenticated, logout } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Load user profile details if logged in
-  useEffect(() => {
-    let lastUserStr = '';
-
-    const checkUser = () => {
-      const storedUserStr = localStorage.getItem('homeease_user');
-      if (storedUserStr) {
-        if (storedUserStr !== lastUserStr) {
-          try {
-            const parsed = JSON.parse(storedUserStr);
-            setActiveUser(parsed);
-            lastUserStr = storedUserStr;
-          } catch (err) {
-            console.warn('Failed parsing user info.', err);
-          }
-        }
-      } else if (lastUserStr !== 'default') {
-        setActiveUser({ name: 'Pranjal' });
-        lastUserStr = 'default';
-      }
-    };
-    checkUser();
-    
-    window.addEventListener('storage', checkUser);
-    const interval = setInterval(checkUser, 2000);
-
-    return () => {
-      window.removeEventListener('storage', checkUser);
-      clearInterval(interval);
-    };
-  }, []);
+  if (location.pathname.startsWith('/provider/')) {
+    return null;
+  }
 
   const isActive = (path) => location.pathname === path ? 'active' : '';
 
   const handleLogout = () => {
     if (window.confirm('Are you sure you want to log out?')) {
-      localStorage.removeItem('homeease_user');
-      setActiveUser({ name: 'Pranjal' });
-      navigate('/profile');
+      logout();
       setShowDropdown(false);
+      navigate('/login');
     }
   };
+
+  const isProviderRole = user?.role === 'provider';
 
   return (
     <header className="site-header">
       <div className="container header-inner">
-        {/* Left: Brand Logo & Navigation Links */}
         <div className="header-left-group">
-          <Link to="/" className="navbar-brand">
+          <Link to={isProviderRole ? "/provider/dashboard" : "/"} className="navbar-brand">
             <div className="logo-icon-box">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -67,61 +40,117 @@ const Navbar = () => {
           </Link>
 
           <nav className="navbar-links">
-            <Link to="/" className={`nav-link-item ${isActive('/')}`}>
-              Home
-            </Link>
-            <Link to="/services" className={`nav-link-item ${isActive('/services')}`}>
-              Services
-            </Link>
-            <Link to="/bookings" className={`nav-link-item ${isActive('/bookings')}`}>
-              Bookings
-            </Link>
-            <Link to="/providers" className={`nav-link-item ${isActive('/providers')}`}>
-              Providers
-            </Link>
-            <Link to="/contact" className={`nav-link-item ${isActive('/contact')}`}>
-              About Us
-            </Link>
+            {isProviderRole ? (
+              <>
+                <Link to="/provider/dashboard" className={`nav-link-item ${isActive('/provider/dashboard')}`}>
+                  Dashboard
+                </Link>
+                <Link to="/provider/services" className={`nav-link-item ${isActive('/provider/services')}`}>
+                  My Services
+                </Link>
+                <Link to="/provider/bookings" className={`nav-link-item ${isActive('/provider/bookings')}`}>
+                  Bookings
+                </Link>
+                <Link to="/provider/earnings" className={`nav-link-item ${isActive('/provider/earnings')}`}>
+                  Earnings
+                </Link>
+                <Link to="/provider/profile" className={`nav-link-item ${isActive('/provider/profile')}`}>
+                  Profile
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/" className={`nav-link-item ${isActive('/')}`}>
+                  Home
+                </Link>
+                <Link to="/services" className={`nav-link-item ${isActive('/services')}`}>
+                  Services
+                </Link>
+                <Link to="/bookings" className={`nav-link-item ${isActive('/bookings')}`}>
+                  Bookings
+                </Link>
+                <Link to="/providers" className={`nav-link-item ${isActive('/providers')}`}>
+                  Providers
+                </Link>
+                <Link to="/contact" className={`nav-link-item ${isActive('/contact')}`}>
+                  About Us
+                </Link>
+              </>
+            )}
           </nav>
         </div>
 
-        {/* Right: Notifications & Profile Actions */}
         <div className="navbar-right-section">
-          <div className="bell-container" title="Notifications" onClick={() => alert('No new notifications.')}>
-            <button className="bell-button" aria-label="Notifications">
-              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-              </svg>
-              <span className="bell-badge-dot"></span>
-            </button>
-          </div>
-
-          <div className="profile-dropdown-wrapper">
-            <button className="profile-trigger-btn" onClick={() => setShowDropdown(!showDropdown)}>
-              <div className="avatar-circle">
-                {activeUser.name ? activeUser.name.charAt(0).toUpperCase() : 'P'}
-              </div>
-              <span className="avatar-name">{activeUser.name || 'Pranjal'}</span>
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`chevron-icon ${showDropdown ? 'rotate' : ''}`}>
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </button>
-
-            {showDropdown && (
-              <div className="profile-dropdown-menu">
-                <Link to="/profile" className="dropdown-menu-item" onClick={() => setShowDropdown(false)}>
-                  My Profile
-                </Link>
-                <Link to="/bookings" className="dropdown-menu-item" onClick={() => setShowDropdown(false)}>
-                  My Bookings
-                </Link>
-                <button className="dropdown-menu-item logout-btn" onClick={handleLogout}>
-                  Logout
+          {isAuthenticated && user ? (
+            <>
+              <div className="bell-container" title="Notifications" onClick={() => alert('No new notifications.')}>
+                <button className="bell-button" aria-label="Notifications">
+                  <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                  </svg>
+                  <span className="bell-badge-dot"></span>
                 </button>
               </div>
-            )}
-          </div>
+
+              <div className="profile-dropdown-wrapper">
+                <button className="profile-trigger-btn" onClick={() => setShowDropdown(!showDropdown)}>
+                  <div className="avatar-circle">
+                    {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
+                  </div>
+                  <span className="avatar-name">{user.name || 'Account'}</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`chevron-icon ${showDropdown ? 'rotate' : ''}`}>
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+
+                {showDropdown && (
+                  <div className="profile-dropdown-menu">
+                    {isProviderRole ? (
+                      <>
+                        <Link to="/provider/dashboard" className="dropdown-menu-item" onClick={() => setShowDropdown(false)}>
+                          Provider Dashboard
+                        </Link>
+                        <Link to="/provider/services" className="dropdown-menu-item" onClick={() => setShowDropdown(false)}>
+                          My Services
+                        </Link>
+                        <Link to="/provider/bookings" className="dropdown-menu-item" onClick={() => setShowDropdown(false)}>
+                          Bookings
+                        </Link>
+                        <Link to="/provider/earnings" className="dropdown-menu-item" onClick={() => setShowDropdown(false)}>
+                          Earnings
+                        </Link>
+                        <Link to="/provider/profile" className="dropdown-menu-item" onClick={() => setShowDropdown(false)}>
+                          Profile
+                        </Link>
+                      </>
+                    ) : (
+                      <>
+                        <Link to="/profile" className="dropdown-menu-item" onClick={() => setShowDropdown(false)}>
+                          My Profile
+                        </Link>
+                        <Link to="/bookings" className="dropdown-menu-item" onClick={() => setShowDropdown(false)}>
+                          My Bookings
+                        </Link>
+                      </>
+                    )}
+                    <button className="dropdown-menu-item logout-btn" onClick={handleLogout}>
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <Link to="/login" className="btn btn-secondary" style={{ padding: '7px 14px', fontSize: '13.5px' }}>
+                Log In
+              </Link>
+              <Link to="/signup" className="btn btn-primary" style={{ padding: '7px 14px', fontSize: '13.5px' }}>
+                Sign Up
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </header>

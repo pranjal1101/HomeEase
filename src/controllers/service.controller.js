@@ -1,8 +1,5 @@
 import * as serviceService from '../services/service.service.js';
 
-/**
- * Handle request to add a new service
- */
 export const addService = async (req, res) => {
   try {
     const service = await serviceService.createService(req.body);
@@ -19,9 +16,6 @@ export const addService = async (req, res) => {
   }
 };
 
-/**
- * Handle request to get all services (supports filtering by category, search regex, and pagination)
- */
 export const getAllServices = async (req, res) => {
   try {
     const { category, search, page, limit } = req.query;
@@ -39,9 +33,6 @@ export const getAllServices = async (req, res) => {
   }
 };
 
-/**
- * Handle request to retrieve a single service
- */
 export const getSingleService = async (req, res) => {
   try {
     const { id } = req.params;
@@ -59,9 +50,6 @@ export const getSingleService = async (req, res) => {
   }
 };
 
-/**
- * Handle service update request
- */
 export const updateService = async (req, res) => {
   try {
     const { id } = req.params;
@@ -79,9 +67,6 @@ export const updateService = async (req, res) => {
   }
 };
 
-/**
- * Handle service deletion request
- */
 export const deleteService = async (req, res) => {
   try {
     const { id } = req.params;

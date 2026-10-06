@@ -1,15 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
+  const location = useLocation();
   const currentYear = new Date().getFullYear();
+
+  if (location.pathname.startsWith('/provider/')) {
+    return null;
+  }
 
   return (
     <footer className="site-footer">
       <div className="container">
         <div className="footer-grid">
-          {/* Col 1: Brand Info */}
           <div className="footer-col brand-col">
             <div className="footer-logo">
               <div className="footer-logo-box">
@@ -25,7 +29,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Col 2: Navigation */}
           <div className="footer-col">
             <h4>Quick Links</h4>
             <ul className="footer-links">
@@ -37,7 +40,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Col 3: Categories */}
           <div className="footer-col">
             <h4>Service Categories</h4>
             <ul className="footer-links">
@@ -49,7 +51,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Col 4: Contact */}
           <div className="footer-col">
             <h4>Contact Info</h4>
             <ul className="footer-contact-list">

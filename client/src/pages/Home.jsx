@@ -1,315 +1,485 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { serviceAPI } from '../services/api';
-import ServiceCard from '../components/ServiceCard';
-import SkeletonLoader from '../components/SkeletonLoader';
+import homeCutawayImg from '../assets/home-cutaway.jpg';
 import './Home.css';
 
-// Simple outline icons for homepage features and categories
-const HomeIcons = {
-  Search: (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="11" cy="11" r="8"/>
-      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-    </svg>
-  ),
-  ArrowRight: (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="5" y1="12" x2="19" y2="12"/>
-      <polyline points="12 5 19 12 12 19"/>
-    </svg>
-  ),
-  Plumbing: (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z"/>
-    </svg>
-  ),
-  Electrical: (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-    </svg>
-  ),
-  Cleaning: (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.9 2.9M15.5 15.5l2.9 2.9M5.6 18.4l2.9-2.9M15.5 8.5l2.9-2.9"/>
-    </svg>
-  ),
-  Carpentry: (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-    </svg>
-  ),
-  Painting: (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="4" y="3" width="16" height="6" rx="1"/>
-      <path d="M6 9v11a2 2 0 0 2 2 h8a2 2 0 0 0 2-2V9M12 9v13"/>
-    </svg>
-  ),
-  Appliance: (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <path d="M8 12h8M12 8v8"/>
-    </svg>
-  ),
-  HouseHelp: (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-    </svg>
-  ),
-  More: (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="3" width="7" height="7"/>
-      <rect x="14" y="3" width="7" height="7"/>
-      <rect x="14" y="14" width="7" height="7"/>
-      <rect x="3" y="14" width="7" height="7"/>
-    </svg>
-  ),
-  Check: (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-  )
-};
-
-const categoriesList = [
-  { name: 'Electrician', key: 'Electrician', icon: HomeIcons.Electrical },
-  { name: 'Plumbing', key: 'Plumber', icon: HomeIcons.Plumbing },
-  { name: 'Cleaning', key: 'Cleaner', icon: HomeIcons.Cleaning },
-  { name: 'Carpentry', key: 'Carpenter', icon: HomeIcons.Carpentry },
-  { name: 'Painting', key: 'Painter', icon: HomeIcons.Painting },
-  { name: 'Appliance Repair', key: 'AC Repair', icon: HomeIcons.Appliance },
-  { name: 'House Help', key: 'House Helper', icon: HomeIcons.HouseHelp },
-  { name: 'All Services', key: 'All', icon: HomeIcons.More }
-];
-
 const Home = () => {
-  const [popularServices, setPopularServices] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-  const [searchVal, setSearchVal] = useState('');
   const navigate = useNavigate();
+  const aiInputRef = useRef(null);
+
+  const [aiQuery, setAiQuery] = useState('');
+  const [aiRecommendation, setAiRecommendation] = useState(null);
+
+  const [activeHotspot, setActiveHotspot] = useState(null);
 
   useEffect(() => {
-    document.title = 'HomeEase | Trusted Home Services';
-
-    const fetchPopular = async () => {
-      try {
-        setLoading(true);
-        const response = await serviceAPI.getAll({ page: 1, limit: 6 });
-        if (response.success) {
-          setPopularServices(response.data);
-        }
-      } catch (err) {
-        console.error('Error fetching services:', err);
-        setError('Unable to load services at this time.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPopular();
+    document.title = 'HomeEase | A happier home starts with the right help';
   }, []);
 
-  const handleCategoryClick = (categoryKey) => {
-    if (categoryKey === 'All') {
-      navigate('/services');
-    } else {
-      navigate(`/services?category=${encodeURIComponent(categoryKey)}`);
+  const hotspots = [
+    {
+      id: 'bathroom',
+      title: 'Bathroom',
+      services: 'Plumbing / Cleaning',
+      subtitle: 'Bathroom',
+      style: { top: '34%', left: '4%' },
+      dotOffset: { top: '40%', left: '26%' },
+      roomServices: [
+        { label: 'Plumbing & Tap Repair', category: 'Plumber' },
+        { label: 'Deep Bathroom Cleaning', category: 'Cleaner' }
+      ],
+      aiPreset: 'My bathroom tap is leaking and geyser is not heating water'
+    },
+    {
+      id: 'bedroom',
+      title: 'Bedroom',
+      services: 'AC / Electrical',
+      subtitle: 'Bedroom',
+      style: { top: '12%', left: '52%' },
+      dotOffset: { top: '22%', left: '66%' },
+      roomServices: [
+        { label: 'AC Service & Cooling Check', category: 'AC Repair' },
+        { label: 'Switchboard & Socket Wiring', category: 'Electrician' }
+      ],
+      aiPreset: 'The bedroom AC is not cooling properly and fan is noisy'
+    },
+    {
+      id: 'exterior',
+      title: 'Exterior',
+      services: 'Painting / Repairs',
+      subtitle: 'Exterior',
+      style: { top: '12%', right: '2%' },
+      dotOffset: { top: '22%', right: '14%' },
+      roomServices: [
+        { label: 'Exterior Wall Painting', category: 'Painter' },
+        { label: 'Balcony & Door Repairs', category: 'Carpenter' }
+      ],
+      aiPreset: 'Exterior wall paint is peeling and balcony door lock is stuck'
+    },
+    {
+      id: 'kitchen',
+      title: 'Kitchen',
+      services: 'Plumbing / Appliance Repair',
+      subtitle: 'Kitchen',
+      style: { bottom: '22%', left: '4%' },
+      dotOffset: { bottom: '28%', left: '30%' },
+      roomServices: [
+        { label: 'Sink Plumbing & Tap Repair', category: 'Plumber' },
+        { label: 'Chimney & Appliance Service', category: 'AC Repair' }
+      ],
+      aiPreset: 'My kitchen tap is leaking and water is collecting under sink'
+    },
+    {
+      id: 'living',
+      title: 'Living Area',
+      services: 'Cleaning / Painting',
+      subtitle: 'Living Area',
+      style: { bottom: '20%', right: '4%' },
+      dotOffset: { bottom: '26%', right: '22%' },
+      roomServices: [
+        { label: 'Deep Sofa & Floor Cleaning', category: 'Cleaner' },
+        { label: 'Wall Touch-up Painting', category: 'Painter' }
+      ],
+      aiPreset: 'Need deep sofa cleaning and touch-up painting for living room'
+    }
+  ];
+
+  const processAIRecommendation = (queryText) => {
+    const q = queryText.toLowerCase();
+
+    if (q.includes('tap') || q.includes('leak') || q.includes('pipe') || q.includes('water') || q.includes('sink') || q.includes('drain') || q.includes('faucet')) {
+      return {
+        service: 'Plumbing & Repairs',
+        category: 'Plumber',
+        providerName: 'Manoj Verma',
+        company: 'QuickFix Plumbers',
+        rating: '4.5',
+        exp: '4 years experience',
+        rate: '₹400/hr',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80'
+      };
+    }
+
+    if (q.includes('fan') || q.includes('switch') || q.includes('wiring') || q.includes('light') || q.includes('socket') || q.includes('electricity') || q.includes('short')) {
+      return {
+        service: 'Electrical Services',
+        category: 'Electrician',
+        providerName: 'Anil Kumar',
+        company: 'Premium Electrical Services',
+        rating: '4.9',
+        exp: '6 years experience',
+        rate: '₹850/hr',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80'
+      };
+    }
+
+    if (q.includes('clean') || q.includes('dust') || q.includes('bathroom') || q.includes('kitchen cleaning') || q.includes('deep clean') || q.includes('sofa')) {
+      return {
+        service: 'Cleaning Services',
+        category: 'Cleaner',
+        providerName: 'Priya Cleaning Solutions',
+        company: 'HomeEase Sparkle Clean',
+        rating: '4.8',
+        exp: '5 years experience',
+        rate: '₹500/hr',
+        avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80'
+      };
+    }
+
+    if (q.includes('paint') || q.includes('wall') || q.includes('colour') || q.includes('renovation')) {
+      return {
+        service: 'Painting & Renovation',
+        category: 'Painter',
+        providerName: 'Ramesh Craftsmen',
+        company: 'ColorTouch Paints',
+        rating: '4.7',
+        exp: '7 years experience',
+        rate: '₹600/hr',
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80'
+      };
+    }
+
+    if (q.includes('ac') || q.includes('air conditioner') || q.includes('cooling') || q.includes('gas') || q.includes('fridge')) {
+      return {
+        service: 'AC & Appliance Repair',
+        category: 'AC Repair',
+        providerName: 'Deepak Saini',
+        company: 'Spark Electricals & AC',
+        rating: '4.4',
+        exp: '3 years experience',
+        rate: '₹450/hr',
+        avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=120&q=80'
+      };
+    }
+
+    return {
+      service: 'Plumbing & Repairs',
+      category: 'Plumber',
+      providerName: 'Manoj Verma',
+      company: 'QuickFix Plumbers',
+      rating: '4.5',
+      exp: '4 years experience',
+      rate: '₹400/hr',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80'
+    };
+  };
+
+  const handleAISubmit = (e) => {
+    if (e) e.preventDefault();
+    if (!aiQuery.trim()) return;
+    const result = processAIRecommendation(aiQuery);
+    setAiRecommendation(result);
+  };
+
+  const handlePresetClick = (presetText) => {
+    setAiQuery(presetText);
+    const result = processAIRecommendation(presetText);
+    setAiRecommendation(result);
+    if (aiInputRef.current) {
+      aiInputRef.current.focus();
     }
   };
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (searchVal.trim()) {
-      navigate(`/services?search=${encodeURIComponent(searchVal.trim())}`);
+  const handleHotspotClick = (spot) => {
+    if (activeHotspot?.id === spot.id) {
+      setActiveHotspot(null);
     } else {
-      navigate('/services');
+      setActiveHotspot(spot);
     }
   };
 
   return (
-    <div className="home-page-container">
-      {/* 1. Compact Hero / Search Section */}
-      <section className="hero-search-section">
-        <div className="container hero-content">
-          <h1 className="hero-title">Find the right service for your home</h1>
-          <p className="hero-subtitle">
-            Book verified plumbers, electricians, cleaners, and home repair experts in seconds.
-          </p>
+    <div className="home-landing-page">
+      <section className="container hero-section-desktop">
+        <div className="hero-grid-desktop">
+          <div className="hero-left-content">
+            <h1 className="hero-main-title">
+              A happier home starts<br />with the right help.
+            </h1>
 
-          <form className="main-search-bar" onSubmit={handleSearchSubmit}>
-            <div className="search-input-wrapper">
-              <span className="search-input-icon">{HomeIcons.Search}</span>
-              <input
-                type="text"
-                placeholder="Search for a service (e.g. Plumbing, Electrician, Deep Clean)..."
-                value={searchVal}
-                onChange={(e) => setSearchVal(e.target.value)}
+            <p className="hero-sub-title">
+              From leaky taps to faulty switches, HomeEase connects you with trusted local professionals for all your home service needs.
+            </p>
+
+            <div className="ai-recommendation-box">
+              <div className="ai-box-header">
+                <div className="ai-box-label">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                  <span>AI Home Recommendation</span>
+                </div>
+                <span className="ai-beta-badge">BETA</span>
+              </div>
+
+              <div className="ai-box-sub">Not sure what service you need?</div>
+
+              <form onSubmit={handleAISubmit}>
+                <div className="ai-input-wrapper">
+                  <textarea
+                    ref={aiInputRef}
+                    rows="2"
+                    className="ai-input-field"
+                    placeholder="Tell us what's happening at home..."
+                    value={aiQuery}
+                    onChange={(e) => setAiQuery(e.target.value)}
+                  />
+                  <button type="submit" className="ai-submit-btn" aria-label="Submit AI Recommendation">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+
+              <div className="ai-helper-text">
+                Describe the problem in your own words.
+              </div>
+
+              <div 
+                className="ai-preset-chip" 
+                onClick={() => handlePresetClick('My kitchen tap is leaking and water is collecting under sink')}
+              >
+                💬 "My kitchen tap is leaking and water is collecting under sink"
+              </div>
+
+              {aiRecommendation && (
+                <div className="ai-result-card">
+                  <div className="ai-result-title">Looks like you need</div>
+                  <div className="ai-result-service">{aiRecommendation.service}</div>
+                  
+                  <div className="ai-result-provider-box">
+                    <img src={aiRecommendation.avatar} alt={aiRecommendation.providerName} className="ai-result-avatar" />
+                    <div style={{ flex: 1 }}>
+                      <div className="ai-result-p-name">{aiRecommendation.providerName}</div>
+                      <div className="ai-result-p-meta">
+                        <span style={{ color: '#B7654A', fontWeight: '700' }}>★ {aiRecommendation.rating}</span> · {aiRecommendation.exp}
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    className="btn btn-primary btn-sm"
+                    style={{ marginTop: '4px', width: '100%' }}
+                    onClick={() => navigate(`/services?category=${encodeURIComponent(aiRecommendation.category)}`)}
+                  >
+                    View Recommendation &rarr;
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="hero-right-visual">
+            <div className="home-image-wrapper">
+              <img
+                src={homeCutawayImg}
+                alt="HomeEase House Model"
+                className="home-main-img"
+              />
+
+              {hotspots.map((spot) => (
+                <React.Fragment key={spot.id}>
+                  <div
+                    className={`home-hotspot-card ${activeHotspot?.id === spot.id ? 'active' : ''}`}
+                    style={spot.style}
+                    onClick={() => handleHotspotClick(spot)}
+                  >
+                    <div className="hotspot-icon-circle">
+                      {spot.id === 'kitchen' && '🔧'}
+                      {spot.id === 'bathroom' && '🚿'}
+                      {spot.id === 'bedroom' && '❄️'}
+                      {spot.id === 'living' && '🛋️'}
+                      {spot.id === 'exterior' && '🪴'}
+                    </div>
+                    <div className="hotspot-info-text">
+                      <span className="hotspot-title">{spot.services}</span>
+                      <span className="hotspot-services-sub">{spot.subtitle}</span>
+                    </div>
+                  </div>
+
+                  <div 
+                    className="hotspot-room-dot"
+                    style={spot.dotOffset}
+                    onClick={() => handleHotspotClick(spot)}
+                  />
+
+                  {activeHotspot?.id === spot.id && (
+                    <div 
+                      className="hotspot-context-panel" 
+                      style={{
+                        top: spot.style.top ? `calc(${spot.style.top} + 46px)` : 'auto',
+                        bottom: spot.style.bottom ? `calc(${spot.style.bottom} + 46px)` : 'auto',
+                        left: spot.style.left || 'auto',
+                        right: spot.style.right || 'auto'
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="context-panel-header">{spot.title} Services</div>
+                      {spot.roomServices.map((rs, idx) => (
+                        <div
+                          key={idx}
+                          className="context-service-item"
+                          onClick={() => navigate(`/services?category=${encodeURIComponent(rs.category)}`)}
+                        >
+                          <span>{rs.label}</span>
+                          <span>&rarr;</span>
+                        </div>
+                      ))}
+                      <button
+                        className="context-ai-ask-btn"
+                        onClick={() => {
+                          setActiveHotspot(null);
+                          handlePresetClick(spot.aiPreset);
+                        }}
+                      >
+                        Ask HomeEase AI &rarr;
+                      </button>
+                    </div>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container popular-section-block">
+        <div className="section-header-row">
+          <div>
+            <h2>Popular Services</h2>
+            <p>Quick fixes to major home needs — book trusted professionals in minutes.</p>
+          </div>
+        </div>
+
+        <div className="popular-tiles-grid">
+          <Link to="/services?category=Electrician" className="popular-tile-card">
+            <div className="tile-img-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80"
+                alt="Electrical Services"
+                className="tile-img"
               />
             </div>
-            <button type="submit" className="btn btn-primary search-submit-btn">
-              Search Services
-            </button>
-          </form>
-
-          <div className="popular-tags">
-            <span className="tags-label">Popular searches:</span>
-            <button className="tag-link" onClick={() => handleCategoryClick('Plumber')}>Plumber</button>
-            <button className="tag-link" onClick={() => handleCategoryClick('Electrician')}>Electrician</button>
-            <button className="tag-link" onClick={() => handleCategoryClick('Cleaner')}>Cleaning</button>
-            <button className="tag-link" onClick={() => handleCategoryClick('AC Repair')}>AC Repair</button>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Service Categories */}
-      <section className="container categories-section">
-        <div className="section-title-row">
-          <div>
-            <h2>Browse by category</h2>
-            <p>Explore professional services tailored to your home needs</p>
-          </div>
-        </div>
-
-        <div className="categories-grid">
-          {categoriesList.map((cat) => (
-            <div 
-              key={cat.key} 
-              className="category-card"
-              onClick={() => handleCategoryClick(cat.key)}
-            >
-              <div className="category-icon-box">
-                {cat.icon}
+            <div className="tile-content-box">
+              <div className="tile-badge-icon">⚡</div>
+              <div>
+                <h3 className="tile-title">Electrical Services</h3>
+                <p className="tile-desc">Repairs, installations, rewiring & safety checks.</p>
               </div>
-              <h3 className="category-name">{cat.name}</h3>
+              <div className="tile-footer-arrow">&rarr;</div>
             </div>
-          ))}
+          </Link>
+
+          <Link to="/services?category=Plumber" className="popular-tile-card">
+            <div className="tile-img-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80"
+                alt="Plumbing Services"
+                className="tile-img"
+              />
+            </div>
+            <div className="tile-content-box">
+              <div className="tile-badge-icon">💧</div>
+              <div>
+                <h3 className="tile-title">Plumbing Services</h3>
+                <p className="tile-desc">Leaks, fittings, drainage & geyser repair.</p>
+              </div>
+              <div className="tile-footer-arrow">&rarr;</div>
+            </div>
+          </Link>
+
+          <Link to="/services?category=Cleaner" className="popular-tile-card">
+            <div className="tile-img-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80"
+                alt="Cleaning Services"
+                className="tile-img"
+              />
+            </div>
+            <div className="tile-content-box">
+              <div className="tile-badge-icon">✨</div>
+              <div>
+                <h3 className="tile-title">Cleaning Services</h3>
+                <p className="tile-desc">Deep cleaning, regular house cleaning & sofa care.</p>
+              </div>
+              <div className="tile-footer-arrow">&rarr;</div>
+            </div>
+          </Link>
         </div>
       </section>
 
-      {/* 3. Popular Services */}
-      <section className="container popular-section">
-        <div className="section-title-row">
+      <section className="container providers-section-block">
+        <div className="section-header-row">
           <div>
-            <h2>Popular services</h2>
-            <p>Direct bookings from our verified service providers catalog</p>
+            <h2>Trusted Providers</h2>
+            <p>Verified professionals. Fair pricing. Real reviews.</p>
           </div>
-          <Link to="/services" className="view-all-link">
-            View All Services {HomeIcons.ArrowRight}
+          <Link to="/providers" className="view-all-link">
+            View all providers &rarr;
           </Link>
         </div>
 
-        {loading ? (
-          <div className="grid-3">
-            <SkeletonLoader count={6} />
-          </div>
-        ) : error ? (
-          <p className="error-message">{error}</p>
-        ) : popularServices.length === 0 ? (
-          <p className="empty-message">No services currently available.</p>
-        ) : (
-          <div className="grid-3">
-            {popularServices.map((service) => (
-              <ServiceCard key={service._id} service={service} />
-            ))}
-          </div>
-        )}
-      </section>
-
-      {/* 4. How HomeEase Works */}
-      <section className="how-it-works-section">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2>How HomeEase works</h2>
-            <p>Simple 4-step process to get quality service delivered to your doorstep</p>
-          </div>
-
-          <div className="steps-grid">
-            <div className="step-card">
-              <span className="step-number">1</span>
-              <h3>Choose a service</h3>
-              <p>Select from our comprehensive list of home maintenance and repair services.</p>
+        <div className="provider-cards-grid">
+          <div className="compact-provider-card">
+            <div className="provider-photo-box">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Anil Kumar" />
             </div>
-
-            <div className="step-card">
-              <span className="step-number">2</span>
-              <h3>Select a provider</h3>
-              <p>Compare ratings, pricing, and availability to pick the right expert.</p>
-            </div>
-
-            <div className="step-card">
-              <span className="step-number">3</span>
-              <h3>Pick a time</h3>
-              <p>Schedule appointment date and time convenient for your daily routine.</p>
-            </div>
-
-            <div className="step-card">
-              <span className="step-number">4</span>
-              <h3>Get the service</h3>
-              <p>Our verified professional arrives on time and completes the work safely.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Why HomeEase / Trust Section */}
-      <section className="container trust-section">
-        <div className="trust-box">
-          <div className="trust-header">
-            <h2>Why homeowners choose HomeEase</h2>
-            <p>We connect you with trusted local experts with full pricing transparency.</p>
-          </div>
-
-          <div className="trust-features-grid">
-            <div className="trust-feature-item">
-              <div className="trust-check-circle">{HomeIcons.Check}</div>
-              <div>
-                <h4>Verified Professionals</h4>
-                <p>Every technician undergoes thorough identity and skill verification.</p>
+            <div className="provider-details-info">
+              <div className="provider-header-line">
+                <span className="provider-p-name">Anil Kumar</span>
+                <span className="verified-pill">✓ Verified</span>
               </div>
-            </div>
-
-            <div className="trust-feature-item">
-              <div className="trust-check-circle">{HomeIcons.Check}</div>
-              <div>
-                <h4>Transparent Pricing</h4>
-                <p>Clear hourly rates with zero hidden charges or surprise fees.</p>
+              <div className="provider-p-company">Premium Electrical Services</div>
+              <div className="provider-p-stats">
+                <span className="provider-p-rating">★ 4.9</span>
+                <span>• 6 yrs exp</span>
               </div>
-            </div>
-
-            <div className="trust-feature-item">
-              <div className="trust-check-circle">{HomeIcons.Check}</div>
-              <div>
-                <h4>Easy Online Booking</h4>
-                <p>Book or reschedule service appointments in less than 2 minutes.</p>
-              </div>
-            </div>
-
-            <div className="trust-feature-item">
-              <div className="trust-check-circle">{HomeIcons.Check}</div>
-              <div>
-                <h4>Reliable Satisfaction Guarantee</h4>
-                <p>Our support team ensures your home service is completed to full satisfaction.</p>
+              <div className="provider-card-bottom">
+                <Link to="/services" className="btn btn-secondary btn-sm">Book Now</Link>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 6. Simple Promotional Banner */}
-      <section className="container promo-banner-section">
-        <div className="promo-banner">
-          <div className="promo-banner-text">
-            <h2>Book the help your home needs today</h2>
-            <p>Professional home repair and cleaning services available on-demand in Vadodara.</p>
+          <div className="compact-provider-card">
+            <div className="provider-photo-box">
+              <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80" alt="Deepak Saini" />
+            </div>
+            <div className="provider-details-info">
+              <div className="provider-header-line">
+                <span className="provider-p-name">Deepak Saini</span>
+                <span className="verified-pill">✓ Verified</span>
+              </div>
+              <div className="provider-p-company">Spark Electricals</div>
+              <div className="provider-p-stats">
+                <span className="provider-p-rating">★ 4.5</span>
+                <span>• 5 yrs exp</span>
+              </div>
+              <div className="provider-card-bottom">
+                <Link to="/services" className="btn btn-secondary btn-sm">Book Now</Link>
+              </div>
+            </div>
           </div>
-          <div className="promo-banner-actions">
-            <Link to="/services" className="btn btn-primary">
-              Browse Services
-            </Link>
-            <Link to="/contact" className="btn btn-secondary">
-              Contact Support
-            </Link>
+
+          <div className="compact-provider-card">
+            <div className="provider-photo-box">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Manoj Verma" />
+            </div>
+            <div className="provider-details-info">
+              <div className="provider-header-line">
+                <span className="provider-p-name">Manoj Verma</span>
+                <span className="verified-pill">✓ Verified</span>
+              </div>
+              <div className="provider-p-company">QuickFix Plumbers</div>
+              <div className="provider-p-stats">
+                <span className="provider-p-rating">★ 4.5</span>
+                <span>• 4 yrs exp</span>
+              </div>
+              <div className="provider-card-bottom">
+                <Link to="/services" className="btn btn-secondary btn-sm">Book Now</Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -1,9 +1,5 @@
 import * as aiService from '../services/ai.service.js';
 
-/**
- * Handle AI provider recommendation request
- * POST /api/ai/recommend
- */
 export const getProviderRecommendation = async (req, res) => {
   try {
     const { category, service, preference } = req.body || {};
