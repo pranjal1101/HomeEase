@@ -1,4 +1,4 @@
-/* Global Shared Navbar Styles - Warm Ivory & Terracotta Theme */
+/* Global Shared Navbar Styles - HomeEase Palette */
 
 .site-header {
   position: fixed;
@@ -6,8 +6,8 @@
   left: 0;
   right: 0;
   height: 78px;
-  background-color: var(--bg-page, #F7F4EE);
-  border-bottom: 1px solid var(--border-color, #DDD7CD);
+  background-color: var(--bg-page, #FAFAF7);
+  border-bottom: 1px solid var(--color-muted, #BFB5A9);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -37,7 +37,7 @@
   width: 36px;
   height: 36px;
   border-radius: var(--radius-sm, 8px);
-  background-color: var(--primary-accent, #B7654A);
+  background-color: var(--color-primary, #6F473B);
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -48,12 +48,12 @@
   font-family: var(--font-family);
   font-weight: 800;
   font-size: 22px;
-  color: var(--primary-dark, #202522);
+  color: var(--color-dark, #291C0E);
   letter-spacing: -0.02em;
 }
 
 .logo-highlight {
-  color: var(--primary-accent, #B7654A);
+  color: var(--color-primary, #6F473B);
 }
 
 .navbar-links {
@@ -65,22 +65,22 @@
 .nav-link-item {
   font-size: 14.5px;
   font-weight: 500;
-  color: var(--primary-dark, #202522);
+  color: var(--color-dark, #291C0E);
   text-decoration: none;
   position: relative;
   padding: 6px 0;
-  border-bottom: 2px solid transparent; /* Reserved in advance so height NEVER changes */
+  border-bottom: 2px solid transparent;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .nav-link-item:hover {
-  color: var(--primary-accent, #B7654A);
+  color: var(--color-primary, #6F473B);
 }
 
 .nav-link-item.active {
-  color: var(--primary-dark, #202522);
+  color: var(--color-dark, #291C0E);
   font-weight: 700;
-  border-bottom-color: var(--primary-accent, #B7654A);
+  border-bottom-color: var(--color-primary, #6F473B);
 }
 
 /* Right Section Actions */
@@ -88,35 +88,6 @@
   display: flex;
   align-items: center;
   gap: 16px;
-}
-
-.bell-button {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background-color: #FFFFFF;
-  border: 1px solid var(--border-color, #DDD7CD);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-dark);
-  cursor: pointer;
-  position: relative;
-  transition: var(--transition);
-}
-
-.bell-button:hover {
-  border-color: var(--primary-accent);
-}
-
-.bell-badge-dot {
-  position: absolute;
-  top: 8px;
-  right: 9px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--primary-accent, #B7654A);
 }
 
 .profile-dropdown-wrapper {
@@ -130,19 +101,19 @@
   padding: 4px 12px 4px 4px;
   border-radius: var(--radius-pill);
   background-color: #FFFFFF;
-  border: 1px solid var(--border-color, #DDD7CD);
+  border: 1px solid var(--color-muted, #BFB5A9);
   cursor: pointer;
 }
 
 .profile-trigger-btn:hover {
-  border-color: var(--primary-accent);
+  border-color: var(--color-primary, #6F473B);
 }
 
 .avatar-circle {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: var(--primary-accent, #B7654A);
+  background-color: var(--color-primary, #6F473B);
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -154,11 +125,11 @@
 .avatar-name {
   font-size: 14px;
   font-weight: 600;
-  color: var(--primary-dark);
+  color: var(--color-dark, #291C0E);
 }
 
 .chevron-icon {
-  color: var(--text-light);
+  color: var(--color-secondary, #A78D78);
   transition: transform 0.2s ease;
 }
 
@@ -172,9 +143,9 @@
   right: 0;
   width: 190px;
   background-color: #FFFFFF;
-  border: 1px solid var(--border-color, #DDD7CD);
+  border: 1px solid var(--color-muted, #BFB5A9);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 6px 18px rgba(41, 28, 14, 0.08);
   padding: 6px;
   display: flex;
   flex-direction: column;
@@ -187,7 +158,7 @@
   border-radius: var(--radius-sm);
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--primary-dark);
+  color: var(--color-dark, #291C0E);
   text-decoration: none;
   background: none;
   border: none;
@@ -197,14 +168,14 @@
 }
 
 .dropdown-menu-item:hover {
-  background-color: var(--bg-secondary, #EEE9E0);
-  color: var(--primary-accent, #B7654A);
+  background-color: var(--color-light, #F1D4C2);
+  color: var(--color-primary, #6F473B);
 }
 
 .dropdown-menu-item.logout-btn {
-  color: #C62828;
+  color: var(--color-dark, #291C0E);
 }
 
 .dropdown-menu-item.logout-btn:hover {
-  background-color: #FFEBEE;
+  background-color: var(--color-light, #F1D4C2);
 }

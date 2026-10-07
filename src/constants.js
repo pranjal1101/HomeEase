@@ -13,6 +13,7 @@ export const BOOKING_STATUS = {
   ACCEPTED: 'Accepted',
   CONFIRMED: 'Confirmed',
   REJECTED: 'Rejected',
+  PAYMENT_PENDING: 'Payment Pending',
   COMPLETED: 'Completed',
   CANCELLED: 'Cancelled'
 };

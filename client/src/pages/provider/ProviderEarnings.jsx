@@ -58,8 +58,8 @@ const ProviderEarnings = () => {
   return (
     <ProviderLayout>
       <div style={{ marginBottom: '24px' }}>
-        <h1 style={{ fontSize: '24px', fontWeight: '700', color: '#49225B' }}>Earnings</h1>
-        <p style={{ color: '#5A5266', fontSize: '14px', marginTop: '2px' }}>
+        <h1 style={{ fontSize: '24px', fontWeight: '700', color: '#291C0E' }}>Earnings</h1>
+        <p style={{ color: '#6F473B', fontSize: '14px', marginTop: '2px' }}>
           Overview of revenue generated from completed service bookings.
         </p>
       </div>
@@ -76,7 +76,7 @@ const ProviderEarnings = () => {
           <SkeletonLoader height="100px" />
         </div>
       ) : error ? (
-        <div style={{ color: '#C62828', padding: '24px', textAlign: 'center' }}>
+        <div style={{ color: '#291C0E', padding: '24px', textAlign: 'center' }}>
           {error}
         </div>
       ) : (
@@ -90,21 +90,21 @@ const ProviderEarnings = () => {
 
           <div className="earnings-card">
             <div className="earnings-card-title">This Month</div>
-            <div className="earnings-card-amount" style={{ color: '#6E3482' }}>
+            <div className="earnings-card-amount" style={{ color: '#6F473B' }}>
               ₹{(earningsData?.thisMonthEarnings || 0).toLocaleString()}
             </div>
           </div>
 
           <div className="earnings-card">
             <div className="earnings-card-title">Pending Payments</div>
-            <div className="earnings-card-amount" style={{ color: '#E65100' }}>
+            <div className="earnings-card-amount" style={{ color: '#291C0E' }}>
               ₹{(earningsData?.pendingPayments || 0).toLocaleString()}
             </div>
           </div>
 
           <div className="earnings-card">
             <div className="earnings-card-title">Completed Jobs</div>
-            <div className="earnings-card-amount" style={{ color: '#1B7B43' }}>
+            <div className="earnings-card-amount" style={{ color: '#6F473B' }}>
               {earningsData?.completedJobs || 0}
             </div>
           </div>
@@ -151,7 +151,7 @@ const ProviderEarnings = () => {
                     <td>
                       {row.service}
                     </td>
-                    <td style={{ fontWeight: '700', color: '#49225B' }}>
+                    <td style={{ fontWeight: '700', color: '#291C0E' }}>
                       ₹{row.amount}
                     </td>
                     <td>

@@ -1,4 +1,4 @@
-/* Modal Stylesheet - Solid Colors */
+/* Modal Stylesheet - HomeEase Palette */
 
 .modal-overlay {
   position: fixed;
@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(30, 27, 36, 0.5);
+  background-color: rgba(41, 28, 14, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,10 +15,10 @@
 }
 
 .modal-content {
-  background-color: var(--white);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  background-color: #FFFFFF;
+  border-radius: var(--radius-md, 12px);
+  border: 1px solid var(--color-muted, #BFB5A9);
+  box-shadow: 0 4px 20px rgba(41, 28, 14, 0.12);
   max-width: 480px;
   width: 100%;
   padding: 24px;
@@ -33,23 +33,23 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: var(--text-muted);
+  color: var(--color-secondary, #A78D78);
   line-height: 1;
 }
 
 .modal-close-btn:hover {
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
 }
 
 .modal-header {
   margin-bottom: 20px;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--color-muted, #BFB5A9);
   padding-bottom: 12px;
 }
 
 .modal-header h3 {
   font-size: 20px;
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
 }
 
 .modal-body {
@@ -60,6 +60,6 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--color-muted, #BFB5A9);
   padding-top: 16px;
 }

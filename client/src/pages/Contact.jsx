@@ -46,7 +46,11 @@ const Contact = () => {
 
         <div className="about-values-grid">
           <div className="value-item">
-            <span className="value-icon">✓</span>
+            <span className="value-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
             <div>
               <h4>Vetted & Background-Checked</h4>
               <p>Every service provider undergoes background screening and skill verification.</p>
@@ -54,7 +58,11 @@ const Contact = () => {
           </div>
 
           <div className="value-item">
-            <span className="value-icon">✓</span>
+            <span className="value-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
             <div>
               <h4>Transparent Hourly Rates</h4>
               <p>No hidden surprise fees or price markups. You know the exact rate upfront.</p>
@@ -62,7 +70,11 @@ const Contact = () => {
           </div>
 
           <div className="value-item">
-            <span className="value-icon">✓</span>
+            <span className="value-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
             <div>
               <h4>Easy Scheduling</h4>
               <p>Book or reschedule appointments online in seconds without phone calls.</p>
@@ -120,7 +132,11 @@ const Contact = () => {
           <h3>Send Us a Message</h3>
           {success ? (
             <div className="contact-success-state">
-              <div className="success-icon-badge">✓</div>
+              <div className="success-icon-badge">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
               <h4>Message Delivered!</h4>
               <p>
                 Thank you for contacting HomeEase support. Our customer support team will reply within 24 hours.

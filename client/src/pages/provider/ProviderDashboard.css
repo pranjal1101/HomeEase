@@ -1,4 +1,4 @@
-/* Provider Dashboard Styles */
+/* Provider Dashboard Styles - HomeEase Palette */
 
 .dashboard-header-banner {
   margin-bottom: 24px;
@@ -7,13 +7,13 @@
 .dashboard-header-title {
   font-size: 26px;
   font-weight: 700;
-  color: var(--primary, #49225B);
+  color: var(--color-dark, #291C0E);
   margin-bottom: 4px;
 }
 
 .dashboard-header-subtitle {
   font-size: 14.5px;
-  color: var(--text-secondary, #5A5266);
+  color: var(--color-primary, #6F473B);
 }
 
 /* Stat Cards Grid */
@@ -27,9 +27,9 @@
 .stat-card {
   background-color: #FFFFFF;
   border-radius: 10px;
-  border: 1px solid var(--border-light, #E2D5E8);
+  border: 1px solid var(--color-muted, #BFB5A9);
   padding: 20px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 4px rgba(41, 28, 14, 0.03);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,7 +38,7 @@
 .stat-card-label {
   font-size: 12px;
   font-weight: 700;
-  color: var(--text-muted, #7A7285);
+  color: var(--color-secondary, #A78D78);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
@@ -47,16 +47,15 @@
 .stat-card-value {
   font-size: 24px;
   font-weight: 700;
-  color: var(--primary, #49225B);
-  font-family: var(--font-headings);
+  color: var(--color-dark, #291C0E);
 }
 
 .stat-card-icon {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background-color: #F5EBFA;
-  color: #6E3482;
+  background-color: var(--color-light, #F1D4C2);
+  color: var(--color-primary, #6F473B);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,14 +66,14 @@
 .provider-section-card {
   background-color: #FFFFFF;
   border-radius: 10px;
-  border: 1px solid var(--border-light, #E2D5E8);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--color-muted, #BFB5A9);
+  box-shadow: 0 1px 4px rgba(41, 28, 14, 0.03);
   overflow: hidden;
 }
 
 .provider-section-header {
   padding: 18px 24px;
-  border-bottom: 1px solid var(--border-subtle, #EDE4F2);
+  border-bottom: 1px solid var(--color-muted, #BFB5A9);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,7 +82,7 @@
 .provider-section-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--primary, #49225B);
+  color: var(--color-dark, #291C0E);
 }
 
 /* Table Styling */
@@ -100,11 +99,11 @@
 }
 
 .provider-table th {
-  background-color: #FAFAF8;
-  color: var(--text-secondary, #5A5266);
+  background-color: var(--bg-page, #FAFAF7);
+  color: var(--color-primary, #6F473B);
   font-weight: 600;
   padding: 12px 18px;
-  border-bottom: 1px solid var(--border-light, #E2D5E8);
+  border-bottom: 1px solid var(--color-muted, #BFB5A9);
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -112,8 +111,8 @@
 
 .provider-table td {
   padding: 14px 18px;
-  border-bottom: 1px solid var(--border-subtle, #EDE4F2);
-  color: var(--text-primary, #1E1B24);
+  border-bottom: 1px solid var(--color-muted, #BFB5A9);
+  color: var(--color-dark, #291C0E);
   vertical-align: middle;
 }
 
@@ -122,7 +121,7 @@
 }
 
 .provider-table tr:hover {
-  background-color: #FBF8FD;
+  background-color: var(--color-light, #F1D4C2);
 }
 
 /* Action Buttons */
@@ -139,23 +138,23 @@
 }
 
 .btn-success {
-  background-color: #1B7B43;
+  background-color: var(--color-primary, #6F473B);
   color: #FFFFFF;
-  border: 1px solid #1B7B43;
+  border: 1px solid var(--color-primary, #6F473B);
 }
 
 .btn-success:hover {
-  background-color: #145e33;
+  background-color: var(--color-dark, #291C0E);
 }
 
 .btn-danger {
-  background-color: #C62828;
+  background-color: var(--color-dark, #291C0E);
   color: #FFFFFF;
-  border: 1px solid #C62828;
+  border: 1px solid var(--color-dark, #291C0E);
 }
 
 .btn-danger:hover {
-  background-color: #9a1f1f;
+  background-color: var(--color-primary, #6F473B);
 }
 
 @media (max-width: 1024px) {

@@ -1,4 +1,4 @@
-/* My Bookings Customer Page Styles */
+/* My Bookings Customer Page Styles - HomeEase Palette */
 
 .bookings-top-bar {
   display: flex;
@@ -11,12 +11,12 @@
 .bookings-top-bar h1 {
   font-size: 32px;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--color-dark, #291C0E);
   margin-bottom: 6px;
 }
 
 .bookings-top-bar p {
-  color: var(--text-secondary);
+  color: var(--color-primary, #6F473B);
   font-size: 15px;
 }
 
@@ -29,12 +29,12 @@
 }
 
 .tab-btn {
-  background-color: var(--bg-surface, #FFFFFF);
-  border: 1px solid var(--border-light, #EBE5DF);
-  color: var(--text-secondary, #57524A);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-muted, #BFB5A9);
+  color: var(--color-dark, #291C0E);
   padding: 8px 18px;
   border-radius: var(--radius-pill);
-  font-family: var(--font-body);
+  font-family: var(--font-family);
   font-size: 13.5px;
   font-weight: 600;
   cursor: pointer;
@@ -43,20 +43,20 @@
 }
 
 .tab-btn:hover {
-  background-color: var(--bg-subtle);
-  color: var(--text-primary);
+  background-color: var(--color-light, #F1D4C2);
+  color: var(--color-primary, #6F473B);
 }
 
 .tab-btn.active {
-  background-color: var(--primary, #19181A);
+  background-color: var(--color-primary, #6F473B);
   color: #FFFFFF;
-  border-color: var(--primary, #19181A);
+  border-color: var(--color-primary, #6F473B);
 }
 
 .bookings-error-box {
   text-align: center;
   padding: 40px 0;
-  color: var(--status-cancelled-text);
+  color: var(--color-dark, #291C0E);
   font-weight: 600;
 }
 

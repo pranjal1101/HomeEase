@@ -8,7 +8,7 @@ import EmptyState from '../components/EmptyState';
 import Modal from '../components/Modal';
 import './MyBookings.css';
 
-const statusTabs = ['All', 'Pending', 'Confirmed', 'Completed', 'Cancelled'];
+const statusTabs = ['All', 'Pending', 'Accepted', 'Payment Pending', 'Completed', 'Cancelled'];
 
 const MyBookings = () => {
   const { user: activeUser } = useAuth();
@@ -179,6 +179,9 @@ const MyBookings = () => {
               booking={booking} 
               onEdit={handleOpenReschedule}
               onDelete={handleCancelBooking}
+              onPaymentSuccess={(updated) => {
+                setBookings((prev) => prev.map((b) => (b._id === updated._id ? updated : b)));
+              }}
             />
           ))}
         </div>

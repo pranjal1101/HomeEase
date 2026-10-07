@@ -1,6 +1,8 @@
 import User from '../models/user.model.js';
 import Service from '../models/service.model.js';
 import Booking from '../models/booking.model.js';
+import { BOOKING_STATUS } from '../constants.js';
+import { createNotification } from './notification.service.js';
 
 export const getProviderDashboard = async (providerId) => {
   const provider = await User.findById(providerId).select('-password').lean();
@@ -8,7 +10,7 @@ export const getProviderDashboard = async (providerId) => {
     throw new Error('Provider not found');
   }
 
-  const services = await Service.find({ providerId }).lean();
+  const services = await Service.find({ $or: [{ providerId }, { providerId: null }] }).lean();
   const serviceIds = services.map((s) => s._id);
 
   const bookings = await Booking.find({ serviceId: { $in: serviceIds } })
@@ -51,7 +53,7 @@ export const getProviderDashboard = async (providerId) => {
 };
 
 export const getProviderServices = async (providerId) => {
-  return await Service.find({ providerId }).sort({ createdAt: -1 }).lean();
+  return await Service.find({ $or: [{ providerId }, { providerId: null }] }).sort({ createdAt: -1 }).lean();
 };
 
 export const createProviderService = async (providerId, serviceData) => {
@@ -64,14 +66,14 @@ export const createProviderService = async (providerId, serviceData) => {
 };
 
 export const updateProviderService = async (providerId, serviceId, updateData) => {
-  const existingService = await Service.findOne({ _id: serviceId, providerId });
+  const existingService = await Service.findOne({ _id: serviceId, $or: [{ providerId }, { providerId: null }] });
   if (!existingService) {
     throw new Error('Service not found or you do not have permission to modify it.');
   }
 
   const updated = await Service.findByIdAndUpdate(
     serviceId,
-    { $set: updateData },
+    { $set: { ...updateData, providerId } },
     { new: true, runValidators: true }
   ).lean();
 
@@ -90,7 +92,7 @@ export const deleteProviderService = async (providerId, serviceId) => {
 export const getProviderBookings = async (providerId, filters = {}) => {
   const { status, search, sort = 'newest' } = filters;
 
-  const services = await Service.find({ providerId }).select('_id serviceName').lean();
+  const services = await Service.find({ $or: [{ providerId }, { providerId: null }] }).select('_id serviceName').lean();
   const serviceIds = services.map((s) => s._id);
 
   const query = { serviceId: { $in: serviceIds } };
@@ -131,22 +133,56 @@ export const updateProviderBookingStatus = async (providerId, bookingId, status)
     throw new Error('Booking not found');
   }
 
-  const service = await Service.findOne({ _id: booking.serviceId._id || booking.serviceId, providerId });
+  const service = await Service.findOne({ _id: booking.serviceId?._id || booking.serviceId });
   if (!service) {
+    throw new Error('Associated service not found.');
+  }
+
+  if (service.providerId && service.providerId.toString() !== providerId.toString()) {
     throw new Error('You do not have permission to modify this booking.');
   }
 
-  booking.status = status;
+  let nextStatus = status;
+
+  // Provider clicking "Mark Service Completed" transitions status to "Payment Pending"
+  if (status === 'Completed' || status === BOOKING_STATUS.COMPLETED) {
+    nextStatus = BOOKING_STATUS.PAYMENT_PENDING;
+  }
+
+  booking.status = nextStatus;
   await booking.save();
 
+  // Notifications
+  const customerId = booking.userId?._id ? booking.userId._id : booking.userId;
+  const serviceName = service.serviceName || 'Service';
+  const price = service.price || 0;
+
+  if (nextStatus === BOOKING_STATUS.PAYMENT_PENDING) {
+    await createNotification({
+      userId: customerId,
+      title: 'Service Completed',
+      message: `Service completed! Please pay ₹${price} to complete booking.`,
+      type: 'PAYMENT',
+      bookingId: booking._id
+    });
+  } else if (nextStatus === BOOKING_STATUS.ACCEPTED || nextStatus === 'Accepted') {
+    await createNotification({
+      userId: customerId,
+      title: 'Booking Accepted',
+      message: `Your booking for ${serviceName} has been accepted by the service provider.`,
+      type: 'BOOKING',
+      bookingId: booking._id
+    });
+  }
+
   return await Booking.findById(bookingId)
-    .populate({ path: 'userId', select: 'name email phone' })
+    .populate({ path: 'userId', select: 'name email phone address' })
     .populate({ path: 'serviceId', select: 'serviceName category price' })
     .lean();
 };
 
 export const getProviderEarnings = async (providerId) => {
-  const services = await Service.find({ providerId }).select('_id').lean();
+  const services = await Service.find({ $or: [{ providerId }, { providerId: null }] }).select('_id').lean();
   const serviceIds = services.map((s) => s._id);
 
   const bookings = await Booking.find({ serviceId: { $in: serviceIds } })
@@ -155,8 +191,8 @@ export const getProviderEarnings = async (providerId) => {
     .populate({ path: 'serviceId', select: 'serviceName price' })
     .lean();
 
-  const completedBookings = bookings.filter((b) => b.status === 'Completed');
-  const pendingBookings = bookings.filter((b) => b.status === 'Pending' || b.status === 'Accepted' || b.status === 'Confirmed');
+  const completedBookings = bookings.filter((b) => b.status === 'Completed' || b.paymentStatus === 'Paid');
+  const pendingBookings = bookings.filter((b) => b.status === 'Pending' || b.status === 'Accepted' || b.status === 'Confirmed' || b.status === 'Payment Pending');
 
   const totalEarnings = completedBookings.reduce((sum, b) => sum + (b.serviceId?.price || 0), 0);
   const pendingPayments = pendingBookings.reduce((sum, b) => sum + (b.serviceId?.price || 0), 0);
@@ -167,18 +203,19 @@ export const getProviderEarnings = async (providerId) => {
 
   const thisMonthEarnings = completedBookings
     .filter((b) => {
-      const bDate = new Date(b.updatedAt || b.createdAt);
+      const bDate = new Date(b.paidAt || b.updatedAt || b.createdAt);
       return bDate.getMonth() === currentMonth && bDate.getFullYear() === currentYear;
     })
     .reduce((sum, b) => sum + (b.serviceId?.price || 0), 0);
 
   const history = bookings.map((b) => ({
     id: b._id,
-    date: b.bookingDate || b.createdAt,
+    date: b.paidAt || b.bookingDate || b.createdAt,
     customer: b.userId?.name || 'Customer',
     service: b.serviceId?.serviceName || 'Service',
     amount: b.serviceId?.price || 0,
-    status: b.status
+    status: b.status,
+    paymentStatus: b.paymentStatus || (b.status === 'Completed' ? 'Paid' : 'Pending')
   }));
 
   return {

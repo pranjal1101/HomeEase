@@ -1,7 +1,7 @@
-/* Footer Redesign */
+/* Footer - HomeEase Palette */
 
 .site-footer {
-  background-color: var(--primary, #19181A);
+  background-color: var(--color-dark, #291C0E);
   color: #FFFFFF;
   padding: 64px 0 32px 0;
   margin-top: 64px;
@@ -12,13 +12,13 @@
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px;
   padding-bottom: 48px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-primary, #6F473B);
 }
 
 .footer-col h4 {
   font-size: 15px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--color-light, #F1D4C2);
   margin-bottom: 20px;
   letter-spacing: -0.01em;
 }
@@ -34,8 +34,8 @@
   width: 34px;
   height: 34px;
   border-radius: var(--radius-sm, 8px);
-  background-color: #FFFFFF;
-  color: var(--primary, #19181A);
+  background-color: var(--color-primary, #6F473B);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +46,7 @@
 }
 
 .footer-about {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-muted, #BFB5A9);
   font-size: 14.5px;
   line-height: 1.6;
   max-width: 340px;
@@ -60,14 +60,14 @@
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-muted, #BFB5A9);
   font-size: 14px;
   text-decoration: none;
   transition: var(--transition);
 }
 
 .footer-links a:hover {
-  color: #FFFFFF;
+  color: var(--color-light, #F1D4C2);
   padding-left: 4px;
 }
 
@@ -76,7 +76,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-muted, #BFB5A9);
   font-size: 14px;
 }
 
@@ -86,7 +86,7 @@
   align-items: center;
   justify-content: space-between;
   font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-muted, #BFB5A9);
 }
 
 .footer-legal-links {
@@ -96,12 +96,11 @@
 }
 
 .footer-legal-links a {
-  color: rgba(255, 255, 255, 0.5);
-
+  color: var(--color-muted, #BFB5A9);
 }
 
 .footer-legal-links a:hover {
-  color: #FFFFFF;
+  color: var(--color-light, #F1D4C2);
 }
 
 @media (max-width: 900px) {

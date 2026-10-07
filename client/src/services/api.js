@@ -118,6 +118,32 @@ export const aiAPI = {
   }
 };
 
+export const paymentAPI = {
+  simulatePayment: async (bookingId) => {
+    const response = await api.post(`/payments/pay/${bookingId}`);
+    return response.data;
+  },
+  getPaymentByBooking: async (bookingId) => {
+    const response = await api.get(`/payments/booking/${bookingId}`);
+    return response.data;
+  }
+};
+
+export const notificationAPI = {
+  getAll: async () => {
+    const response = await api.get('/notifications');
+    return response.data;
+  },
+  markAsRead: async (id) => {
+    const response = await api.put(`/notifications/${id}/read`);
+    return response.data;
+  },
+  markAllAsRead: async () => {
+    const response = await api.put('/notifications/read-all');
+    return response.data;
+  }
+};
+
 export const providerAPI = {
   getDashboard: async () => {
     const response = await api.get('/provider/dashboard');

@@ -10,7 +10,7 @@
   background-color: #FFFFFF;
   padding: 16px 20px;
   border-radius: 10px;
-  border: 1px solid var(--border-light, #E2D5E8);
+  border: 1px solid var(--color-muted, #BFB5A9);
 }
 
 .booking-filter-tabs {
@@ -22,9 +22,9 @@
 .filter-tab-btn {
   padding: 7px 14px;
   border-radius: 6px;
-  border: 1px solid var(--border-light, #E2D5E8);
+  border: 1px solid var(--color-muted, #BFB5A9);
   background-color: #FFFFFF;
-  color: var(--text-secondary, #5A5266);
+  color: var(--color-primary, #6F473B);
   font-size: 13.5px;
   font-weight: 600;
   cursor: pointer;
@@ -33,14 +33,14 @@
 }
 
 .filter-tab-btn:hover {
-  background-color: #F5EBFA;
-  color: var(--primary, #49225B);
+  background-color: var(--color-light, #F1D4C2);
+  color: var(--color-dark, #291C0E);
 }
 
 .filter-tab-btn.active {
-  background-color: var(--primary, #49225B);
+  background-color: var(--color-primary, #6F473B);
   color: #FFFFFF;
-  border-color: var(--primary, #49225B);
+  border-color: var(--color-primary, #6F473B);
 }
 
 .bookings-search-sort-group {
@@ -61,12 +61,12 @@
   padding: 8px 12px 8px 36px;
   font-size: 13.5px;
   border-radius: 6px;
-  border: 1px solid var(--border-light, #E2D5E8);
+  border: 1px solid var(--color-muted, #BFB5A9);
   outline: none;
 }
 
 .search-input-wrapper input:focus {
-  border-color: var(--secondary, #6E3482);
+  border-color: var(--color-dark, #291C0E);
 }
 
 .search-icon-inside {
@@ -86,6 +86,16 @@
   color: var(--text-primary, #1E1B24);
   outline: none;
   font-weight: 500;
+}
+
+.status-badge.warning {
+  background-color: #FFF3CD;
+  color: #856404;
+  border: 1px solid #FFEEBA;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {

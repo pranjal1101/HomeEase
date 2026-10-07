@@ -6,6 +6,8 @@ import serviceRoutes from './routes/service.routes.js';
 import bookingRoutes from './routes/booking.routes.js';
 import aiRoutes from './routes/ai.routes.js';
 import providerRoutes from './routes/provider.routes.js';
+import paymentRoutes from './routes/payment.routes.js';
+import notificationRoutes from './routes/notification.routes.js';
 import { errorHandler } from './middlewares/errorHandler.middleware.js';
 
 const app = express();
@@ -39,6 +41,8 @@ app.use('/api/services', serviceRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/provider', providerRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 app.get('/', (req, res) => {
   res.json({

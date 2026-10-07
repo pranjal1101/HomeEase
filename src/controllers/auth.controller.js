@@ -32,10 +32,10 @@ export const register = async (req, res) => {
   try {
     const { name, email, password, phone, address, role } = req.body || {};
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !phone) {
       return res.status(400).json({
         success: false,
-        message: 'Please fill in all required fields (name, email, password).'
+        message: 'Please fill in all required fields (name, email, password, phone).'
       });
     }
 

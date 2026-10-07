@@ -34,6 +34,14 @@ const BookingSchema = new mongoose.Schema(
         message: '{VALUE} is not a valid status'
       },
       default: BOOKING_STATUS.PENDING
+    },
+    paymentStatus: {
+      type: String,
+      enum: ['Pending', 'Paid'],
+      default: 'Pending'
+    },
+    paidAt: {
+      type: Date
     }
   },
   {

@@ -4,27 +4,33 @@ import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
 const Signup = () => {
+  const [selectedRole, setSelectedRole] = useState('customer'); // 'customer' or 'provider'
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  const { register, isAuthenticated } = useAuth();
+  const { register, isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     document.title = 'HomeEase | Sign Up';
-    if (isAuthenticated) {
-      navigate('/bookings', { replace: true });
+    if (isAuthenticated && user) {
+      if (user.role === 'provider') {
+        navigate('/provider/dashboard', { replace: true });
+      } else {
+        navigate('/bookings', { replace: true });
+      }
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, user, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !email || !password || !confirmPassword) {
-      setError('Please fill in all fields.');
+    if (!name || !email || !phone || !password || !confirmPassword) {
+      setError('Please fill in all fields including a valid phone number.');
       return;
     }
 
@@ -41,9 +47,13 @@ const Signup = () => {
     try {
       setError('');
       setSubmitting(true);
-      const res = await register({ name, email, password });
+      const res = await register({ name, email, phone, password, role: selectedRole });
       if (res.success) {
-        navigate('/bookings', { replace: true });
+        if (selectedRole === 'provider') {
+          navigate('/provider/dashboard', { replace: true });
+        } else {
+          navigate('/bookings', { replace: true });
+        }
       } else {
         setError(res.message || 'Registration failed.');
       }
@@ -69,9 +79,9 @@ const Signup = () => {
               </div>
               <span className="logo-text">Home<span className="logo-highlight">Ease</span></span>
             </div>
-            <h1 className="auth-banner-title">Join thousands of happy homeowners.</h1>
+            <h1 className="auth-banner-title">Join thousands of happy users & service experts.</h1>
             <p className="auth-banner-desc">
-              Create an account in seconds to schedule verified plumbers, electricians, cleaners, and repair technicians.
+              Create an account in seconds to schedule verified plumbers, electricians, cleaners, or register as a service professional.
             </p>
           </div>
 
@@ -87,6 +97,41 @@ const Signup = () => {
           <div className="auth-header">
             <h2>Create Account</h2>
             <p>Get started with HomeEase today</p>
+          </div>
+
+          {/* Registration Role Selection */}
+          <div className="role-selector-container">
+            <label className="role-selector-label">Create account as</label>
+            <div className="role-selector-toggle">
+              <button
+                type="button"
+                className={`role-option-btn ${selectedRole === 'customer' ? 'active' : ''}`}
+                onClick={() => {
+                  setSelectedRole('customer');
+                  setError('');
+                }}
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                User / Customer
+              </button>
+
+              <button
+                type="button"
+                className={`role-option-btn ${selectedRole === 'provider' ? 'active' : ''}`}
+                onClick={() => {
+                  setSelectedRole('provider');
+                  setError('');
+                }}
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+                Service Provider
+              </button>
+            </div>
           </div>
 
           {error && (
@@ -128,6 +173,19 @@ const Signup = () => {
             </div>
 
             <div className="form-group">
+              <label htmlFor="signup-phone">Contact Number *</label>
+              <input 
+                type="tel" 
+                id="signup-phone"
+                className="form-control"
+                placeholder="+91 98765 43210"
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+
+            <div className="form-group">
               <label htmlFor="signup-password">Password *</label>
               <input 
                 type="password" 
@@ -158,7 +216,7 @@ const Signup = () => {
               className="btn btn-primary auth-submit-btn"
               disabled={submitting}
             >
-              {submitting ? 'Creating Account...' : 'Sign Up'}
+              {submitting ? 'Creating Account...' : `Sign Up as ${selectedRole === 'provider' ? 'Service Provider' : 'Customer'}`}
             </button>
           </form>
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { providerAPI } from '../services/api';
+import NotificationBell from './NotificationBell';
 import './ProviderLayout.css';
 
 const ProviderLayout = ({ children }) => {
@@ -186,10 +187,10 @@ const ProviderLayout = ({ children }) => {
               <line x1="3" y1="18" x2="21" y2="18" />
             </svg>
           </button>
-          <div style={{ fontWeight: '700', color: '#49225B', fontSize: '17px' }}>
-            Home<span style={{ color: '#6E3482' }}>Ease</span> Provider
+          <div style={{ fontWeight: '700', color: '#291C0E', fontSize: '17px' }}>
+            Home<span style={{ color: '#6F473B' }}>Ease</span> Provider
           </div>
-          <div style={{ width: '32px' }}></div>
+          <NotificationBell />
         </header>
 
         <main className="provider-content-body">

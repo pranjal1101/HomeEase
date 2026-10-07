@@ -9,7 +9,6 @@ const Home = () => {
 
   const [aiQuery, setAiQuery] = useState('');
   const [aiRecommendation, setAiRecommendation] = useState(null);
-
   const [activeHotspot, setActiveHotspot] = useState(null);
 
   useEffect(() => {
@@ -35,8 +34,8 @@ const Home = () => {
       title: 'Bedroom',
       services: 'AC / Electrical',
       subtitle: 'Bedroom',
-      style: { top: '12%', left: '52%' },
-      dotOffset: { top: '22%', left: '66%' },
+      style: { top: '8%', left: '36%' },
+      dotOffset: { top: '18%', left: '48%' },
       roomServices: [
         { label: 'AC Service & Cooling Check', category: 'AC Repair' },
         { label: 'Switchboard & Socket Wiring', category: 'Electrician' }
@@ -48,8 +47,8 @@ const Home = () => {
       title: 'Exterior',
       services: 'Painting / Repairs',
       subtitle: 'Exterior',
-      style: { top: '12%', right: '2%' },
-      dotOffset: { top: '22%', right: '14%' },
+      style: { top: '8%', right: '4%' },
+      dotOffset: { top: '18%', right: '14%' },
       roomServices: [
         { label: 'Exterior Wall Painting', category: 'Painter' },
         { label: 'Balcony & Door Repairs', category: 'Carpenter' }
@@ -204,12 +203,8 @@ const Home = () => {
             <div className="ai-recommendation-box">
               <div className="ai-box-header">
                 <div className="ai-box-label">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
                   <span>AI Home Recommendation</span>
                 </div>
-                <span className="ai-beta-badge">BETA</span>
               </div>
 
               <div className="ai-box-sub">Not sure what service you need?</div>
@@ -241,7 +236,7 @@ const Home = () => {
                 className="ai-preset-chip" 
                 onClick={() => handlePresetClick('My kitchen tap is leaking and water is collecting under sink')}
               >
-                💬 "My kitchen tap is leaking and water is collecting under sink"
+                "My kitchen tap is leaking and water is collecting under sink"
               </div>
 
               {aiRecommendation && (
@@ -254,7 +249,7 @@ const Home = () => {
                     <div style={{ flex: 1 }}>
                       <div className="ai-result-p-name">{aiRecommendation.providerName}</div>
                       <div className="ai-result-p-meta">
-                        <span style={{ color: '#B7654A', fontWeight: '700' }}>★ {aiRecommendation.rating}</span> · {aiRecommendation.exp}
+                        <span style={{ color: '#6F473B', fontWeight: '700' }}>Rating: {aiRecommendation.rating}</span> · {aiRecommendation.exp}
                       </div>
                     </div>
                   </div>
@@ -287,11 +282,9 @@ const Home = () => {
                     onClick={() => handleHotspotClick(spot)}
                   >
                     <div className="hotspot-icon-circle">
-                      {spot.id === 'kitchen' && '🔧'}
-                      {spot.id === 'bathroom' && '🚿'}
-                      {spot.id === 'bedroom' && '❄️'}
-                      {spot.id === 'living' && '🛋️'}
-                      {spot.id === 'exterior' && '🪴'}
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                      </svg>
                     </div>
                     <div className="hotspot-info-text">
                       <span className="hotspot-title">{spot.services}</span>
@@ -363,7 +356,11 @@ const Home = () => {
               />
             </div>
             <div className="tile-content-box">
-              <div className="tile-badge-icon">⚡</div>
+              <div className="tile-badge-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
               <div>
                 <h3 className="tile-title">Electrical Services</h3>
                 <p className="tile-desc">Repairs, installations, rewiring & safety checks.</p>
@@ -381,7 +378,11 @@ const Home = () => {
               />
             </div>
             <div className="tile-content-box">
-              <div className="tile-badge-icon">💧</div>
+              <div className="tile-badge-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                </svg>
+              </div>
               <div>
                 <h3 className="tile-title">Plumbing Services</h3>
                 <p className="tile-desc">Leaks, fittings, drainage & geyser repair.</p>
@@ -399,7 +400,11 @@ const Home = () => {
               />
             </div>
             <div className="tile-content-box">
-              <div className="tile-badge-icon">✨</div>
+              <div className="tile-badge-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </div>
               <div>
                 <h3 className="tile-title">Cleaning Services</h3>
                 <p className="tile-desc">Deep cleaning, regular house cleaning & sofa care.</p>
@@ -429,11 +434,11 @@ const Home = () => {
             <div className="provider-details-info">
               <div className="provider-header-line">
                 <span className="provider-p-name">Anil Kumar</span>
-                <span className="verified-pill">✓ Verified</span>
+                <span className="verified-pill">Verified</span>
               </div>
               <div className="provider-p-company">Premium Electrical Services</div>
               <div className="provider-p-stats">
-                <span className="provider-p-rating">★ 4.9</span>
+                <span className="provider-p-rating">Rating: 4.9</span>
                 <span>• 6 yrs exp</span>
               </div>
               <div className="provider-card-bottom">
@@ -449,11 +454,11 @@ const Home = () => {
             <div className="provider-details-info">
               <div className="provider-header-line">
                 <span className="provider-p-name">Deepak Saini</span>
-                <span className="verified-pill">✓ Verified</span>
+                <span className="verified-pill">Verified</span>
               </div>
               <div className="provider-p-company">Spark Electricals</div>
               <div className="provider-p-stats">
-                <span className="provider-p-rating">★ 4.5</span>
+                <span className="provider-p-rating">Rating: 4.5</span>
                 <span>• 5 yrs exp</span>
               </div>
               <div className="provider-card-bottom">
@@ -469,11 +474,11 @@ const Home = () => {
             <div className="provider-details-info">
               <div className="provider-header-line">
                 <span className="provider-p-name">Manoj Verma</span>
-                <span className="verified-pill">✓ Verified</span>
+                <span className="verified-pill">Verified</span>
               </div>
               <div className="provider-p-company">QuickFix Plumbers</div>
               <div className="provider-p-stats">
-                <span className="provider-p-rating">★ 4.5</span>
+                <span className="provider-p-rating">Rating: 4.5</span>
                 <span>• 4 yrs exp</span>
               </div>
               <div className="provider-card-bottom">

@@ -68,8 +68,8 @@ const ServiceCard = memo(({ service }) => {
         <div className="service-card-icon-box">
           <CategoryIcon category={category} />
         </div>
+        <div className="service-card-header-label">{category}</div>
         <div className="service-card-meta">
-          <span className="service-card-category">{category}</span>
           <span className={`availability-tag ${availability ? 'available' : 'booked'}`}>
             {availability ? 'Available' : 'Booked'}
           </span>
@@ -77,6 +77,7 @@ const ServiceCard = memo(({ service }) => {
       </div>
       
       <div className="service-card-body">
+        <span className="service-card-category">{category}</span>
         <h3 className="service-card-title">{serviceName}</h3>
         <p className="service-card-desc">{description}</p>
       </div>

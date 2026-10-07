@@ -1,4 +1,4 @@
-/* Provider Services Page Styles */
+/* Provider Services Page Styles - HomeEase Palette */
 
 .services-page-header {
   display: flex;
@@ -10,7 +10,7 @@
 .services-page-title {
   font-size: 24px;
   font-weight: 700;
-  color: var(--primary, #49225B);
+  color: var(--color-dark, #291C0E);
 }
 
 .services-grid {
@@ -22,21 +22,22 @@
 .provider-service-card {
   background-color: #FFFFFF;
   border-radius: 10px;
-  border: 1px solid var(--border-light, #E2D5E8);
+  border: 1px solid var(--color-muted, #BFB5A9);
   overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 4px rgba(41, 28, 14, 0.03);
   display: flex;
   flex-direction: column;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .provider-service-card:hover {
-  box-shadow: 0 4px 12px rgba(73, 34, 91, 0.08);
+  border-color: var(--color-primary, #6F473B);
+  box-shadow: 0 4px 12px rgba(41, 28, 14, 0.08);
 }
 
 .service-card-img-wrapper {
   height: 160px;
-  background-color: #F0E5F5;
+  background-color: var(--color-light, #F1D4C2);
   position: relative;
   overflow: hidden;
 }
@@ -53,10 +54,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6E3482;
+  color: var(--color-primary, #6F473B);
   font-weight: 600;
   font-size: 14px;
-  background-color: #F5EBFA;
+  background-color: var(--color-light, #F1D4C2);
 }
 
 .service-availability-badge {
@@ -72,15 +73,15 @@
 }
 
 .service-availability-badge.active {
-  background-color: #E8F5E9;
-  color: #1B7B43;
-  border: 1px solid #C8E6C9;
+  background-color: var(--color-light, #F1D4C2);
+  color: var(--color-dark, #291C0E);
+  border: 1px solid var(--color-muted, #BFB5A9);
 }
 
 .service-availability-badge.inactive {
-  background-color: #FFEBEE;
-  color: #C62828;
-  border: 1px solid #FFCDD2;
+  background-color: var(--color-muted, #BFB5A9);
+  color: var(--color-dark, #291C0E);
+  border: 1px solid var(--color-muted, #BFB5A9);
 }
 
 .service-card-body {
@@ -93,7 +94,7 @@
 .service-card-category {
   font-size: 12px;
   font-weight: 700;
-  color: var(--secondary, #6E3482);
+  color: var(--color-primary, #6F473B);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 4px;
@@ -102,13 +103,13 @@
 .service-card-title {
   font-size: 17px;
   font-weight: 700;
-  color: var(--primary, #49225B);
+  color: var(--color-dark, #291C0E);
   margin-bottom: 8px;
 }
 
 .service-card-desc {
   font-size: 13.5px;
-  color: var(--text-secondary, #5A5266);
+  color: var(--color-secondary, #A78D78);
   line-height: 1.45;
   margin-bottom: 16px;
   display: -webkit-box;
@@ -122,7 +123,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 12px;
-  border-top: 1px solid var(--border-subtle, #EDE4F2);
+  border-top: 1px solid var(--color-muted, #BFB5A9);
   margin-top: auto;
   margin-bottom: 16px;
 }
@@ -130,12 +131,12 @@
 .service-price {
   font-size: 19px;
   font-weight: 700;
-  color: var(--primary, #49225B);
+  color: var(--color-dark, #291C0E);
 }
 
 .service-duration {
   font-size: 12.5px;
-  color: var(--text-muted, #7A7285);
+  color: var(--color-secondary, #A78D78);
 }
 
 .service-card-footer {

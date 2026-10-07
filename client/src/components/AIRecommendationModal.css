@@ -1,11 +1,11 @@
-/* AI Recommendation Modal - HomeEase Design System */
+/* AI Recommendation Modal - HomeEase Palette */
 
 .ai-modal-header-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: var(--surface);
-  color: var(--primary);
+  background-color: var(--color-light, #D3C7BA);
+  color: var(--color-primary, #6F473B);
   font-weight: 600;
   font-size: 13px;
   padding: 4px 10px;
@@ -22,7 +22,7 @@
 .ai-pref-label {
   font-size: 14px;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
   margin-bottom: 8px;
   display: block;
 }
@@ -35,9 +35,9 @@
 }
 
 .ai-chip-btn {
-  background-color: var(--white);
-  border: 1px solid var(--border-light);
-  color: var(--text-primary);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-muted, #BFB5A9);
+  color: var(--color-dark, #291C0E);
   font-size: 13px;
   font-weight: 500;
   padding: 7px 14px;
@@ -47,15 +47,15 @@
 }
 
 .ai-chip-btn:hover {
-  border-color: var(--secondary);
-  color: var(--secondary);
-  background-color: var(--background);
+  border-color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6F473B);
+  background-color: var(--color-light, #D3C7BA);
 }
 
 .ai-chip-btn.active {
-  background-color: var(--primary);
-  color: var(--white);
-  border-color: var(--primary);
+  background-color: var(--color-primary, #6F473B);
+  color: #FFFFFF;
+  border-color: var(--color-primary, #6F473B);
 }
 
 .ai-custom-input {
@@ -70,8 +70,8 @@
 .ai-spinner {
   width: 36px;
   height: 36px;
-  border: 3px solid var(--surface);
-  border-top-color: var(--primary);
+  border: 3px solid var(--color-light, #D3C7BA);
+  border-top-color: var(--color-primary, #6F473B);
   border-radius: 50%;
   animation: aiSpin 0.8s linear infinite;
   margin: 0 auto 16px auto;
@@ -82,13 +82,13 @@
 }
 
 .ai-loading-state p {
-  color: var(--text-secondary);
+  color: var(--color-secondary, #A78D78);
   font-weight: 500;
 }
 
 .ai-result-card {
-  background-color: var(--background);
-  border: 1.5px solid var(--border-light);
+  background-color: var(--color-light, #D3C7BA);
+  border: 1.5px solid var(--color-muted, #BFB5A9);
   border-radius: var(--radius-md);
   padding: 16px;
   margin-top: 12px;
@@ -106,12 +106,12 @@
   align-items: center;
   gap: 8px;
   font-size: 18px;
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
 }
 
 .ai-reason-box {
-  background-color: var(--white);
-  border-left: 3px solid var(--secondary);
+  background-color: #FFFFFF;
+  border-left: 3px solid var(--color-primary, #6F473B);
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   margin-bottom: 16px;
@@ -120,7 +120,7 @@
 .ai-reason-box strong {
   display: block;
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--color-secondary, #A78D78);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 4px;
@@ -128,7 +128,7 @@
 
 .ai-reason-box p {
   font-size: 14px;
-  color: var(--text-primary);
+  color: var(--color-dark, #291C0E);
   line-height: 1.4;
 }
 
@@ -138,7 +138,7 @@
   margin-bottom: 16px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-dark, #291C0E);
 }
 
 .ai-actions-row {
@@ -149,13 +149,13 @@
 
 .ai-alternatives-section {
   margin-top: 20px;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--color-muted, #BFB5A9);
   padding-top: 14px;
 }
 
 .ai-alternatives-section h4 {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: var(--color-primary, #6F473B);
   margin-bottom: 10px;
 }
 
@@ -163,10 +163,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--white);
+  background-color: #FFFFFF;
   padding: 10px 14px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--color-muted, #BFB5A9);
   margin-bottom: 8px;
 }
 
@@ -178,12 +178,12 @@
 .ai-alt-name {
   font-weight: 600;
   font-size: 14px;
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
 }
 
 .ai-alt-reason {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--color-secondary, #A78D78);
 }
 
 /* Floating AI Recommendation Button */
@@ -192,16 +192,16 @@
   bottom: 24px;
   right: 24px;
   z-index: 1000;
-  background-color: var(--primary);
-  color: var(--white);
-  border: 2px solid var(--surface);
+  background-color: var(--color-primary, #6F473B);
+  color: #FFFFFF;
+  border: 2px solid var(--color-light, #F1D4C2);
   padding: 10px 18px;
   border-radius: 30px;
-  font-family: var(--font-body);
+  font-family: var(--font-family);
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(73, 34, 91, 0.25);
+  box-shadow: 0 4px 12px rgba(41, 28, 14, 0.2);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -209,7 +209,7 @@
 }
 
 .ai-floating-trigger:hover {
-  background-color: var(--secondary);
+  background-color: var(--color-dark, #291C0E);
   transform: translateY(-2px);
 }
 

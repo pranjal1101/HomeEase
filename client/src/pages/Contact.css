@@ -1,23 +1,23 @@
-/* Contact & About Us Stylesheet - Solid Colors */
+/* Contact & About Us Stylesheet - HomeEase Palette */
 
 .about-overview-card {
-  background-color: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-muted, #BFB5A9);
+  border-radius: var(--radius-md, 12px);
   padding: 28px;
   margin-bottom: 28px;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 2px 6px rgba(41, 28, 14, 0.03);
 }
 
 .about-overview-card h3 {
   font-size: 20px;
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
   margin-bottom: 8px;
 }
 
 .about-overview-card p {
   font-size: 15px;
-  color: var(--text-secondary);
+  color: var(--color-primary, #6F473B);
   line-height: 1.6;
   margin-bottom: 24px;
 }
@@ -26,7 +26,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--color-muted, #BFB5A9);
   padding-top: 20px;
 }
 
@@ -39,8 +39,8 @@
 .value-icon {
   width: 24px;
   height: 24px;
-  background-color: var(--status-confirmed-bg);
-  color: var(--status-confirmed-text);
+  background-color: var(--color-light, #F1D4C2);
+  color: var(--color-primary, #6F473B);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -53,13 +53,13 @@
 
 .value-item h4 {
   font-size: 15px;
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
   margin-bottom: 2px;
 }
 
 .value-item p {
   font-size: 13.5px;
-  color: var(--text-secondary);
+  color: var(--color-secondary, #A78D78);
   line-height: 1.4;
   margin-bottom: 0;
 }
@@ -79,22 +79,22 @@
 }
 
 .contact-detail-card, .business-hours-card, .contact-form-card {
-  background-color: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-muted, #BFB5A9);
+  border-radius: var(--radius-md, 12px);
   padding: 24px;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 2px 6px rgba(41, 28, 14, 0.03);
 }
 
 .contact-detail-card h3, .business-hours-card h3, .contact-form-card h3 {
   font-size: 18px;
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
   margin-bottom: 8px;
 }
 
 .contact-detail-intro {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: var(--color-primary, #6F473B);
   margin-bottom: 18px;
 }
 
@@ -110,13 +110,13 @@
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--color-primary, #6F473B);
   margin-bottom: 2px;
 }
 
 .contact-item-text p {
   font-size: 14px;
-  color: var(--text-primary);
+  color: var(--color-dark, #291C0E);
 }
 
 .business-hours-card ul {
@@ -131,11 +131,11 @@
   display: flex;
   justify-content: space-between;
   font-size: 13.5px;
-  color: var(--text-secondary);
+  color: var(--color-primary, #6F473B);
 }
 
 .business-hours-card li strong {
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
 }
 
 .contact-submit-btn {
@@ -150,8 +150,8 @@
 .success-icon-badge {
   width: 44px;
   height: 44px;
-  background-color: var(--status-confirmed-bg);
-  color: var(--status-confirmed-text);
+  background-color: var(--color-light, #F1D4C2);
+  color: var(--color-primary, #6F473B);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -163,13 +163,13 @@
 
 .contact-success-state h4 {
   font-size: 18px;
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
   margin-bottom: 8px;
 }
 
 .contact-success-state p {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: var(--color-primary, #6F473B);
   margin-bottom: 16px;
 }
 

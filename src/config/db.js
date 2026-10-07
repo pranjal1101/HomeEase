@@ -15,11 +15,16 @@ const connectDB = async () => {
   const connectionString = uri || 'mongodb://127.0.0.1:27017/homeease';
 
   try {
-    const conn = await mongoose.connect(connectionString);
+    const conn = await mongoose.connect(connectionString, { serverSelectionTimeoutMS: 5000 });
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error(`Error connecting to MongoDB: ${error.message}`);
-    process.exit(1);
+    console.error(`Error connecting to MongoDB Atlas (${error.message}). Trying local database fallback...`);
+    try {
+      const conn = await mongoose.connect('mongodb://127.0.0.1:27017/homeease', { serverSelectionTimeoutMS: 3000 });
+      console.log(`Local MongoDB Connected: ${conn.connection.host}`);
+    } catch (localErr) {
+      console.warn(`Local MongoDB fallback failed: ${localErr.message}. Starting server in standalone mode.`);
+    }
   }
 };
 

@@ -1,9 +1,11 @@
+/* EmptyState Component Styles - HomeEase Palette */
+
 .empty-state {
   text-align: center;
   padding: 40px 20px;
-  background-color: var(--white);
-  border-radius: var(--radius-md);
-  border: 1px dashed var(--border-light);
+  background-color: #FFFFFF;
+  border-radius: var(--radius-md, 12px);
+  border: 1px dashed var(--color-muted, #BFB5A9);
   max-width: 480px;
   margin: 32px auto;
   display: flex;
@@ -14,16 +16,17 @@
 .empty-state-icon {
   font-size: 36px;
   margin-bottom: 12px;
+  color: var(--color-primary, #6F473B);
 }
 
 .empty-state h3 {
   font-size: 18px;
   margin-bottom: 6px;
-  color: var(--primary);
+  color: var(--color-dark, #291C0E);
 }
 
 .empty-state p {
-  color: var(--text-secondary);
+  color: var(--color-secondary, #A78D78);
   font-size: 14px;
   margin-bottom: 20px;
 }
