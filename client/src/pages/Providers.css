@@ -21,6 +21,13 @@
 
 .providers-search-form input {
   flex: 1;
+  border-radius: var(--radius-pill, 9999px);
+  padding-left: 18px;
+}
+
+.providers-search-form .btn {
+  border-radius: var(--radius-pill, 9999px);
+  padding: 10px 22px;
 }
 
 .providers-category-select {

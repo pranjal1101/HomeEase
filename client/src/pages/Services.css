@@ -38,7 +38,7 @@
 .marketplace-search-form {
   display: flex;
   align-items: center;
-  background-color: var(--color-cappuccino, #C8B5A0);
+  background-color: #FFFFFF;
   border: 1px solid var(--color-muted, #BFB5A9);
   border-radius: var(--radius-pill);
   padding: 4px 6px 4px 16px;
@@ -49,11 +49,11 @@
 
 .marketplace-search-form:focus-within {
   border-color: var(--color-primary, #6F473B);
-  box-shadow: 0 0 0 2px rgba(111, 71, 59, 0.15);
+  box-shadow: 0 0 0 3px rgba(111, 71, 59, 0.12);
 }
 
 .marketplace-search-form .search-icon {
-  color: var(--color-primary, #6F473B);
+  color: var(--color-secondary, #A78D78);
   margin-right: 10px;
   flex-shrink: 0;
 }
@@ -70,15 +70,16 @@
 }
 
 .marketplace-search-form input::placeholder {
-  color: var(--color-primary, #6F473B);
-  opacity: 0.8;
+  color: var(--color-secondary, #A78D78);
+  opacity: 0.85;
 }
 
 .search-submit-btn {
-  border-radius: 10px !important;
+  border-radius: var(--radius-pill, 9999px) !important;
   background-color: var(--color-primary, #6F473B) !important;
   color: #FFFFFF !important;
-  padding: 8px 20px !important;
+  padding: 8px 22px !important;
+  font-weight: 600 !important;
 }
 
 .search-submit-btn:hover {
