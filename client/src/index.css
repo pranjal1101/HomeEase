@@ -127,7 +127,7 @@ a:hover {
   padding-bottom: 48px;
 }
 
-/* Container */
+/* Container & Layout Spacing */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -135,7 +135,13 @@ a:hover {
   width: 100%;
 }
 
+.section-padding {
+  padding-top: 36px;
+  padding-bottom: 56px;
+}
+
 .section-header {
+  margin-top: 8px;
   margin-bottom: 28px;
 }
 

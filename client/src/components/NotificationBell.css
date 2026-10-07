@@ -7,33 +7,34 @@
 
 .notification-bell-btn {
   position: relative;
-  background: none;
-  border: none;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(231, 219, 239, 0.25);
   padding: 8px;
   cursor: pointer;
-  color: var(--color-dark, #49225B);
+  color: #FFFFFF;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 .notification-bell-btn:hover {
-  background-color: var(--color-light, #E7DBEF);
+  background-color: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
 }
 
 .notification-badge-count {
   position: absolute;
-  top: 3px;
-  right: 3px;
-  background-color: var(--color-dark, #49225B);
+  top: -2px;
+  right: -2px;
+  background-color: #A56ABD;
   color: #FFFFFF;
   font-size: 10px;
   font-weight: 800;
   padding: 1px 5px;
   border-radius: 9999px;
-  border: 1.5px solid #FFFFFF;
+  border: 1.5px solid #49225B;
   line-height: 1;
 }
 

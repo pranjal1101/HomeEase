@@ -31,6 +31,19 @@
   margin-bottom: 24px;
 }
 
+.auth-banner-brand .logo-text {
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 22px;
+  color: #49225B;
+  letter-spacing: -0.02em;
+}
+
+.auth-banner-brand .logo-highlight {
+  color: #6E3482;
+  font-weight: 800;
+}
+
 .auth-banner-title {
   font-size: 32px;
   font-weight: 800;
