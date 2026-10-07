@@ -7,13 +7,13 @@
 .dashboard-header-title {
   font-size: 26px;
   font-weight: 700;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   margin-bottom: 4px;
 }
 
 .dashboard-header-subtitle {
   font-size: 14.5px;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
 }
 
 /* Stat Cards Grid */
@@ -27,7 +27,7 @@
 .stat-card {
   background-color: #FFFFFF;
   border-radius: 10px;
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   padding: 20px;
   box-shadow: 0 1px 4px rgba(41, 28, 14, 0.03);
   display: flex;
@@ -38,7 +38,7 @@
 .stat-card-label {
   font-size: 12px;
   font-weight: 700;
-  color: var(--color-secondary, #A78D78);
+  color: var(--color-secondary, #A56ABD);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
@@ -47,15 +47,15 @@
 .stat-card-value {
   font-size: 24px;
   font-weight: 700;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .stat-card-icon {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background-color: var(--color-light, #E8DFD5);
-  color: var(--color-primary, #6F473B);
+  background-color: var(--color-light, #E7DBEF);
+  color: var(--color-primary, #6E3482);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,14 +66,14 @@
 .provider-section-card {
   background-color: #FFFFFF;
   border-radius: 10px;
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   box-shadow: 0 1px 4px rgba(41, 28, 14, 0.03);
   overflow: hidden;
 }
 
 .provider-section-header {
   padding: 18px 24px;
-  border-bottom: 1px solid var(--color-muted, #BFB5A9);
+  border-bottom: 1px solid var(--color-muted, #E7DBEF);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,7 +82,7 @@
 .provider-section-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 /* Table Styling */
@@ -99,11 +99,11 @@
 }
 
 .provider-table th {
-  background-color: var(--bg-page, #FAFAF7);
-  color: var(--color-primary, #6F473B);
+  background-color: var(--bg-page, #F5EBFA);
+  color: var(--color-primary, #6E3482);
   font-weight: 600;
   padding: 12px 18px;
-  border-bottom: 1px solid var(--color-muted, #BFB5A9);
+  border-bottom: 1px solid var(--color-muted, #E7DBEF);
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -111,8 +111,8 @@
 
 .provider-table td {
   padding: 14px 18px;
-  border-bottom: 1px solid var(--color-muted, #BFB5A9);
-  color: var(--color-dark, #291C0E);
+  border-bottom: 1px solid var(--color-muted, #E7DBEF);
+  color: var(--color-dark, #49225B);
   vertical-align: middle;
 }
 
@@ -121,7 +121,7 @@
 }
 
 .provider-table tr:hover {
-  background-color: var(--color-light, #E8DFD5);
+  background-color: var(--color-light, #E7DBEF);
 }
 
 /* Action Buttons */
@@ -138,23 +138,23 @@
 }
 
 .btn-success {
-  background-color: var(--color-primary, #6F473B);
+  background-color: var(--color-primary, #6E3482);
   color: #FFFFFF;
-  border: 1px solid var(--color-primary, #6F473B);
+  border: 1px solid var(--color-primary, #6E3482);
 }
 
 .btn-success:hover {
-  background-color: var(--color-dark, #291C0E);
+  background-color: var(--color-dark, #49225B);
 }
 
 .btn-danger {
-  background-color: var(--color-dark, #291C0E);
+  background-color: var(--color-dark, #49225B);
   color: #FFFFFF;
-  border: 1px solid var(--color-dark, #291C0E);
+  border: 1px solid var(--color-dark, #49225B);
 }
 
 .btn-danger:hover {
-  background-color: var(--color-primary, #6F473B);
+  background-color: var(--color-primary, #6E3482);
 }
 
 @media (max-width: 1024px) {

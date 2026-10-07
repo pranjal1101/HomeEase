@@ -5,7 +5,7 @@
   padding: 40px 20px;
   background-color: #FFFFFF;
   border-radius: var(--radius-md, 12px);
-  border: 1px dashed var(--color-muted, #BFB5A9);
+  border: 1px dashed var(--color-muted, #E7DBEF);
   max-width: 480px;
   margin: 32px auto;
   display: flex;
@@ -16,17 +16,17 @@
 .empty-state-icon {
   font-size: 36px;
   margin-bottom: 12px;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
 }
 
 .empty-state h3 {
   font-size: 18px;
   margin-bottom: 6px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .empty-state p {
-  color: var(--color-secondary, #A78D78);
+  color: var(--color-secondary, #A56ABD);
   font-size: 14px;
   margin-bottom: 20px;
 }

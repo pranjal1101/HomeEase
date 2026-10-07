@@ -2,7 +2,7 @@
 
 .about-overview-card {
   background-color: #FFFFFF;
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   border-radius: var(--radius-md, 12px);
   padding: 28px;
   margin-bottom: 28px;
@@ -11,13 +11,13 @@
 
 .about-overview-card h3 {
   font-size: 20px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   margin-bottom: 8px;
 }
 
 .about-overview-card p {
   font-size: 15px;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
   line-height: 1.6;
   margin-bottom: 24px;
 }
@@ -26,7 +26,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  border-top: 1px solid var(--color-muted, #BFB5A9);
+  border-top: 1px solid var(--color-muted, #E7DBEF);
   padding-top: 20px;
 }
 
@@ -39,8 +39,8 @@
 .value-icon {
   width: 24px;
   height: 24px;
-  background-color: var(--color-light, #E8DFD5);
-  color: var(--color-primary, #6F473B);
+  background-color: var(--color-light, #E7DBEF);
+  color: var(--color-primary, #6E3482);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -53,13 +53,13 @@
 
 .value-item h4 {
   font-size: 15px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   margin-bottom: 2px;
 }
 
 .value-item p {
   font-size: 13.5px;
-  color: var(--color-secondary, #A78D78);
+  color: var(--color-secondary, #A56ABD);
   line-height: 1.4;
   margin-bottom: 0;
 }
@@ -80,7 +80,7 @@
 
 .contact-detail-card, .business-hours-card, .contact-form-card {
   background-color: #FFFFFF;
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   border-radius: var(--radius-md, 12px);
   padding: 24px;
   box-shadow: 0 2px 6px rgba(41, 28, 14, 0.03);
@@ -88,13 +88,13 @@
 
 .contact-detail-card h3, .business-hours-card h3, .contact-form-card h3 {
   font-size: 18px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   margin-bottom: 8px;
 }
 
 .contact-detail-intro {
   font-size: 14px;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
   margin-bottom: 18px;
 }
 
@@ -110,13 +110,13 @@
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
   margin-bottom: 2px;
 }
 
 .contact-item-text p {
   font-size: 14px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .business-hours-card ul {
@@ -131,11 +131,11 @@
   display: flex;
   justify-content: space-between;
   font-size: 13.5px;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
 }
 
 .business-hours-card li strong {
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .contact-submit-btn {
@@ -150,8 +150,8 @@
 .success-icon-badge {
   width: 44px;
   height: 44px;
-  background-color: var(--color-light, #E8DFD5);
-  color: var(--color-primary, #6F473B);
+  background-color: var(--color-light, #E7DBEF);
+  color: var(--color-primary, #6E3482);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -163,13 +163,13 @@
 
 .contact-success-state h4 {
   font-size: 18px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   margin-bottom: 8px;
 }
 
 .contact-success-state p {
   font-size: 14px;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
   margin-bottom: 16px;
 }
 

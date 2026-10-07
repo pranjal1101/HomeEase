@@ -123,11 +123,11 @@ const ProviderDashboard = () => {
           <div className="stat-card">
             <div>
               <div className="stat-card-label">Pending Requests</div>
-              <div className="stat-card-value" style={{ color: '#6F473B' }}>
+              <div className="stat-card-value" style={{ color: '#6E3482' }}>
                 {data?.stats?.pendingRequests ?? 0}
               </div>
             </div>
-            <div className="stat-card-icon" style={{ backgroundColor: '#E8DFD5', color: '#6F473B' }}>
+            <div className="stat-card-icon" style={{ backgroundColor: '#E7DBEF', color: '#6E3482' }}>
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
@@ -138,11 +138,11 @@ const ProviderDashboard = () => {
           <div className="stat-card">
             <div>
               <div className="stat-card-label">Completed Jobs</div>
-              <div className="stat-card-value" style={{ color: '#6F473B' }}>
+              <div className="stat-card-value" style={{ color: '#6E3482' }}>
                 {data?.stats?.completedJobs ?? 0}
               </div>
             </div>
-            <div className="stat-card-icon" style={{ backgroundColor: '#BFB5A9', color: '#291C0E' }}>
+            <div className="stat-card-icon" style={{ backgroundColor: '#E7DBEF', color: '#49225B' }}>
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                 <polyline points="22 4 12 14.01 9 11.01" />
@@ -153,11 +153,11 @@ const ProviderDashboard = () => {
           <div className="stat-card">
             <div>
               <div className="stat-card-label">Total Earnings</div>
-              <div className="stat-card-value" style={{ color: '#291C0E' }}>
+              <div className="stat-card-value" style={{ color: '#49225B' }}>
                 ₹{(data?.stats?.totalEarnings ?? 0).toLocaleString()}
               </div>
             </div>
-            <div className="stat-card-icon" style={{ backgroundColor: '#E8DFD5', color: '#291C0E' }}>
+            <div className="stat-card-icon" style={{ backgroundColor: '#E7DBEF', color: '#49225B' }}>
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="12" y1="1" x2="12" y2="23" />
                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
@@ -180,7 +180,7 @@ const ProviderDashboard = () => {
             <SkeletonLoader count={4} height="48px" />
           </div>
         ) : error ? (
-          <div style={{ padding: '24px', textAlign: 'center', color: '#291C0E' }}>
+          <div style={{ padding: '24px', textAlign: 'center', color: '#49225B' }}>
             {error}
           </div>
         ) : !data?.recentBookings || data.recentBookings.length === 0 ? (
@@ -209,22 +209,22 @@ const ProviderDashboard = () => {
                   <tr key={b._id}>
                     <td>
                       <div style={{ fontWeight: '600' }}>{b.userId?.name || 'Customer'}</div>
-                      <div style={{ fontSize: '12px', color: '#A78D78' }}>{b.userId?.phone || b.userId?.email || 'N/A'}</div>
+                      <div style={{ fontSize: '12px', color: '#A56ABD' }}>{b.userId?.phone || b.userId?.email || 'N/A'}</div>
                     </td>
                     <td>
                       <div style={{ fontWeight: '600' }}>{b.serviceId?.serviceName || 'Service'}</div>
-                      <div style={{ fontSize: '12px', color: '#A78D78' }}>{b.serviceId?.category || ''}</div>
+                      <div style={{ fontSize: '12px', color: '#A56ABD' }}>{b.serviceId?.category || ''}</div>
                     </td>
                     <td>
                       <div>{b.bookingDate ? new Date(b.bookingDate).toLocaleDateString() : 'N/A'}</div>
-                      <div style={{ fontSize: '12px', color: '#A78D78' }}>{b.bookingTime || 'N/A'}</div>
+                      <div style={{ fontSize: '12px', color: '#A56ABD' }}>{b.bookingTime || 'N/A'}</div>
                     </td>
                     <td style={{ maxWidth: '180px' }}>
                       <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={b.address}>
                         {b.address || 'Service Location'}
                       </div>
                     </td>
-                    <td style={{ fontWeight: '700', color: '#291C0E' }}>
+                    <td style={{ fontWeight: '700', color: '#49225B' }}>
                       ₹{b.serviceId?.price || 0}
                     </td>
                     <td>
@@ -303,27 +303,27 @@ const ProviderDashboard = () => {
           <div style={{ padding: '8px 0' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
               <div>
-                <label style={{ fontSize: '12px', color: '#A78D78', fontWeight: '600' }}>CUSTOMER</label>
+                <label style={{ fontSize: '12px', color: '#A56ABD', fontWeight: '600' }}>CUSTOMER</label>
                 <div style={{ fontWeight: '600', fontSize: '15px', marginTop: '2px' }}>
                   {selectedBooking.userId?.name || 'Customer'}
                 </div>
-                <div style={{ fontSize: '13px', color: '#6F473B' }}>{selectedBooking.userId?.email}</div>
-                <div style={{ fontSize: '13px', color: '#6F473B' }}>{selectedBooking.userId?.phone}</div>
+                <div style={{ fontSize: '13px', color: '#6E3482' }}>{selectedBooking.userId?.email}</div>
+                <div style={{ fontSize: '13px', color: '#6E3482' }}>{selectedBooking.userId?.phone}</div>
               </div>
 
               <div>
-                <label style={{ fontSize: '12px', color: '#A78D78', fontWeight: '600' }}>SERVICE</label>
+                <label style={{ fontSize: '12px', color: '#A56ABD', fontWeight: '600' }}>SERVICE</label>
                 <div style={{ fontWeight: '600', fontSize: '15px', marginTop: '2px' }}>
                   {selectedBooking.serviceId?.serviceName || 'Service'}
                 </div>
-                <div style={{ fontSize: '13px', color: '#6F473B' }}>Category: {selectedBooking.serviceId?.category}</div>
-                <div style={{ fontWeight: '700', color: '#291C0E', marginTop: '4px' }}>
+                <div style={{ fontSize: '13px', color: '#6E3482' }}>Category: {selectedBooking.serviceId?.category}</div>
+                <div style={{ fontWeight: '700', color: '#49225B', marginTop: '4px' }}>
                   Price: ₹{selectedBooking.serviceId?.price || 0}
                 </div>
               </div>
             </div>
 
-            <div style={{ marginBottom: '20px', background: '#E8DFD5', padding: '14px', borderRadius: '8px', border: '1px solid #BFB5A9' }}>
+            <div style={{ marginBottom: '20px', background: '#E7DBEF', padding: '14px', borderRadius: '8px', border: '1px solid #E7DBEF' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '8px' }}>
                 <div>
                   <span style={{ fontSize: '12px', color: '#7A7285' }}>Booking Date: </span>

@@ -81,16 +81,16 @@ const BookingCard = memo(({ booking, onEdit, onDelete, onPaymentSuccess }) => {
           <span className="detail-val">₹{price}</span>
         </div>
 
-        <div className="detail-item" style={{ marginTop: '4px', paddingTop: '8px', borderTop: '1px dashed #BFB5A9' }}>
-          <span className="detail-label" style={{ color: '#6F473B' }}>Assigned Service Provider</span>
+        <div className="detail-item" style={{ marginTop: '4px', paddingTop: '8px', borderTop: '1px dashed #E7DBEF' }}>
+          <span className="detail-label" style={{ color: '#6E3482' }}>Assigned Service Provider</span>
           <span className="detail-val" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-            <span style={{ fontWeight: '700', color: '#291C0E' }}>{providerName}</span>
+            <span style={{ fontWeight: '700', color: '#49225B' }}>{providerName}</span>
             {providerPhone ? (
-              <span style={{ fontSize: '13px', color: '#6F473B', fontWeight: '600' }}>
+              <span style={{ fontSize: '13px', color: '#6E3482', fontWeight: '600' }}>
                 Contact Phone: {providerPhone}
               </span>
             ) : (
-              <span style={{ fontSize: '12px', color: '#A78D78' }}>Contact details available in booking</span>
+              <span style={{ fontSize: '12px', color: '#A56ABD' }}>Contact details available in booking</span>
             )}
           </span>
         </div>
@@ -101,7 +101,7 @@ const BookingCard = memo(({ booking, onEdit, onDelete, onPaymentSuccess }) => {
           <div className="payment-pending-header">
             <span className="service-completed-tag">Service Completed</span>
             <div className="amount-due-display">
-              Amount Due: <strong style={{ color: '#291C0E', fontSize: '16px' }}>₹{price}</strong>
+              Amount Due: <strong style={{ color: '#49225B', fontSize: '16px' }}>₹{price}</strong>
             </div>
           </div>
 

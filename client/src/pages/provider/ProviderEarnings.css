@@ -10,7 +10,7 @@
 .earnings-card {
   background-color: #FFFFFF;
   border-radius: 10px;
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   padding: 20px;
   box-shadow: 0 1px 4px rgba(41, 28, 14, 0.03);
 }
@@ -18,7 +18,7 @@
 .earnings-card-title {
   font-size: 12.5px;
   font-weight: 700;
-  color: var(--color-secondary, #A78D78);
+  color: var(--color-secondary, #A56ABD);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
@@ -27,17 +27,17 @@
 .earnings-card-amount {
   font-size: 24px;
   font-weight: 700;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .earnings-notice-banner {
-  background-color: var(--color-light, #E8DFD5);
-  border-left: 4px solid var(--color-primary, #6F473B);
+  background-color: var(--color-light, #E7DBEF);
+  border-left: 4px solid var(--color-primary, #6E3482);
   padding: 12px 16px;
   border-radius: 0 8px 8px 0;
   margin-bottom: 24px;
   font-size: 13.5px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 @media (max-width: 1024px) {

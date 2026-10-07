@@ -1,6 +1,6 @@
 /* 
   HomeEase Master Design System
-  Palette: #291C0E | #6F473B | #A78D78 | #BFB5A9 | #E8DFD5
+  Palette: #49225B | #6E3482 | #A56ABD | #E7DBEF | #E7DBEF
   (ZERO PURPLE, ZERO GREEN, ZERO OTHER ACCENTS)
 */
 
@@ -8,40 +8,40 @@
 
 :root {
   /* Exact 5-Color Reference Palette + Warm Cappuccino */
-  --color-dark: #291C0E;        /* Darkest / Headings / Main text */
-  --color-primary: #6F473B;     /* Primary dark brown / CTA buttons / Key accents */
-  --color-secondary: #A78D78;   /* Secondary brown / Subtitles / Hover states */
-  --color-muted: #BFB5A9;       /* Muted beige / Borders / Dividers */
-  --color-cappuccino: #C8B5A0;  /* Warm Cappuccino / Accent background / Accent buttons */
-  --color-light: #E8DFD5;       /* Soft warm linen / Background accents / Badges */
+  --color-dark: #49225B;        /* Darkest / Headings / Main text */
+  --color-primary: #6E3482;     /* Primary dark brown / CTA buttons / Key accents */
+  --color-secondary: #A56ABD;   /* Secondary brown / Subtitles / Hover states */
+  --color-muted: #E7DBEF;       /* Muted beige / Borders / Dividers */
+  --color-cappuccino: #E7DBEF;  /* Warm Cappuccino / Accent background / Accent buttons */
+  --color-light: #E7DBEF;       /* Soft warm linen / Background accents / Badges */
 
   /* Neutral Background Surfaces */
-  --bg-page: #FAFAF7;           /* Warm Off-White Page Background */
+  --bg-page: #F5EBFA;           /* Warm Off-White Page Background */
   --bg-card: #FFFFFF;           /* Pure White Card Background */
-  --bg-secondary: #F7F3EE;      /* Secondary Surface / Input Background */
+  --bg-secondary: #F5EBFA;      /* Secondary Surface / Input Background */
 
   /* Semantic Aliases */
-  --primary-dark: #291C0E;
-  --primary-accent: #6F473B;
-  --secondary-accent: #A78D78;
-  --border-color: #BFB5A9;
-  --border-hover: #6F473B;
-  --text-primary: #291C0E;
-  --text-secondary: #6F473B;
-  --text-light: #A78D78;
+  --primary-dark: #49225B;
+  --primary-accent: #6E3482;
+  --secondary-accent: #A56ABD;
+  --border-color: #E7DBEF;
+  --border-hover: #6E3482;
+  --text-primary: #49225B;
+  --text-secondary: #6E3482;
+  --text-light: #A56ABD;
 
   /* Strict Status Badge Palette */
-  --status-pending-bg: #E8DFD5;
-  --status-pending-text: #6F473B;
-  --status-accepted-bg: #BFB5A9;
-  --status-accepted-text: #291C0E;
-  --status-in-progress-bg: #A78D78;
+  --status-pending-bg: #E7DBEF;
+  --status-pending-text: #6E3482;
+  --status-accepted-bg: #E7DBEF;
+  --status-accepted-text: #49225B;
+  --status-in-progress-bg: #A56ABD;
   --status-in-progress-text: #FFFFFF;
-  --status-payment-pending-bg: #E8DFD5;
-  --status-payment-pending-text: #291C0E;
-  --status-completed-bg: #6F473B;
+  --status-payment-pending-bg: #E7DBEF;
+  --status-payment-pending-text: #49225B;
+  --status-completed-bg: #6E3482;
   --status-completed-text: #FFFFFF;
-  --status-cancelled-bg: #291C0E;
+  --status-cancelled-bg: #49225B;
   --status-cancelled-text: #FFFFFF;
 
   /* Typography */
@@ -170,43 +170,43 @@ a:hover {
   line-height: 1.3;
 }
 
-/* Primary Button: #6F473B bg, white text, #291C0E hover */
+/* Primary Button: #6E3482 bg, white text, #49225B hover */
 .btn-primary, .btn-cta {
-  background-color: var(--color-primary, #6F473B);
+  background-color: var(--color-primary, #6E3482);
   color: #FFFFFF;
-  border-color: var(--color-primary, #6F473B);
+  border-color: var(--color-primary, #6E3482);
 }
 
 .btn-primary:hover, .btn-cta:hover {
-  background-color: var(--color-dark, #291C0E);
-  border-color: var(--color-dark, #291C0E);
+  background-color: var(--color-dark, #49225B);
+  border-color: var(--color-dark, #49225B);
   color: #FFFFFF;
 }
 
-/* Secondary / Outline Button: transparent/white bg, #6F473B border & text, #C8B5A0 hover bg, #291C0E hover text */
+/* Secondary / Outline Button: transparent/white bg, #6E3482 border & text, #E7DBEF hover bg, #49225B hover text */
 .btn-secondary, .btn-outline {
   background-color: #FFFFFF;
-  border: 1.5px solid var(--color-primary, #6F473B);
-  color: var(--color-primary, #6F473B);
+  border: 1.5px solid var(--color-primary, #6E3482);
+  color: var(--color-primary, #6E3482);
 }
 
 .btn-secondary:hover, .btn-outline:hover {
-  background-color: var(--color-cappuccino, #C8B5A0);
-  border-color: var(--color-primary, #6F473B);
-  color: var(--color-dark, #291C0E);
+  background-color: var(--color-cappuccino, #E7DBEF);
+  border-color: var(--color-primary, #6E3482);
+  color: var(--color-dark, #49225B);
 }
 
-/* Light / Accent Button: #C8B5A0 bg, #291C0E text, #BFB5A9 hover */
+/* Light / Accent Button: #E7DBEF bg, #49225B text, #E7DBEF hover */
 .btn-light, .btn-accent {
-  background-color: var(--color-cappuccino, #C8B5A0);
-  color: var(--color-dark, #291C0E);
-  border-color: var(--color-cappuccino, #C8B5A0);
+  background-color: var(--color-cappuccino, #E7DBEF);
+  color: var(--color-dark, #49225B);
+  border-color: var(--color-cappuccino, #E7DBEF);
 }
 
 .btn-light:hover, .btn-accent:hover {
-  background-color: var(--color-muted, #BFB5A9);
-  border-color: var(--color-muted, #BFB5A9);
-  color: var(--color-dark, #291C0E);
+  background-color: var(--color-muted, #E7DBEF);
+  border-color: var(--color-muted, #E7DBEF);
+  color: var(--color-dark, #49225B);
 }
 
 .btn-sm {

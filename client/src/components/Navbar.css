@@ -1,4 +1,4 @@
-/* Global Shared Navbar Styles - HomeEase Palette */
+/* Global Shared Navbar Styles - HomeEase Purple Theme */
 
 .site-header {
   position: fixed;
@@ -6,8 +6,9 @@
   left: 0;
   right: 0;
   height: 78px;
-  background-color: var(--bg-page, #FAFAF7);
-  border-bottom: 1px solid var(--color-muted, #BFB5A9);
+  background-color: #49225B;
+  border-bottom: 1px solid rgba(231, 219, 239, 0.15);
+  box-shadow: 0 4px 20px rgba(73, 34, 91, 0.15);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -37,7 +38,7 @@
   width: 36px;
   height: 36px;
   border-radius: var(--radius-sm, 8px);
-  background-color: var(--color-primary, #6F473B);
+  background-color: #A56ABD;
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -48,12 +49,12 @@
   font-family: var(--font-family);
   font-weight: 800;
   font-size: 22px;
-  color: var(--color-dark, #291C0E);
+  color: #FFFFFF;
   letter-spacing: -0.02em;
 }
 
 .logo-highlight {
-  color: var(--color-primary, #6F473B);
+  color: #E7DBEF;
 }
 
 .navbar-links {
@@ -65,7 +66,7 @@
 .nav-link-item {
   font-size: 14.5px;
   font-weight: 500;
-  color: var(--color-dark, #291C0E);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   position: relative;
   padding: 6px 0;
@@ -74,13 +75,13 @@
 }
 
 .nav-link-item:hover {
-  color: var(--color-primary, #6F473B);
+  color: #FFFFFF;
 }
 
 .nav-link-item.active {
-  color: var(--color-dark, #291C0E);
+  color: #FFFFFF;
   font-weight: 700;
-  border-bottom-color: var(--color-primary, #6F473B);
+  border-bottom-color: #A56ABD;
 }
 
 /* Right Section Actions */
@@ -100,20 +101,22 @@
   gap: 10px;
   padding: 4px 12px 4px 4px;
   border-radius: var(--radius-pill);
-  background-color: #FFFFFF;
-  border: 1px solid var(--color-muted, #BFB5A9);
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(231, 219, 239, 0.25);
   cursor: pointer;
+  transition: var(--transition);
 }
 
 .profile-trigger-btn:hover {
-  border-color: var(--color-primary, #6F473B);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #A56ABD;
 }
 
 .avatar-circle {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: var(--color-primary, #6F473B);
+  background-color: #A56ABD;
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -125,11 +128,11 @@
 .avatar-name {
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-dark, #291C0E);
+  color: #FFFFFF;
 }
 
 .chevron-icon {
-  color: var(--color-secondary, #A78D78);
+  color: #E7DBEF;
   transition: transform 0.2s ease;
 }
 
@@ -143,7 +146,7 @@
   right: 0;
   width: 190px;
   background-color: #FFFFFF;
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   border-radius: var(--radius-md);
   box-shadow: 0 6px 18px rgba(41, 28, 14, 0.08);
   padding: 6px;
@@ -158,7 +161,7 @@
   border-radius: var(--radius-sm);
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   text-decoration: none;
   background: none;
   border: none;
@@ -168,14 +171,14 @@
 }
 
 .dropdown-menu-item:hover {
-  background-color: var(--color-light, #E8DFD5);
-  color: var(--color-primary, #6F473B);
+  background-color: var(--color-light, #E7DBEF);
+  color: var(--color-primary, #6E3482);
 }
 
 .dropdown-menu-item.logout-btn {
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .dropdown-menu-item.logout-btn:hover {
-  background-color: var(--color-light, #E8DFD5);
+  background-color: var(--color-light, #E7DBEF);
 }

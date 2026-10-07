@@ -5,7 +5,7 @@
   align-items: center;
   gap: 6px;
   background-color: var(--color-light, #D3C7BA);
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
   font-weight: 600;
   font-size: 13px;
   padding: 4px 10px;
@@ -22,7 +22,7 @@
 .ai-pref-label {
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   margin-bottom: 8px;
   display: block;
 }
@@ -36,8 +36,8 @@
 
 .ai-chip-btn {
   background-color: #FFFFFF;
-  border: 1px solid var(--color-muted, #BFB5A9);
-  color: var(--color-dark, #291C0E);
+  border: 1px solid var(--color-muted, #E7DBEF);
+  color: var(--color-dark, #49225B);
   font-size: 13px;
   font-weight: 500;
   padding: 7px 14px;
@@ -47,15 +47,15 @@
 }
 
 .ai-chip-btn:hover {
-  border-color: var(--color-primary, #6F473B);
-  color: var(--color-primary, #6F473B);
+  border-color: var(--color-primary, #6E3482);
+  color: var(--color-primary, #6E3482);
   background-color: var(--color-light, #D3C7BA);
 }
 
 .ai-chip-btn.active {
-  background-color: var(--color-primary, #6F473B);
+  background-color: var(--color-primary, #6E3482);
   color: #FFFFFF;
-  border-color: var(--color-primary, #6F473B);
+  border-color: var(--color-primary, #6E3482);
 }
 
 .ai-custom-input {
@@ -71,7 +71,7 @@
   width: 36px;
   height: 36px;
   border: 3px solid var(--color-light, #D3C7BA);
-  border-top-color: var(--color-primary, #6F473B);
+  border-top-color: var(--color-primary, #6E3482);
   border-radius: 50%;
   animation: aiSpin 0.8s linear infinite;
   margin: 0 auto 16px auto;
@@ -82,13 +82,13 @@
 }
 
 .ai-loading-state p {
-  color: var(--color-secondary, #A78D78);
+  color: var(--color-secondary, #A56ABD);
   font-weight: 500;
 }
 
 .ai-result-card {
   background-color: var(--color-light, #D3C7BA);
-  border: 1.5px solid var(--color-muted, #BFB5A9);
+  border: 1.5px solid var(--color-muted, #E7DBEF);
   border-radius: var(--radius-md);
   padding: 16px;
   margin-top: 12px;
@@ -106,12 +106,12 @@
   align-items: center;
   gap: 8px;
   font-size: 18px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .ai-reason-box {
   background-color: #FFFFFF;
-  border-left: 3px solid var(--color-primary, #6F473B);
+  border-left: 3px solid var(--color-primary, #6E3482);
   padding: 12px 14px;
   border-radius: var(--radius-sm);
   margin-bottom: 16px;
@@ -120,7 +120,7 @@
 .ai-reason-box strong {
   display: block;
   font-size: 12px;
-  color: var(--color-secondary, #A78D78);
+  color: var(--color-secondary, #A56ABD);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 4px;
@@ -128,7 +128,7 @@
 
 .ai-reason-box p {
   font-size: 14px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   line-height: 1.4;
 }
 
@@ -138,7 +138,7 @@
   margin-bottom: 16px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .ai-actions-row {
@@ -149,13 +149,13 @@
 
 .ai-alternatives-section {
   margin-top: 20px;
-  border-top: 1px solid var(--color-muted, #BFB5A9);
+  border-top: 1px solid var(--color-muted, #E7DBEF);
   padding-top: 14px;
 }
 
 .ai-alternatives-section h4 {
   font-size: 14px;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
   margin-bottom: 10px;
 }
 
@@ -166,7 +166,7 @@
   background-color: #FFFFFF;
   padding: 10px 14px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   margin-bottom: 8px;
 }
 
@@ -178,12 +178,12 @@
 .ai-alt-name {
   font-weight: 600;
   font-size: 14px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .ai-alt-reason {
   font-size: 12px;
-  color: var(--color-secondary, #A78D78);
+  color: var(--color-secondary, #A56ABD);
 }
 
 /* Floating AI Recommendation Button */
@@ -192,9 +192,9 @@
   bottom: 24px;
   right: 24px;
   z-index: 1000;
-  background-color: var(--color-primary, #6F473B);
+  background-color: var(--color-primary, #6E3482);
   color: #FFFFFF;
-  border: 2px solid var(--color-light, #E8DFD5);
+  border: 2px solid var(--color-light, #E7DBEF);
   padding: 10px 18px;
   border-radius: 30px;
   font-family: var(--font-family);
@@ -209,7 +209,7 @@
 }
 
 .ai-floating-trigger:hover {
-  background-color: var(--color-dark, #291C0E);
+  background-color: var(--color-dark, #49225B);
   transform: translateY(-2px);
 }
 

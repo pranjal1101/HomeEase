@@ -249,7 +249,7 @@ const Home = () => {
                     <div style={{ flex: 1 }}>
                       <div className="ai-result-p-name">{aiRecommendation.providerName}</div>
                       <div className="ai-result-p-meta">
-                        <span style={{ color: '#6F473B', fontWeight: '700' }}>Rating: {aiRecommendation.rating}</span> · {aiRecommendation.exp}
+                        <span style={{ color: '#6E3482', fontWeight: '700' }}>Rating: {aiRecommendation.rating}</span> · {aiRecommendation.exp}
                       </div>
                     </div>
                   </div>

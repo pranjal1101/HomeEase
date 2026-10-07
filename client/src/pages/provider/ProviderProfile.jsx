@@ -73,20 +73,20 @@ const ProviderProfile = () => {
   return (
     <ProviderLayout>
       <div style={{ marginBottom: '24px' }}>
-        <h1 style={{ fontSize: '24px', fontWeight: '700', color: '#291C0E' }}>Provider Profile</h1>
-        <p style={{ color: '#6F473B', fontSize: '14px', marginTop: '2px' }}>
+        <h1 style={{ fontSize: '24px', fontWeight: '700', color: '#49225B' }}>Provider Profile</h1>
+        <p style={{ color: '#6E3482', fontSize: '14px', marginTop: '2px' }}>
           Manage your personal details, service locations, bio, and operational availability.
         </p>
       </div>
 
       {successMsg && (
-        <div style={{ backgroundColor: '#E8DFD5', color: '#291C0E', border: '1px solid #BFB5A9', padding: '12px 16px', borderRadius: '8px', marginBottom: '20px', fontWeight: '500' }}>
+        <div style={{ backgroundColor: '#E7DBEF', color: '#49225B', border: '1px solid #E7DBEF', padding: '12px 16px', borderRadius: '8px', marginBottom: '20px', fontWeight: '500' }}>
           {successMsg}
         </div>
       )}
 
       {errorMsg && (
-        <div style={{ backgroundColor: '#291C0E', color: '#E8DFD5', border: '1px solid #6F473B', padding: '12px 16px', borderRadius: '8px', marginBottom: '20px', fontWeight: '500' }}>
+        <div style={{ backgroundColor: '#49225B', color: '#E7DBEF', border: '1px solid #6E3482', padding: '12px 16px', borderRadius: '8px', marginBottom: '20px', fontWeight: '500' }}>
           {errorMsg}
         </div>
       )}
@@ -103,18 +103,18 @@ const ProviderProfile = () => {
           <div className="profile-name-title">{formData.name || 'Provider Name'}</div>
           <div className="profile-role-tag">Service Provider</div>
 
-          <div style={{ width: '100%', borderTop: '1px solid #BFB5A9', paddingTop: '16px', marginTop: '8px', textAlign: 'left' }}>
+          <div style={{ width: '100%', borderTop: '1px solid #E7DBEF', paddingTop: '16px', marginTop: '8px', textAlign: 'left' }}>
             <div style={{ fontSize: '13px', marginBottom: '8px' }}>
-              <span style={{ color: '#A78D78' }}>Email: </span>
-              <strong style={{ color: '#291C0E' }}>{formData.email}</strong>
+              <span style={{ color: '#A56ABD' }}>Email: </span>
+              <strong style={{ color: '#49225B' }}>{formData.email}</strong>
             </div>
             <div style={{ fontSize: '13px', marginBottom: '8px' }}>
-              <span style={{ color: '#A78D78' }}>Phone: </span>
-              <strong style={{ color: '#291C0E' }}>{formData.phone || 'Not set'}</strong>
+              <span style={{ color: '#A56ABD' }}>Phone: </span>
+              <strong style={{ color: '#49225B' }}>{formData.phone || 'Not set'}</strong>
             </div>
             <div style={{ fontSize: '13px' }}>
-              <span style={{ color: '#A78D78' }}>Status: </span>
-              <strong style={{ color: formData.isAvailable ? '#6F473B' : '#291C0E' }}>
+              <span style={{ color: '#A56ABD' }}>Status: </span>
+              <strong style={{ color: formData.isAvailable ? '#6E3482' : '#49225B' }}>
                 {formData.isAvailable ? 'Available for bookings' : 'Offline / Unavailable'}
               </strong>
             </div>
@@ -144,7 +144,7 @@ const ProviderProfile = () => {
                   className="form-control"
                   value={formData.email}
                   disabled
-                  style={{ backgroundColor: '#E8DFD5', cursor: 'not-allowed' }}
+                  style={{ backgroundColor: '#E7DBEF', cursor: 'not-allowed' }}
                 />
               </div>
             </div>
@@ -220,7 +220,7 @@ const ProviderProfile = () => {
                 onChange={(e) => setFormData({ ...formData, isAvailable: e.target.checked })}
                 style={{ width: '18px', height: '18px', cursor: 'pointer' }}
               />
-              <label htmlFor="profileAvailabilityCheck" style={{ margin: 0, cursor: 'pointer', fontWeight: '600', color: '#291C0E' }}>
+              <label htmlFor="profileAvailabilityCheck" style={{ margin: 0, cursor: 'pointer', fontWeight: '600', color: '#49225B' }}>
                 Available for new bookings
               </label>
             </div>

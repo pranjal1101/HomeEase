@@ -187,8 +187,8 @@ const ProviderLayout = ({ children }) => {
               <line x1="3" y1="18" x2="21" y2="18" />
             </svg>
           </button>
-          <div style={{ fontWeight: '700', color: '#291C0E', fontSize: '17px' }}>
-            Home<span style={{ color: '#6F473B' }}>Ease</span> Provider
+          <div style={{ fontWeight: '700', color: '#49225B', fontSize: '17px' }}>
+            Home<span style={{ color: '#6E3482' }}>Ease</span> Provider
           </div>
           <NotificationBell />
         </header>

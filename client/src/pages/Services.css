@@ -7,13 +7,13 @@
 .services-catalog-title {
   font-size: 34px;
   font-weight: 800;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   margin-bottom: 8px;
 }
 
 .services-catalog-subtitle {
   font-size: 16px;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
 }
 
 .marketplace-filters-panel {
@@ -23,7 +23,7 @@
   margin-bottom: 32px;
   background-color: #FFFFFF;
   padding: 20px;
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   border-radius: var(--radius-lg, 16px);
   box-shadow: 0 2px 8px rgba(41, 28, 14, 0.02);
 }
@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   background-color: #FFFFFF;
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   border-radius: var(--radius-pill);
   padding: 4px 6px 4px 16px;
   flex: 1;
@@ -48,12 +48,12 @@
 }
 
 .marketplace-search-form:focus-within {
-  border-color: var(--color-primary, #6F473B);
+  border-color: var(--color-primary, #6E3482);
   box-shadow: 0 0 0 3px rgba(111, 71, 59, 0.12);
 }
 
 .marketplace-search-form .search-icon {
-  color: var(--color-secondary, #A78D78);
+  color: var(--color-secondary, #A56ABD);
   margin-right: 10px;
   flex-shrink: 0;
 }
@@ -65,25 +65,25 @@
   outline: none;
   font-family: inherit;
   font-size: 14.5px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   padding: 8px 0;
 }
 
 .marketplace-search-form input::placeholder {
-  color: var(--color-secondary, #A78D78);
+  color: var(--color-secondary, #A56ABD);
   opacity: 0.85;
 }
 
 .search-submit-btn {
   border-radius: var(--radius-pill, 9999px) !important;
-  background-color: var(--color-primary, #6F473B) !important;
+  background-color: var(--color-primary, #6E3482) !important;
   color: #FFFFFF !important;
   padding: 8px 22px !important;
   font-weight: 600 !important;
 }
 
 .search-submit-btn:hover {
-  background-color: var(--color-dark, #291C0E) !important;
+  background-color: var(--color-dark, #49225B) !important;
 }
 
 .marketplace-sort-select {
@@ -92,18 +92,18 @@
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .marketplace-sort-select select {
   background-color: #FFFFFF;
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   border-radius: var(--radius-md, 10px);
   padding: 8px 16px;
   font-family: inherit;
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   outline: none;
   cursor: pointer;
 }
@@ -118,8 +118,8 @@
 
 .marketplace-chip {
   background-color: #FFFFFF;
-  color: var(--color-dark, #291C0E);
-  border: 1px solid var(--color-muted, #BFB5A9);
+  color: var(--color-dark, #49225B);
+  border: 1px solid var(--color-muted, #E7DBEF);
   border-radius: 20px;
   padding: 8px 18px;
   font-family: inherit;
@@ -131,21 +131,21 @@
 }
 
 .marketplace-chip:hover {
-  background-color: var(--color-cappuccino, #C8B5A0);
-  color: var(--color-dark, #291C0E);
-  border-color: var(--color-primary, #6F473B);
+  background-color: var(--color-cappuccino, #E7DBEF);
+  color: var(--color-dark, #49225B);
+  border-color: var(--color-primary, #6E3482);
 }
 
 .marketplace-chip.active {
-  background-color: var(--color-primary, #6F473B);
+  background-color: var(--color-primary, #6E3482);
   color: #FFFFFF;
-  border-color: var(--color-primary, #6F473B);
+  border-color: var(--color-primary, #6E3482);
 }
 
 .catalog-header-info {
   margin-bottom: 20px;
   font-size: 14px;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
 }
 
 @media (max-width: 768px) {

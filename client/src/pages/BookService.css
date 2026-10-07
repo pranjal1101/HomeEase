@@ -19,7 +19,7 @@
 .booking-details-sidebar-card {
   background-color: #FFFFFF;
   border-radius: var(--radius-lg, 20px);
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   padding: 28px;
   box-shadow: 0 2px 10px rgba(41, 28, 14, 0.02);
   display: flex;
@@ -28,7 +28,7 @@
 }
 
 .booking-sidebar-header {
-  border-bottom: 1px solid var(--color-muted, #BFB5A9);
+  border-bottom: 1px solid var(--color-muted, #E7DBEF);
   padding-bottom: 16px;
 }
 
@@ -36,8 +36,8 @@
   font-size: 11.5px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--color-primary, #6F473B);
-  background-color: var(--color-light, #E8DFD5);
+  color: var(--color-primary, #6E3482);
+  background-color: var(--color-light, #E7DBEF);
   padding: 4px 10px;
   border-radius: var(--radius-pill);
   display: inline-block;
@@ -47,26 +47,26 @@
 .booking-sidebar-header h3 {
   font-size: 20px;
   font-weight: 800;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .booking-sidebar-rate {
   font-size: 24px;
   font-weight: 800;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
 }
 
 .booking-sidebar-rate span {
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-secondary, #A78D78);
+  color: var(--color-secondary, #A56ABD);
 }
 
 .booking-trust-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border-top: 1px solid var(--color-muted, #BFB5A9);
+  border-top: 1px solid var(--color-muted, #E7DBEF);
   padding-top: 20px;
 }
 
@@ -75,7 +75,7 @@
   align-items: center;
   gap: 10px;
   font-size: 14px;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   font-weight: 600;
 }
 
@@ -83,8 +83,8 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: var(--color-light, #E8DFD5);
-  color: var(--color-primary, #6F473B);
+  background-color: var(--color-light, #E7DBEF);
+  color: var(--color-primary, #6E3482);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +96,7 @@
 .booking-form-main-card {
   background-color: #FFFFFF;
   border-radius: var(--radius-lg, 20px);
-  border: 1px solid var(--color-muted, #BFB5A9);
+  border: 1px solid var(--color-muted, #E7DBEF);
   padding: 36px;
   box-shadow: 0 4px 20px rgba(41, 28, 14, 0.03);
 }
@@ -104,13 +104,13 @@
 .booking-form-main-card h2 {
   font-size: 26px;
   font-weight: 800;
-  color: var(--color-dark, #291C0E);
+  color: var(--color-dark, #49225B);
   margin-bottom: 6px;
 }
 
 .booking-form-subtitle {
   font-size: 14.5px;
-  color: var(--color-primary, #6F473B);
+  color: var(--color-primary, #6E3482);
   margin-bottom: 28px;
 }
 
