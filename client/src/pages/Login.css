@@ -11,7 +11,7 @@
 }
 
 .auth-split-banner {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   border: 1px solid var(--color-muted, #BFB5A9);
   border-radius: var(--radius-xl, 28px);
   padding: 40px;
@@ -84,7 +84,7 @@
 }
 
 .auth-error-alert {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   color: var(--color-dark, #291C0E);
   border: 1px solid var(--color-muted, #BFB5A9);
   border-radius: var(--radius-md);
@@ -122,7 +122,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   padding: 5px;
   border-radius: 14px;
   border: 1px solid var(--color-muted, #BFB5A9);

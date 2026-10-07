@@ -23,7 +23,7 @@
 }
 
 .breadcrumb-back-link:hover {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   color: var(--color-primary, #6F473B);
   border-color: var(--color-primary, #6F473B);
 }
@@ -47,7 +47,7 @@
 
 .details-header-card {
   padding: 32px;
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   border-bottom: 1px solid var(--color-muted, #BFB5A9);
   display: flex;
   align-items: center;
@@ -199,7 +199,7 @@
 }
 
 .widget-summary-card {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   border-radius: var(--radius-md, 12px);
   padding: 18px;
   margin-bottom: 24px;

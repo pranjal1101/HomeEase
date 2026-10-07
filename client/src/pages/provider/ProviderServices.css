@@ -37,7 +37,7 @@
 
 .service-card-img-wrapper {
   height: 160px;
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   position: relative;
   overflow: hidden;
 }
@@ -57,7 +57,7 @@
   color: var(--color-primary, #6F473B);
   font-weight: 600;
   font-size: 14px;
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
 }
 
 .service-availability-badge {
@@ -73,7 +73,7 @@
 }
 
 .service-availability-badge.active {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   color: var(--color-dark, #291C0E);
   border: 1px solid var(--color-muted, #BFB5A9);
 }

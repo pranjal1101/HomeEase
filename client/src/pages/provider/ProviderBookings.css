@@ -33,7 +33,7 @@
 }
 
 .filter-tab-btn:hover {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   color: var(--color-dark, #291C0E);
 }
 

@@ -280,7 +280,7 @@ const ProviderBookings = () => {
               </div>
             </div>
 
-            <div style={{ background: '#F1D4C2', padding: '16px', borderRadius: '8px', border: '1px solid #BFB5A9', marginBottom: '20px' }}>
+            <div style={{ background: '#E8DFD5', padding: '16px', borderRadius: '8px', border: '1px solid #BFB5A9', marginBottom: '20px' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '10px' }}>
                 <div>
                   <span style={{ fontSize: '12px', color: '#7A7285' }}>Scheduled Date: </span>

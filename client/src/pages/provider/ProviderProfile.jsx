@@ -80,13 +80,13 @@ const ProviderProfile = () => {
       </div>
 
       {successMsg && (
-        <div style={{ backgroundColor: '#F1D4C2', color: '#291C0E', border: '1px solid #BFB5A9', padding: '12px 16px', borderRadius: '8px', marginBottom: '20px', fontWeight: '500' }}>
+        <div style={{ backgroundColor: '#E8DFD5', color: '#291C0E', border: '1px solid #BFB5A9', padding: '12px 16px', borderRadius: '8px', marginBottom: '20px', fontWeight: '500' }}>
           {successMsg}
         </div>
       )}
 
       {errorMsg && (
-        <div style={{ backgroundColor: '#291C0E', color: '#F1D4C2', border: '1px solid #6F473B', padding: '12px 16px', borderRadius: '8px', marginBottom: '20px', fontWeight: '500' }}>
+        <div style={{ backgroundColor: '#291C0E', color: '#E8DFD5', border: '1px solid #6F473B', padding: '12px 16px', borderRadius: '8px', marginBottom: '20px', fontWeight: '500' }}>
           {errorMsg}
         </div>
       )}
@@ -144,7 +144,7 @@ const ProviderProfile = () => {
                   className="form-control"
                   value={formData.email}
                   disabled
-                  style={{ backgroundColor: '#F1D4C2', cursor: 'not-allowed' }}
+                  style={{ backgroundColor: '#E8DFD5', cursor: 'not-allowed' }}
                 />
               </div>
             </div>

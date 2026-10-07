@@ -30,7 +30,7 @@
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-primary, #6F473B);
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   padding: 3px 9px;
   border-radius: 9999px;
   display: inline-block;
@@ -45,7 +45,7 @@
 }
 
 .status-badge.payment-pending {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   color: var(--color-dark, #291C0E);
   border: 1px solid var(--color-muted, #BFB5A9);
 }
@@ -88,7 +88,7 @@
 
 /* Payment Pending Box */
 .payment-pending-box {
-  background: var(--color-light, #F1D4C2);
+  background: var(--color-light, #E8DFD5);
   border: 1px solid var(--color-muted, #BFB5A9);
   border-radius: 12px;
   padding: 16px;
@@ -140,7 +140,7 @@
 
 /* Payment Completed Box */
 .payment-completed-box {
-  background: var(--color-light, #F1D4C2);
+  background: var(--color-light, #E8DFD5);
   border: 1px solid var(--color-muted, #BFB5A9);
   border-radius: 12px;
   padding: 14px;

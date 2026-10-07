@@ -168,7 +168,7 @@
 }
 
 .dropdown-menu-item:hover {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   color: var(--color-primary, #6F473B);
 }
 
@@ -177,5 +177,5 @@
 }
 
 .dropdown-menu-item.logout-btn:hover {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
 }

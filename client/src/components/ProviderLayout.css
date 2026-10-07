@@ -60,7 +60,7 @@
 
 .provider-badge-tag {
   display: inline-block;
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   color: var(--color-primary, #6F473B);
   font-size: 10.5px;
   font-weight: 700;
@@ -94,7 +94,7 @@
 }
 
 .provider-nav-item:hover {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   color: var(--color-dark, #291C0E);
 }
 
@@ -259,7 +259,7 @@ input:checked + .toggle-slider:before {
 }
 
 .provider-logout-btn:hover {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
 }
 
 /* Main Content Area */

@@ -10,7 +10,7 @@
 }
 
 .skeleton-shimmer {
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   opacity: 0.6;
   border-radius: var(--radius-sm);
 }

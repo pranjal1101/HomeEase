@@ -1,6 +1,6 @@
 /* 
   HomeEase Master Design System
-  Palette: #291C0E | #6F473B | #A78D78 | #BFB5A9 | #F1D4C2
+  Palette: #291C0E | #6F473B | #A78D78 | #BFB5A9 | #E8DFD5
   (ZERO PURPLE, ZERO GREEN, ZERO OTHER ACCENTS)
 */
 
@@ -12,8 +12,8 @@
   --color-primary: #6F473B;     /* Primary dark brown / CTA buttons / Key accents */
   --color-secondary: #A78D78;   /* Secondary brown / Subtitles / Hover states */
   --color-muted: #BFB5A9;       /* Muted beige / Borders / Dividers */
-  --color-cappuccino: #D6BFA6;  /* Warm Cappuccino / Accent background / Accent buttons */
-  --color-light: #F1D4C2;       /* Light peach-cream / Background accents / Badges */
+  --color-cappuccino: #C8B5A0;  /* Warm Cappuccino / Accent background / Accent buttons */
+  --color-light: #E8DFD5;       /* Soft warm linen / Background accents / Badges */
 
   /* Neutral Background Surfaces */
   --bg-page: #FAFAF7;           /* Warm Off-White Page Background */
@@ -31,13 +31,13 @@
   --text-light: #A78D78;
 
   /* Strict Status Badge Palette */
-  --status-pending-bg: #F1D4C2;
+  --status-pending-bg: #E8DFD5;
   --status-pending-text: #6F473B;
   --status-accepted-bg: #BFB5A9;
   --status-accepted-text: #291C0E;
   --status-in-progress-bg: #A78D78;
   --status-in-progress-text: #FFFFFF;
-  --status-payment-pending-bg: #F1D4C2;
+  --status-payment-pending-bg: #E8DFD5;
   --status-payment-pending-text: #291C0E;
   --status-completed-bg: #6F473B;
   --status-completed-text: #FFFFFF;
@@ -183,7 +183,7 @@ a:hover {
   color: #FFFFFF;
 }
 
-/* Secondary / Outline Button: transparent/white bg, #6F473B border & text, #D6BFA6 hover bg, #291C0E hover text */
+/* Secondary / Outline Button: transparent/white bg, #6F473B border & text, #C8B5A0 hover bg, #291C0E hover text */
 .btn-secondary, .btn-outline {
   background-color: #FFFFFF;
   border: 1.5px solid var(--color-primary, #6F473B);
@@ -191,16 +191,16 @@ a:hover {
 }
 
 .btn-secondary:hover, .btn-outline:hover {
-  background-color: var(--color-cappuccino, #D6BFA6);
+  background-color: var(--color-cappuccino, #C8B5A0);
   border-color: var(--color-primary, #6F473B);
   color: var(--color-dark, #291C0E);
 }
 
-/* Light / Accent Button: #D6BFA6 bg, #291C0E text, #BFB5A9 hover */
+/* Light / Accent Button: #C8B5A0 bg, #291C0E text, #BFB5A9 hover */
 .btn-light, .btn-accent {
-  background-color: var(--color-cappuccino, #D6BFA6);
+  background-color: var(--color-cappuccino, #C8B5A0);
   color: var(--color-dark, #291C0E);
-  border-color: var(--color-cappuccino, #D6BFA6);
+  border-color: var(--color-cappuccino, #C8B5A0);
 }
 
 .btn-light:hover, .btn-accent:hover {

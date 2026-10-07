@@ -127,7 +127,7 @@ const ProviderDashboard = () => {
                 {data?.stats?.pendingRequests ?? 0}
               </div>
             </div>
-            <div className="stat-card-icon" style={{ backgroundColor: '#F1D4C2', color: '#6F473B' }}>
+            <div className="stat-card-icon" style={{ backgroundColor: '#E8DFD5', color: '#6F473B' }}>
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
@@ -157,7 +157,7 @@ const ProviderDashboard = () => {
                 ₹{(data?.stats?.totalEarnings ?? 0).toLocaleString()}
               </div>
             </div>
-            <div className="stat-card-icon" style={{ backgroundColor: '#F1D4C2', color: '#291C0E' }}>
+            <div className="stat-card-icon" style={{ backgroundColor: '#E8DFD5', color: '#291C0E' }}>
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="12" y1="1" x2="12" y2="23" />
                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
@@ -323,7 +323,7 @@ const ProviderDashboard = () => {
               </div>
             </div>
 
-            <div style={{ marginBottom: '20px', background: '#F1D4C2', padding: '14px', borderRadius: '8px', border: '1px solid #BFB5A9' }}>
+            <div style={{ marginBottom: '20px', background: '#E8DFD5', padding: '14px', borderRadius: '8px', border: '1px solid #BFB5A9' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '8px' }}>
                 <div>
                   <span style={{ fontSize: '12px', color: '#7A7285' }}>Booking Date: </span>

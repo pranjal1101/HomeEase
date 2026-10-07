@@ -23,7 +23,7 @@ const ProviderProtectedRoute = ({ children }) => {
     return (
       <div className="container section-padding" style={{ maxWidth: '600px', margin: '40px auto', textAlign: 'center' }}>
         <div style={{ background: '#FFFFFF', padding: '32px', borderRadius: '12px', border: '1px solid #BFB5A9', boxShadow: '0 2px 8px rgba(41, 28, 14, 0.05)' }}>
-          <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#F1D4C2', color: '#291C0E', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', fontSize: '20px', fontWeight: 'bold' }}>
+          <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#E8DFD5', color: '#291C0E', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', fontSize: '20px', fontWeight: 'bold' }}>
             !
           </div>
           <h2 style={{ color: '#291C0E', fontSize: '22px', marginBottom: '12px' }}>Access Restricted</h2>

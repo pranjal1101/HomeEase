@@ -37,7 +37,7 @@
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-primary, #6F473B);
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   padding: 4px 10px;
   border-radius: var(--radius-pill);
   display: inline-block;
@@ -83,7 +83,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: var(--color-light, #F1D4C2);
+  background-color: var(--color-light, #E8DFD5);
   color: var(--color-primary, #6F473B);
   display: flex;
   align-items: center;
