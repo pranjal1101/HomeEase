@@ -1,13 +1,9 @@
 import mongoose from 'mongoose';
 import dns from 'dns';
 
-// Set Google/Cloudflare DNS servers to reliably resolve MongoDB Atlas SRV records
-// across all Windows/local/cloud environments where ISP DNS may fail with ECONNREFUSED
 try {
   dns.setServers(['8.8.8.8', '1.1.1.1']);
-} catch (e) {
-  // Ignore error if custom DNS cannot be set in restricted environments
-}
+} catch (e) {}
 
 const connectDB = async () => {
   const uri = process.env.MONGODB_URI;

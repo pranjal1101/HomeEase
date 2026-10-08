@@ -144,7 +144,6 @@ export const updateProviderBookingStatus = async (providerId, bookingId, status)
 
   let nextStatus = status;
 
-  // Provider clicking "Mark Service Completed" transitions status to "Payment Pending"
   if (status === 'Completed' || status === BOOKING_STATUS.COMPLETED) {
     nextStatus = BOOKING_STATUS.PAYMENT_PENDING;
   }
@@ -152,7 +151,6 @@ export const updateProviderBookingStatus = async (providerId, bookingId, status)
   booking.status = nextStatus;
   await booking.save();
 
-  // Notifications
   const customerId = booking.userId?._id ? booking.userId._id : booking.userId;
   const serviceName = service.serviceName || 'Service';
   const price = service.price || 0;

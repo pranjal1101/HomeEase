@@ -1,5 +1,3 @@
-/* Service Provider Layout & Sidebar Styling - HomeEase Palette */
-
 .provider-layout {
   display: flex;
   min-height: 100vh;
@@ -7,7 +5,6 @@
   font-family: var(--font-family);
 }
 
-/* Sidebar Styling */
 .provider-sidebar {
   width: 260px;
   background-color: #FFFFFF;
@@ -113,7 +110,6 @@
   flex-shrink: 0;
 }
 
-/* Sidebar Footer / User Profile */
 .provider-sidebar-footer {
   padding: 16px;
   border-top: 1px solid var(--color-muted, #E7DBEF);
@@ -162,7 +158,6 @@
   color: var(--color-secondary, #A56ABD);
 }
 
-/* Availability Toggle Switch */
 .provider-status-toggle {
   display: flex;
   align-items: center;
@@ -262,7 +257,6 @@ input:checked + .toggle-slider:before {
   background-color: var(--color-light, #E7DBEF);
 }
 
-/* Main Content Area */
 .provider-main-wrapper {
   flex: 1;
   margin-left: 260px;
@@ -289,7 +283,6 @@ input:checked + .toggle-slider:before {
   flex: 1;
 }
 
-/* Overlay for Mobile Drawer */
 .provider-drawer-overlay {
   display: none;
   position: fixed;
@@ -301,7 +294,6 @@ input:checked + .toggle-slider:before {
   z-index: 99;
 }
 
-/* Mobile & Tablet Responsiveness */
 @media (max-width: 992px) {
   .provider-sidebar {
     transform: translateX(-100%);

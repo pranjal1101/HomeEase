@@ -9,7 +9,6 @@ const runAuthTest = async () => {
     await connectDB();
     console.log('Connected successfully!');
 
-    // Test Server Express handlers directly
     const server = app.listen(0, async () => {
       const port = server.address().port;
       const baseUrl = `http://localhost:${port}/api/auth`;
@@ -69,7 +68,6 @@ const runAuthTest = async () => {
       console.log('GetMe HTTP Status:', meRes.status);
       console.log('GetMe Response:', JSON.stringify(meData, null, 2));
 
-      // Cleanup test user
       console.log('\nCleaning up test user from MongoDB...');
       await User.deleteOne({ email: testEmail });
       console.log('Cleanup complete!');

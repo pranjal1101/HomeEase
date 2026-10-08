@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
 const Login = () => {
-  const [selectedRole, setSelectedRole] = useState('customer'); // 'customer' or 'provider'
+  const [selectedRole, setSelectedRole] = useState('customer');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -105,7 +105,6 @@ const Login = () => {
             <p>Access your HomeEase account</p>
           </div>
 
-          {/* Login Role Selection */}
           <div className="role-selector-container">
             <label className="role-selector-label">Login as</label>
             <div className="role-selector-toggle">

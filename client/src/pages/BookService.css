@@ -1,5 +1,3 @@
-/* Book Service Page Styles - HomeEase Palette */
-
 .booking-layout-wrapper {
   padding-top: 16px;
 }
@@ -15,7 +13,6 @@
   align-items: flex-start;
 }
 
-/* Sidebar Card */
 .booking-details-sidebar-card {
   background-color: #FFFFFF;
   border-radius: var(--radius-lg, 20px);
@@ -92,7 +89,6 @@
   font-size: 12px;
 }
 
-/* Scheduler Card */
 .booking-form-main-card {
   background-color: #FFFFFF;
   border-radius: var(--radius-lg, 20px);

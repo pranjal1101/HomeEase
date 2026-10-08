@@ -36,7 +36,6 @@ export const processSimulatedPayment = async (bookingId, customerId) => {
   const providerId = booking.serviceId?.providerId || null;
   const paidAt = new Date();
 
-  // Create or update payment record
   let payment = await Payment.findOne({ bookingId: booking._id });
   if (payment) {
     payment.status = 'Paid';
@@ -56,13 +55,11 @@ export const processSimulatedPayment = async (bookingId, customerId) => {
     await payment.save();
   }
 
-  // Update booking status
   booking.status = BOOKING_STATUS.COMPLETED;
   booking.paymentStatus = 'Paid';
   booking.paidAt = paidAt;
   await booking.save();
 
-  // Notify Provider
   if (providerId) {
     await createNotification({
       userId: providerId,
@@ -73,7 +70,6 @@ export const processSimulatedPayment = async (bookingId, customerId) => {
     });
   }
 
-  // Notify Customer
   await createNotification({
     userId: customerId,
     title: 'Payment Successful',

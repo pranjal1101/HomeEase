@@ -1,8 +1,3 @@
-/* 
-  HomeEase Landing Page Stylesheet
-  Strict Palette: #49225B | #6E3482 | #A56ABD | #E7DBEF | #E7DBEF
-*/
-
 .home-landing-page {
   display: flex;
   flex-direction: column;
@@ -12,9 +7,6 @@
   padding-bottom: 56px;
 }
 
-/* ----------------------------------------------------
-   1. HERO SECTION
----------------------------------------------------- */
 .hero-section-desktop {
   padding-top: 24px;
 }
@@ -26,7 +18,6 @@
   align-items: center;
 }
 
-/* Left Hero Content */
 .hero-left-content {
   display: flex;
   flex-direction: column;
@@ -50,7 +41,6 @@
   max-width: 480px;
 }
 
-/* AI Home Recommendation Box */
 .ai-recommendation-box {
   background-color: #FFFFFF;
   border: 1px solid var(--color-muted, #E7DBEF);
@@ -151,7 +141,6 @@
   border-color: var(--color-primary, #6E3482);
 }
 
-/* AI Recommendation Result Card */
 .ai-result-card {
   margin-top: 14px;
   padding: 14px;
@@ -204,9 +193,6 @@
   color: var(--color-primary, #6E3482);
 }
 
-/* ----------------------------------------------------
-   2. RIGHT HERO IMAGE & INTERACTIVE HOTSPOTS
----------------------------------------------------- */
 .hero-right-visual {
   position: relative;
   display: flex;
@@ -230,7 +216,6 @@
   object-fit: cover;
 }
 
-/* Floating Hotspot Cards - Non-colliding Spacing */
 .home-hotspot-card {
   position: absolute;
   z-index: 20;
@@ -284,7 +269,6 @@
   font-weight: 500;
 }
 
-/* Hotspot Room Anchor Dot */
 .hotspot-room-dot {
   position: absolute;
   z-index: 18;
@@ -296,7 +280,6 @@
   cursor: pointer;
 }
 
-/* Hotspot Context Panel Popup */
 .hotspot-context-panel {
   position: absolute;
   z-index: 30;
@@ -358,9 +341,6 @@
   color: #FFFFFF;
 }
 
-/* ----------------------------------------------------
-   3. POPULAR SERVICES SECTION
----------------------------------------------------- */
 .popular-section-block {
   padding-top: 12px;
 }
@@ -473,9 +453,6 @@
   margin-left: auto;
 }
 
-/* ----------------------------------------------------
-   4. TRUSTED PROVIDERS SECTION
----------------------------------------------------- */
 .providers-section-block {
   padding-top: 12px;
 }
@@ -568,7 +545,6 @@
   justify-content: flex-end;
 }
 
-/* Responsiveness */
 @media (max-width: 1024px) {
   .hero-grid-desktop {
     grid-template-columns: 1fr;

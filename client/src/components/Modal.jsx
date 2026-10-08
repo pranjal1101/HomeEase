@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, title, children, footerButtons }) => {
-  // Prevent background scrolling when open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';

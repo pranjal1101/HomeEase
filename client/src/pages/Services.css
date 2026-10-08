@@ -1,5 +1,3 @@
-/* Services Catalog Page Styles - HomeEase Palette */
-
 .services-catalog-header {
   margin-bottom: 32px;
 }
@@ -108,7 +106,6 @@
   cursor: pointer;
 }
 
-/* Category Filter Chips */
 .marketplace-chips-row {
   display: flex;
   gap: 8px;
